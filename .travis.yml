@@ -1,14 +1,15 @@
 language: ruby
 rvm:
 - 2.3.1
-install: (cd src/; bundle install --without development --deployment)
-before_script:
+before_install:
 - cd src/
+bundler_args: "--without development --deployment"
+cache: bundler
+before_script:
 - bundle exec rake db:create
 - bundle exec rake db:migrate
 - gem install brakeman
 script:
-- cd src/
 - bundle exec rake test
 - brakeman
 - bundle exec bundle-audit check --update
