@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.3.0
+bundler_args: "--without development --deployment"
+cache: bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- gem install brakeman
+script:
+- bundle exec rake test
+- brakeman
+- bundle exec bundle-audit check --update
+notifications:
+  email:
+    on_success: never
+    on_failure: always
