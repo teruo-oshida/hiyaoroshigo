@@ -1,8 +1,7 @@
 language: ruby
 rvm:
 - 2.3.1
-bundler_args: "--without development --deployment"
-cache: bundler
+install: (cd src/; bundle install --without development --deployment)
 before_script:
 - cd src/
 - bundle exec rake db:create
