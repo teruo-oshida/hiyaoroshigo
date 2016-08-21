@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821053250) do
+ActiveRecord::Schema.define(version: 20160821055058) do
+
+  create_table "breweries", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "drinkers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,12 +40,68 @@ ActiveRecord::Schema.define(version: 20160821053250) do
     t.index ["reset_password_token"], name: "index_drinkers_on_reset_password_token", unique: true
   end
 
+  create_table "drinkings", force: :cascade do |t|
+    t.integer  "festival_id"
+    t.integer  "drinker_id"
+    t.integer  "restaurant_id"
+    t.integer  "sake_id"
+    t.integer  "sake_temperature_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["drinker_id"], name: "index_drinkings_on_drinker_id"
+    t.index ["festival_id"], name: "index_drinkings_on_festival_id"
+    t.index ["restaurant_id"], name: "index_drinkings_on_restaurant_id"
+    t.index ["sake_id"], name: "index_drinkings_on_sake_id"
+    t.index ["sake_temperature_id"], name: "index_drinkings_on_sake_temperature_id"
+  end
+
+  create_table "festivals", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name",                                null: false
     t.decimal  "latitude",   precision: 10, scale: 7
     t.decimal  "longitude",  precision: 10, scale: 7
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+  end
+
+  create_table "sake_menu_items", force: :cascade do |t|
+    t.integer  "festival_id"
+    t.integer  "restaurant_id"
+    t.integer  "sake_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["festival_id"], name: "index_sake_menu_items_on_festival_id"
+    t.index ["restaurant_id"], name: "index_sake_menu_items_on_restaurant_id"
+    t.index ["sake_id"], name: "index_sake_menu_items_on_sake_id"
+  end
+
+  create_table "sake_temperatures", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sakes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "brewery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brewery_id"], name: "index_sakes_on_brewery_id"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "drinking_id"
+    t.integer  "score",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["drinking_id"], name: "index_votes_on_drinking_id"
   end
 
 end

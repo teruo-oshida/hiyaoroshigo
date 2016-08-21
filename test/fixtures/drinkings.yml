@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  festival: one
+  drinker: one
+  restaurant: one
+  sake: one
+  sake_temperature: one
+
+two:
+  festival: two
+  drinker: two
+  restaurant: two
+  sake: two
+  sake_temperature: two

@@ -1,0 +1,2 @@
+class SakeTemperature < ApplicationRecord
+end
