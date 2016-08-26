@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Restaurant:
+  fields:
+    default: name, latitude, longitude
+    form: name, latitude, longitude
+  relationships: 
+  application: Application

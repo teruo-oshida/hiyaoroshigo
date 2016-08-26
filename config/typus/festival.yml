@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Festival:
+  fields:
+    default: name, start_at, end_at
+    form: name, start_at, end_at
+  relationships: 
+  application: Application
