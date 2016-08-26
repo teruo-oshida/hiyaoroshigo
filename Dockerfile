@@ -6,6 +6,7 @@ WORKDIR $APP_ROOT
 
 RUN yum install -y gcc openssl-devel readline-devel zlib-devel sqlite-devel
 RUN yum install -y git
+RUN yum install -y ImageMagick ImageMagick-devel
 
 RUN curl -sL https://rpm.nodesource.com/setup_4.x | bash -
 RUN yum install -y nodejs
