@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/typus/typus.git
+  revision: 4f63afb5a4e5e544dd546c78f1224b1122916773
+  branch: 5-0-unstable
+  specs:
+    typus (5.0.0)
+      bcrypt (~> 3.1.11)
+      rails (~> 5.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -222,6 +231,7 @@ DEPENDENCIES
   sqlite3
   thinreports
   turbolinks (~> 5)
+  typus!
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
