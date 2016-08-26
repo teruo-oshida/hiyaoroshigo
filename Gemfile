@@ -35,7 +35,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'thinreports'
-gem 'typus', github: "typus/typus", branch: "5-0-unstable"
+gem 'typus', git: "https://github.com/typus/typus", branch: "5-0-unstable"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

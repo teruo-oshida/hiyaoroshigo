@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/typus/typus.git
+  remote: https://github.com/typus/typus
   revision: 4f63afb5a4e5e544dd546c78f1224b1122916773
   branch: 5-0-unstable
   specs:
