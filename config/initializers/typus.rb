@@ -31,4 +31,11 @@ Typus.setup do |config|
   # Define subdomain to use instead of additional path.
   # config.subdomain = "admin"
 
+  def config.available_locales
+    {
+      'Japanese' => 'ja',
+      'English' => 'en'
+    }
+  end
+  config.default_locale = :ja
 end
