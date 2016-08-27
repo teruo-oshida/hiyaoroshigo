@@ -35,6 +35,9 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'thinreports'
+gem 'barby'
+gem 'rqrcode'
+gem 'chunky_png'
 gem 'typus', git: "https://github.com/typus/typus", branch: "5-0-unstable"
 
 group :development, :test do
