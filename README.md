@@ -28,6 +28,10 @@ TODO: 初期マスタ登録（db:seed?）・Facebook連携の設定
 
 ## 開発用Docker環境
 
+CentOS 6.8の環境がない場合に使用してください。
+
+前提条件: Dockerが使えるLinuxマシンがあること。
+
 ### イメージの取得 or ビルド
 
     $ docker pull shugo/hiyaoroshigo
