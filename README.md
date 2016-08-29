@@ -1,6 +1,30 @@
 # ひやおろしGO
 
+[松江トランキーロ2016](https://www.facebook.com/events/1571262126511755/)のためのWebアプリケーションです。
+
 [![Build Status](https://travis-ci.org/matsueoss/hiyaoroshigo.svg?branch=master)](https://travis-ci.org/matsueoss/hiyaoroshigo)
+
+## 開発環境のセットアップ
+
+前提条件: [CentOS 6.8の環境設定](https://github.com/matsueoss/hiyaoroshigo/wiki/Minimal-steps-to-install-our-Rails)が終わっていること。
+
+1. 依存するgemをインストールします。
+
+       $ bundle install
+
+2. データベースをセットアップします。
+
+       $ rake db:migrate
+
+3. Railsサーバを起動します。
+
+       $ rails server
+
+4. http://localhost:3000/admin/ にブラウザでアクセスします。
+
+5. 管理ユーザを登録します。
+
+TODO: 初期マスタ登録（db:seed?）・Facebook連携の設定
 
 ## 開発用Docker環境
 
