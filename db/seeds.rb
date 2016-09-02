@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Festival.transaction do
-  mtq2016 = Festival.create!(name: "松江トランキーロ2016",
-                             start_at: Time.mktime(2016, 9, 18, 12, 0, 0),
-                             end_at: Time.mktime(2016, 9, 18, 18, 0, 0))
+  mtq2016 = Festival.find_or_create_by(name: "松江トランキーロ2016") { |m|
+    m.start_at = Time.mktime(2016, 9, 18, 12, 0, 0)
+    m.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
+  }
   for name in ["そば遊山", "谷屋", "誘酒庵", "中国酒家 老虎", "東風"]
-    restaurant = Restaurant.create!(name: name)
+    restaurant = Restaurant.find_or_create_by(name: name)
     mtq2016.restaurants << restaurant
   end
-  mtq2016.save!
 end
