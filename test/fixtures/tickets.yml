@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drinker: one
+  festival: one
+  restaurant: one
+  passcode: MyString
+
+two:
+  drinker: two
+  festival: two
+  restaurant: two
+  passcode: MyString
