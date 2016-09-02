@@ -8,6 +8,10 @@ namespace :tickets do
 
   task generate: :environment do
     Ticket.transaction do
+      if Ticket.count > 0
+        STDERR.puts("Do nothing because tickets have already been generated")
+        next
+      end
       mtq2016 = Festival.where(name: "松江トランキーロ2016").first
       mtq2016.restaurants.order("id").each do |restaurant|
         36.times do
@@ -18,6 +22,7 @@ namespace :tickets do
       12.times do
         Ticket.create!(festival: mtq2016)
       end
+      puts("Generated #{Ticket.count} tickets")
     end
   end
 
