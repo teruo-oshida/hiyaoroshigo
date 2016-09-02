@@ -18,6 +18,7 @@
 
    ```
    $ rake db:migrate
+   $ rake db:seed
    ```
 
 3. Railsサーバを起動します。
@@ -30,7 +31,7 @@
 
 5. 管理ユーザを登録します。
 
-TODO: 初期マスタ登録（db:seed?）・Facebook連携の設定
+TODO: Facebook連携の設定
 
 ## 開発用Docker環境
 
@@ -60,6 +61,28 @@ $ docker run --rm=true -v "$PWD":/usr/local/hiyaoroshigo -p 127.0.0.1:3000:3000 
 
 ```
 $ docker run --rm=true -v "$PWD":/usr/local/hiyaoroshigo shugo/hiyaoroshigo rake
+```
+
+## チケットの発行
+
+以下のコマンドでtickets.pdfが生成されます。
+
+```
+$ rake tickets:generate
+$ rake tickets:report
+```
+
+以下のコマンドでチケットデータが削除されます。
+
+```
+$ rake tickets:clean
+```
+
+以下のコマンドでdb/tickets.csvのダンプ・ロードができます。
+
+```
+$ rake tickets:csv:dump
+$ rake tickets:csv:load
 ```
 
 ## ライセンス

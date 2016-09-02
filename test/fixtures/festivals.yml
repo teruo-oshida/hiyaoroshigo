@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  start_at: 2016-08-21 14:46:27
-  end_at: 2016-08-21 14:46:27
-
-two:
-  name: MyString
-  start_at: 2016-08-21 14:46:27
-  end_at: 2016-08-21 14:46:27
+mtq2016:
+  name: 松江トランキーロ2016
+  start_at: 2016-09-18 12:00:00
+  end_at: 2016-09-18 18:00:00
