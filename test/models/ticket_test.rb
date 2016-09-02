@@ -4,6 +4,8 @@ class TicketTest < ActiveSupport::TestCase
   test "default passcode is valid" do
     ticket = Ticket.new
     assert_match(/\A[0-9a-f]{6}\z/, ticket.passcode)
+    ticket2 = Ticket.new
+    assert_not_equal(ticket, ticket2)
   end
 
   test "signup_url returns correct urls" do
