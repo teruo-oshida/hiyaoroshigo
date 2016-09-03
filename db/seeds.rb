@@ -11,7 +11,7 @@ Festival.transaction do
     m.start_at = Time.mktime(2016, 9, 18, 12, 0, 0)
     m.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
   }
-  restaurants = ["そば遊山", "谷屋", "誘酒庵", "中国酒家 老虎", "東風"].map { |name|
+  restaurants = ["そば遊山", "谷屋", "誘酒庵", "老虎", "東風"].map { |name|
     Restaurant.find_or_create_by(name: name)
   }
   restaurants.each do |restaurant|

@@ -20,7 +20,7 @@
         "items": []
       },
       "detail": {
-        "height": 130,
+        "height": 91,
         "translate": {
           "x": 0,
           "y": -43.8
@@ -31,34 +31,8 @@
             "type": "text",
             "display": true,
             "description": "",
-            "x": 135,
-            "y": 98.8,
-            "width": 145.6,
-            "height": 14,
-            "style": {
-              "font-family": [
-                "Helvetica"
-              ],
-              "font-size": 12,
-              "color": "#000000",
-              "text-align": "left",
-              "vertical-align": "top",
-              "line-height": "",
-              "line-height-ratio": "",
-              "letter-spacing": "",
-              "font-style": []
-            },
-            "texts": [
-              "http://bit.ly/matsuetq2016"
-            ]
-          },
-          {
-            "id": "",
-            "type": "text",
-            "display": true,
-            "description": "",
-            "x": 135,
-            "y": 148.8,
+            "x": 85,
+            "y": 123.8,
             "width": 50,
             "height": 14,
             "style": {
@@ -83,8 +57,8 @@
             "type": "text",
             "display": true,
             "description": "",
-            "x": 135,
-            "y": 123.8,
+            "x": 85,
+            "y": 103.8,
             "width": 50,
             "height": 14.2,
             "style": {
@@ -105,13 +79,13 @@
             ]
           },
           {
-            "id": "restaurant1",
+            "id": "restaurant",
             "type": "text-block",
             "display": true,
             "description": "",
-            "x": 190,
-            "y": 146.8,
-            "width": 100,
+            "x": 135,
+            "y": 121.8,
+            "width": 60,
             "height": 13.3,
             "style": {
               "font-family": [
@@ -137,12 +111,12 @@
             }
           },
           {
-            "id": "passcode1",
+            "id": "passcode",
             "type": "text-block",
             "display": true,
             "description": "",
-            "x": 190,
-            "y": 123.8,
+            "x": 135,
+            "y": 103.8,
             "width": 60,
             "height": 16,
             "style": {
@@ -169,52 +143,58 @@
             }
           },
           {
-            "id": "qrcode1",
+            "id": "qrcode",
             "type": "image-block",
             "display": true,
             "description": "",
-            "x": 45,
-            "y": 93.8,
-            "width": 70,
-            "height": 70,
+            "x": 20,
+            "y": 76.8,
+            "width": 60,
+            "height": 60,
             "style": {
               "position-x": "left",
               "position-y": "top"
             }
           },
           {
-            "id": "",
-            "type": "text",
+            "id": "url",
+            "type": "text-block",
             "display": true,
             "description": "",
-            "x": 415,
-            "y": 98.8,
-            "width": 145.6,
-            "height": 14,
+            "x": 85,
+            "y": 78.8,
+            "width": 110,
+            "height": 16,
             "style": {
               "font-family": [
                 "Helvetica"
               ],
-              "font-size": 12,
+              "font-size": 14,
               "color": "#000000",
               "text-align": "left",
               "vertical-align": "top",
               "line-height": "",
               "line-height-ratio": "",
               "letter-spacing": "",
-              "font-style": []
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
             },
-            "texts": [
-              "http://bit.ly/matsuetq2016"
-            ]
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
+            }
           },
           {
             "id": "",
             "type": "text",
             "display": true,
             "description": "",
-            "x": 414,
-            "y": 148.8,
+            "x": 275,
+            "y": 123.8,
             "width": 50,
             "height": 14,
             "style": {
@@ -239,8 +219,8 @@
             "type": "text",
             "display": true,
             "description": "",
-            "x": 415,
-            "y": 123.8,
+            "x": 275,
+            "y": 103.8,
             "width": 50,
             "height": 14.2,
             "style": {
@@ -261,81 +241,275 @@
             ]
           },
           {
-            "id": "restaurant2",
+            "id": "restaurant#1",
             "type": "text-block",
-            "display": true,
-            "description": "",
-            "x": 470,
-            "y": 146.8,
-            "width": 100,
-            "height": 13.3,
-            "style": {
-              "font-family": [
-                "IPAPGothic"
-              ],
-              "font-size": 12,
-              "color": "#000000",
-              "text-align": "left",
-              "vertical-align": "top",
-              "line-height": "",
-              "line-height-ratio": "",
-              "letter-spacing": "",
-              "font-style": [],
-              "overflow": "truncate",
-              "word-wrap": "none"
-            },
-            "reference-id": "",
-            "value": "",
-            "multiple-line": false,
-            "format": {
-              "base": "",
-              "type": ""
-            }
-          },
-          {
-            "id": "passcode2",
-            "type": "text-block",
-            "display": true,
-            "description": "",
-            "x": 470,
-            "y": 123.8,
-            "width": 60,
-            "height": 16,
-            "style": {
-              "font-family": [
-                "Courier New"
-              ],
-              "font-size": 14,
-              "color": "#000000",
-              "text-align": "left",
-              "vertical-align": "top",
-              "line-height": "",
-              "line-height-ratio": "",
-              "letter-spacing": "",
-              "font-style": [],
-              "overflow": "truncate",
-              "word-wrap": "none"
-            },
-            "reference-id": "",
-            "value": "",
-            "multiple-line": false,
-            "format": {
-              "base": "",
-              "type": ""
-            }
-          },
-          {
-            "id": "qrcode2",
-            "type": "image-block",
             "display": true,
             "description": "",
             "x": 325,
-            "y": 93.8,
-            "width": 70,
-            "height": 70,
+            "y": 121.8,
+            "width": 60,
+            "height": 13.3,
+            "style": {
+              "font-family": [
+                "IPAPGothic"
+              ],
+              "font-size": 12,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
+            },
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
+            }
+          },
+          {
+            "id": "passcode#1",
+            "type": "text-block",
+            "display": true,
+            "description": "",
+            "x": 325,
+            "y": 103.8,
+            "width": 60,
+            "height": 16,
+            "style": {
+              "font-family": [
+                "Courier New"
+              ],
+              "font-size": 14,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
+            },
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
+            }
+          },
+          {
+            "id": "qrcode#1",
+            "type": "image-block",
+            "display": true,
+            "description": "",
+            "x": 210,
+            "y": 76.8,
+            "width": 60,
+            "height": 60,
             "style": {
               "position-x": "left",
               "position-y": "top"
+            }
+          },
+          {
+            "id": "url#1",
+            "type": "text-block",
+            "display": true,
+            "description": "",
+            "x": 275,
+            "y": 78.8,
+            "width": 110,
+            "height": 16,
+            "style": {
+              "font-family": [
+                "Helvetica"
+              ],
+              "font-size": 14,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
+            },
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
+            }
+          },
+          {
+            "id": "",
+            "type": "text",
+            "display": true,
+            "description": "",
+            "x": 465.2,
+            "y": 123.8,
+            "width": 50,
+            "height": 14,
+            "style": {
+              "font-family": [
+                "Helvetica"
+              ],
+              "font-size": 12,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": []
+            },
+            "texts": [
+              "START"
+            ]
+          },
+          {
+            "id": "",
+            "type": "text",
+            "display": true,
+            "description": "",
+            "x": 465.2,
+            "y": 103.8,
+            "width": 50,
+            "height": 14.2,
+            "style": {
+              "font-family": [
+                "Helvetica"
+              ],
+              "font-size": 12,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": []
+            },
+            "texts": [
+              "PASS"
+            ]
+          },
+          {
+            "id": "restaurant#2",
+            "type": "text-block",
+            "display": true,
+            "description": "",
+            "x": 515.2,
+            "y": 121.8,
+            "width": 60,
+            "height": 13.3,
+            "style": {
+              "font-family": [
+                "IPAPGothic"
+              ],
+              "font-size": 12,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
+            },
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
+            }
+          },
+          {
+            "id": "passcode#2",
+            "type": "text-block",
+            "display": true,
+            "description": "",
+            "x": 515.2,
+            "y": 103.8,
+            "width": 60,
+            "height": 16,
+            "style": {
+              "font-family": [
+                "Courier New"
+              ],
+              "font-size": 14,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
+            },
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
+            }
+          },
+          {
+            "id": "qrcode#2",
+            "type": "image-block",
+            "display": true,
+            "description": "",
+            "x": 400.2,
+            "y": 76.8,
+            "width": 60,
+            "height": 60,
+            "style": {
+              "position-x": "left",
+              "position-y": "top"
+            }
+          },
+          {
+            "id": "url#2",
+            "type": "text-block",
+            "display": true,
+            "description": "",
+            "x": 465.2,
+            "y": 78.8,
+            "width": 110,
+            "height": 16,
+            "style": {
+              "font-family": [
+                "Helvetica"
+              ],
+              "font-size": 14,
+              "color": "#000000",
+              "text-align": "left",
+              "vertical-align": "top",
+              "line-height": "",
+              "line-height-ratio": "",
+              "letter-spacing": "",
+              "font-style": [],
+              "overflow": "truncate",
+              "word-wrap": "none"
+            },
+            "reference-id": "",
+            "value": "",
+            "multiple-line": false,
+            "format": {
+              "base": "",
+              "type": ""
             }
           }
         ]
@@ -345,7 +519,7 @@
         "height": 0,
         "translate": {
           "x": 0,
-          "y": 57.4
+          "y": 18.4
         },
         "items": []
       },
@@ -354,7 +528,7 @@
         "height": 0,
         "translate": {
           "x": 0,
-          "y": 35.8
+          "y": -3.2
         },
         "items": []
       },

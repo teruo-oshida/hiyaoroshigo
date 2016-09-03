@@ -35,14 +35,15 @@ namespace :tickets do
 
       # QR Code
       page.list(:tickets) do |list|
-        Ticket.includes(:restaurant).order("id").each_slice(2) do |tickets|
+        Ticket.includes(:restaurant).order("id").each_slice(3) do |tickets|
           list.add_row do |row|
             tickets.each_with_index do |ticket, i|
-              n = i + 1
-              row.values("restaurant#{n}": ticket.restaurant&.name,
+              n = i.zero? ? "" : "##{i}"
+              row.values("url#{n}": "http://bit.ly/mtq16",
+                         "restaurant#{n}": ticket.restaurant&.name,
                          "passcode#{n}": ticket.passcode)
               code = Barby::QrCode.new(ticket.signup_url)
-              sio = StringIO.new(code.to_png(ydim: 5, xdim: 5))
+              sio = StringIO.new(code.to_png(xdim: 5, ydim: 5))
               row.item("qrcode#{n}").src(sio)
             end
           end
