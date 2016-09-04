@@ -20,7 +20,7 @@
         "items": []
       },
       "detail": {
-        "height": 91,
+        "height": 88,
         "translate": {
           "x": 0,
           "y": -43.8
@@ -519,7 +519,7 @@
         "height": 0,
         "translate": {
           "x": 0,
-          "y": 18.4
+          "y": 15.4
         },
         "items": []
       },
@@ -528,7 +528,7 @@
         "height": 0,
         "translate": {
           "x": 0,
-          "y": -3.2
+          "y": -6.2
         },
         "items": []
       },

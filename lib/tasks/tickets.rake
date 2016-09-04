@@ -12,15 +12,20 @@ namespace :tickets do
         STDERR.puts("Do nothing because tickets have already been generated")
         next
       end
-      mtq2016 = Festival.where(name: "松江トランキーロ2016").first
-      mtq2016.restaurants.order("id").each do |restaurant|
-        36.times do
+      mtq2016 = Festival.find_by(name: "松江トランキーロ2016")
+      for name, n in [
+        ["そば遊山", 30],
+        ["谷屋", 32],
+        ["誘酒庵", 38],
+        ["老虎", 30],
+        ["東風", 20],
+        [nil, 50]
+      ]
+        restaurant = name ? Restaurant.find_by(name: name) : nil
+        n.times do
           Ticket.create!(festival: mtq2016, 
                          restaurant: restaurant)
         end
-      end
-      12.times do
-        Ticket.create!(festival: mtq2016)
       end
       puts("Generated #{Ticket.count} tickets")
     end
