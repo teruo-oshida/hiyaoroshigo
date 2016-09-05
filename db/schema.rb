@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905102603) do
+ActiveRecord::Schema.define(version: 20160905114023) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      default: "",    null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160905102603) do
     t.integer  "sake_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["festival_id", "restaurant_id", "sake_id"], name: "unique_index_sake_menu_items", unique: true
     t.index ["festival_id"], name: "index_sake_menu_items_on_festival_id"
     t.index ["restaurant_id"], name: "index_sake_menu_items_on_restaurant_id"
     t.index ["sake_id"], name: "index_sake_menu_items_on_sake_id"

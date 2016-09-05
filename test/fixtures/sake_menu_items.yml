@@ -1,2 +1,90 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+---
+sake_menu_item1:
+  id: 1
+  festival_id: 1
+  restaurant_id: 5
+  sake_id: 1
+---
+sake_menu_item2:
+  id: 2
+  festival_id: 1
+  restaurant_id: 5
+  sake_id: 2
+---
+sake_menu_item3:
+  id: 3
+  festival_id: 1
+  restaurant_id: 5
+  sake_id: 3
+---
+sake_menu_item4:
+  id: 4
+  festival_id: 1
+  restaurant_id: 1
+  sake_id: 4
+---
+sake_menu_item5:
+  id: 5
+  festival_id: 1
+  restaurant_id: 1
+  sake_id: 5
+---
+sake_menu_item6:
+  id: 6
+  festival_id: 1
+  restaurant_id: 1
+  sake_id: 6
+---
+sake_menu_item7:
+  id: 7
+  festival_id: 1
+  restaurant_id: 4
+  sake_id: 7
+---
+sake_menu_item8:
+  id: 8
+  festival_id: 1
+  restaurant_id: 4
+  sake_id: 8
+---
+sake_menu_item9:
+  id: 9
+  festival_id: 1
+  restaurant_id: 4
+  sake_id: 9
+---
+sake_menu_item10:
+  id: 10
+  festival_id: 1
+  restaurant_id: 3
+  sake_id: 10
+---
+sake_menu_item11:
+  id: 11
+  festival_id: 1
+  restaurant_id: 3
+  sake_id: 11
+---
+sake_menu_item12:
+  id: 12
+  festival_id: 1
+  restaurant_id: 3
+  sake_id: 12
+---
+sake_menu_item13:
+  id: 13
+  festival_id: 1
+  restaurant_id: 2
+  sake_id: 13
+---
+sake_menu_item14:
+  id: 14
+  festival_id: 1
+  restaurant_id: 2
+  sake_id: 14
+---
+sake_menu_item15:
+  id: 15
+  festival_id: 1
+  restaurant_id: 2
+  sake_id: 15

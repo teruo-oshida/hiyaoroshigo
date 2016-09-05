@@ -4,7 +4,15 @@
 # that models are ActiveRecord::Base models before trying to fetch
 # them from database.
 
-TARGET_MODELS = %w(Festival Restaurant RestaurantParticipation)
+TARGET_MODELS = %w(
+  SakeTemperature
+  Festival
+  Restaurant
+  RestaurantParticipation
+  Brewery
+  Sake
+  SakeMenuItem
+)
 
 namespace :db do
   namespace :fixtures do
