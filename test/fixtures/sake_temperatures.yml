@@ -17,12 +17,12 @@ sake_temperature4:
   id: 4
   name: ぬる燗
   position: 
-  enabled: true
+  enabled: false
 sake_temperature5:
   id: 5
   name: お燗
   position: 3
-  enabled: false
+  enabled: true
 sake_temperature6:
   id: 6
   name: とびきり燗
