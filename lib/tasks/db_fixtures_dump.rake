@@ -34,7 +34,7 @@ namespace :db do
             attrs = r.attributes.each_with_object({}) { |(k, v), h|
               if /\A(created_at|updated_at)\z/ !~ k
                 h[k] = case v
-                when ActiveSupport::TimeWithZone
+                when ActiveSupport::TimeWithZone, BigDecimal
                   v.to_s
                 else
                   v

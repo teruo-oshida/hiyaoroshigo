@@ -1,25 +1,25 @@
 restaurant1:
   id: 1
   name: そば遊山
-  latitude: 
-  longitude: 
+  latitude: '35.4691079'
+  longitude: '133.0520847'
 restaurant2:
   id: 2
   name: 谷屋
-  latitude: 
-  longitude: 
+  latitude: '35.4659394'
+  longitude: '133.056769'
 restaurant3:
   id: 3
   name: 誘酒庵
-  latitude: 
-  longitude: 
+  latitude: '35.4637313'
+  longitude: '133.0586467'
 restaurant4:
   id: 4
   name: 老虎
-  latitude: 
-  longitude: 
+  latitude: '35.4658421'
+  longitude: '133.0593685'
 restaurant5:
   id: 5
   name: 東風
-  latitude: 
-  longitude: 
+  latitude: '35.4587895'
+  longitude: '133.0586756'
