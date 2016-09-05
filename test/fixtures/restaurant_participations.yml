@@ -1,24 +1,19 @@
----
 restaurant_participation1:
   id: 1
   festival_id: 1
   restaurant_id: 1
----
 restaurant_participation2:
   id: 2
   festival_id: 1
   restaurant_id: 2
----
 restaurant_participation3:
   id: 3
   festival_id: 1
   restaurant_id: 3
----
 restaurant_participation4:
   id: 4
   festival_id: 1
   restaurant_id: 4
----
 restaurant_participation5:
   id: 5
   festival_id: 1

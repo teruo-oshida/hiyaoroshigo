@@ -1,74 +1,59 @@
----
 sake1:
   id: 1
   name: 月山 純米吟醸生詰 ひやおろし
   brewery_id: 1
----
 sake2:
   id: 2
   name: 出雲富士ひやおろし
   brewery_id: 2
----
 sake3:
   id: 3
   name: 美波太平洋ひやおろし
   brewery_id: 3
----
 sake4:
   id: 4
   name: 池月ひやおろし
   brewery_id: 4
----
 sake5:
   id: 5
   name: 石見銀山ひやおろし
   brewery_id: 5
----
 sake6:
   id: 6
   name: 稲田姫ひやおろし
   brewery_id: 6
----
 sake7:
   id: 7
   name: 十旭日ひやおろし
   brewery_id: 7
----
 sake8:
   id: 8
   name: 千代むすび 純米強力60 氷温ひやおろし
   brewery_id: 8
----
 sake9:
   id: 9
   name: 豊の秋 純米生詰原酒 ひやおろし
   brewery_id: 9
----
 sake10:
   id: 10
   name: 山陰東郷ひやおろし
   brewery_id: 10
----
 sake11:
   id: 11
   name: 李白 特別純米生詰 ひやおろし
   brewery_id: 11
----
 sake12:
   id: 12
   name: 菊弥栄ひやおろし
   brewery_id: 12
----
 sake13:
   id: 13
   name: 久米櫻ひやおろし
   brewery_id: 13
----
 sake14:
   id: 14
   name: ヤマサン正宗 純米原酒七号 ひやおろし
   brewery_id: 14
----
 sake15:
   id: 15
   name: 華泉ひやおろし

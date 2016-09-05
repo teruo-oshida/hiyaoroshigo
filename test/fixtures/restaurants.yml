@@ -1,20 +1,25 @@
----
 restaurant1:
   id: 1
   name: そば遊山
----
+  latitude: 
+  longitude: 
 restaurant2:
   id: 2
   name: 谷屋
----
+  latitude: 
+  longitude: 
 restaurant3:
   id: 3
   name: 誘酒庵
----
+  latitude: 
+  longitude: 
 restaurant4:
   id: 4
   name: 老虎
----
+  latitude: 
+  longitude: 
 restaurant5:
   id: 5
   name: 東風
+  latitude: 
+  longitude: 

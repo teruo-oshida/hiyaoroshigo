@@ -32,7 +32,7 @@ namespace :db do
         File.open(fixture_file, 'w') do |f|
           model.order('id ASC').each_with_index do |r, i|
             attrs = r.attributes.each_with_object({}) { |(k, v), h|
-              if /\A(created_at|updated_at)\z/ !~ k && v.present?
+              if /\A(created_at|updated_at)\z/ !~ k
                 h[k] = case v
                 when ActiveSupport::TimeWithZone
                   v.to_s
@@ -43,7 +43,7 @@ namespace :db do
             }
             f.puts({
               "#{m.underscore}#{i + 1}" => attrs
-            }.to_yaml.gsub(/\A--- \n/, ''))
+            }.to_yaml.sub(/\A---\n/, ''))
           end
         end
       end
