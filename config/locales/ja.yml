@@ -22,14 +22,18 @@
 ja:
   activerecord:
     models:
-      brewery: 蔵元
+      admin_user: 管理ユーザ
       drinker: 酒飲み
       festival: フェスティバル
+      brewery: 蔵元
+      sake: 酒
+      sake_temperature: 酒温度
       restaurant: 飲食店
       restaurant_participation: 飲食店参加
-      sake: 酒
       sake_menu_item: 酒メニュー項目
-      sake_temperature: 酒温度
+      checkin: チェックイン
+      drinking: 飲酒
+      vote: 投票
     attributes:
       brewery:
         name: 名前
