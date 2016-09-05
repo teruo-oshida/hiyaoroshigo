@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class SakeTemperatureTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "enabled returns only enabled records" do
+    SakeTemperature.enabled.each do |st|
+      assert_equal(true, st.enabled)
+    end
+  end
 end
