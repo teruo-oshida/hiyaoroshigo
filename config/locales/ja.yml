@@ -19,5 +19,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "こんにとは、みなさん"
+ja:
+  activerecord:
+    models:
+      brewery: 蔵元
+      drinker: 酒飲み
+      festival: フェスティバル
+      restaurant: 飲食店
+      restaurant_participation: 飲食店参加
+      sake: 酒
+      sake_menu_item: 酒メニュー項目
+      sake_temperature: 酒温度
+    attributes:
+      brewery:
+        name: 名前
+      drinker:
+        name: トランキーロ名
+        full_name: 氏名
