@@ -1,2 +1,20 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+---
+restaurant1:
+  id: 1
+  name: そば遊山
+---
+restaurant2:
+  id: 2
+  name: 谷屋
+---
+restaurant3:
+  id: 3
+  name: 誘酒庵
+---
+restaurant4:
+  id: 4
+  name: 老虎
+---
+restaurant5:
+  id: 5
+  name: 東風

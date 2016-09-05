@@ -1,6 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-mtq2016:
+---
+festival1:
+  id: 1
   name: 松江トランキーロ2016
-  start_at: 2016-09-18 12:00:00
-  end_at: 2016-09-18 18:00:00
+  start_at: '2016-09-18 12:00:00 +0900'
+  end_at: '2016-09-18 18:00:00 +0900'
