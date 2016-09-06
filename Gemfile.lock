@@ -52,6 +52,9 @@ GEM
     bcrypt (3.1.11)
     brakeman (3.3.3)
     builder (3.2.2)
+    bullet (5.3.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     bundler-audit (0.5.0)
       bundler (~> 1.2)
       thor (~> 0.18)
@@ -210,6 +213,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.10.0)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (3.3.1)
@@ -227,6 +231,7 @@ PLATFORMS
 DEPENDENCIES
   barby
   brakeman
+  bullet
   bundler-audit
   byebug
   chunky_png
