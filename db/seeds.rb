@@ -17,13 +17,13 @@ Sake.transaction do
     [5, "お燗", 3, true],
     [6, "とびきり燗", nil, false]
   ].each do |id, name, position, enabled|
-    st = SakeTemperature.find_or_create_by(id: id) { |s| s.name = name }
+    st = SakeTemperature.find_or_create_by!(id: id) { |s| s.name = name }
     st.name = name
     st.position = position
     st.enabled = enabled
     st.save!
   end
-  mtq2016 = Festival.find_or_create_by(name: "松江トランキーロ2016")
+  mtq2016 = Festival.find_or_create_by!(name: "松江トランキーロ2016")
   mtq2016.start_at = Time.mktime(2016, 9, 18, 12, 0, 0)
   mtq2016.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
   mtq2016.save!
@@ -34,14 +34,14 @@ Sake.transaction do
     ["老虎", "35.4658421", "133.0593685"],
     ["東風", "35.4587895", "133.0586756"]
   ].map { |name, latitude, longitude|
-    r = Restaurant.find_or_create_by(name: name)
+    r = Restaurant.find_or_create_by!(name: name)
     r.latitude = latitude
     r.longitude = longitude
     r.save!
     r
   }
   restaurants.each do |restaurant|
-    RestaurantParticipation.find_or_create_by(festival: mtq2016,
+    RestaurantParticipation.find_or_create_by!(festival: mtq2016,
                                               restaurant: restaurant)
   end
   restaurant_tbl = restaurants.each_with_object({}) { |r, h|
@@ -65,8 +65,8 @@ Sake.transaction do
     谷屋,華泉酒造,"華泉 津和野純米原酒秋ざかり"
   EOF
     r = restaurant_tbl[r_name]
-    b = Brewery.find_or_create_by(name: b_name)
-    s = Sake.find_or_create_by(name: s_name, brewery: b)
-    SakeMenuItem.find_or_create_by(festival: mtq2016, restaurant: r, sake: s)
+    b = Brewery.find_or_create_by!(name: b_name)
+    s = Sake.find_or_create_by!(name: s_name, brewery: b)
+    SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
   end
 end
