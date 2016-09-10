@@ -1,5 +1,5 @@
 class CheckinsController < ApplicationController
-   before_action :authenricate_drinker!
+   before_action :authenticate_drinker!
 
   def new
     @checkin = Checkin.new
