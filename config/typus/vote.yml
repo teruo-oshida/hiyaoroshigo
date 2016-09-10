@@ -1,8 +1,8 @@
 # Use the README file as a reference to customize settings.
 
-Sake:
+Vote:
   fields:
-    default: name, brewery_id, photo
-    form: name, brewery_id, photo
+    default: drinking_id, score
+    form: drinking_id, score
   relationships: 
   application: Application
