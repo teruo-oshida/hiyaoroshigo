@@ -1,6 +1,8 @@
 class Drinker < ApplicationRecord
   has_many :drinkings
+  has_many :checkins
   has_one :ticket
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,5 +27,17 @@ class Drinker < ApplicationRecord
     end
 
     drinker
+  end
+
+  def checked_in?
+    Checkin.exists?(:drinker_id => self.id)
+  end
+
+  def latest_checkin
+    checkins.order("created_at DESC").first
+  end
+
+  def checked_in_restaurant_id
+    latest_checkin&.restaurant_id
   end
 end
