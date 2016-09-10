@@ -1,5 +1,30 @@
-<h1>酒造 お酒一覧</h1>
+<div id="sakes">
 <% @restaurant.sake_menu_items.each do |item| %>
-  <p><%= link_to item.sake.name, restaurant_sakes_path(restaurant_id: @restaurant, id: item) %></p>
+  <%= image_tag item.sake.photo.url %>
 <% end %>
-<%= current_drinker.id %>さん 
+</div>
+<div id="sakename"></div>
+<div><button onclick="vote()">投票</button></div>
+
+<script type="text/javascript">
+var index = 0;
+var sakes = <%= raw @restaurant.sake_menu_items.map { |item|
+  {
+    "name" => item.sake.name,
+    "vote_url" => drinkings_new_path(sake_id: item.sake.id)
+  }
+}.to_json %>;
+$('#sakes').slick({
+  infinite: false,
+  arrows: true,
+  dots: true
+});
+$('#sakes').on('afterChange', function(e, slick, currentSlide) {
+  index = currentSlide;
+  $('#sakename').empty().append(sakes[currentSlide].name);
+});
+$('#sakename').empty().append(sakes[0].name);
+function vote() {
+  location.href = sakes[index].vote_url;
+}
+</script>
