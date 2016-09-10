@@ -5,6 +5,7 @@ class CheckinsController < ApplicationController
   end
 
   def create
-    render text: "#{Restaurant.find(params[:restaurant_id]).name}にチェックイン"
+    restaurant_id = params[:restaurant][:id]
+    render text: "#{Restaurant.find(restaurant_id).name}にチェックイン"
   end
 end
