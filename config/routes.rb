@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resource :terms, only: [:show]
   get :signup, to: "drinkers#redirector"
+  get :login, to: "drinkers#login"
   resources :festivals, only: [:index, :show]
   get "/restaurants/map", to: "restaurants#map"
   resources :restaurants, only: [:index, :show] do

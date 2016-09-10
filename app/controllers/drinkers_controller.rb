@@ -5,6 +5,10 @@ class DrinkersController < ApplicationController
     redirect_to '/drinker/auth/facebook?passcode='+params[:passcode]
   end
 
+  def login
+    
+  end
+
   def edit
     @drinker = current_drinker
   end
