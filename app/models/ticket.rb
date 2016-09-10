@@ -11,7 +11,7 @@ class Ticket < ApplicationRecord
   end
 
   def used?
-    !drinker_id.nil?
+    self&.drinker_id.nil?
   end
 
   private
