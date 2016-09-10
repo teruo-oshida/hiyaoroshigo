@@ -2,7 +2,7 @@
 
 Sake:
   fields:
-    default: name, brewery_id
-    form: name, brewery_id
+    default: name, brewery_id, photo
+    form: name, brewery_id, photo
   relationships: 
   application: Application
