@@ -8,9 +8,6 @@ class Drinker < ApplicationRecord
   
   # TODO: パスフレーズを受け取ってticketレコードを紐付ける処理を追加する
   def self.find_for_facebook_oauth(auth,params)
-    logger.debug("==============")
-    logger.debug(params)
-    logger.debug("==============")
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
 
     unless drinker
@@ -21,8 +18,9 @@ class Drinker < ApplicationRecord
                               email:    auth.info.email,
                               token:    auth.credentials.token,
                               password: Devise.friendly_token)
-        drinker.build_ticket()
-        drinker.save!
+        drinker.build_ticket
+        drinker.save
+        # TODO: エラー処理を追加する
       end
     end
 
