@@ -1,0 +1,11 @@
+<h1>Shops</h1>
+<div>
+  <%= form_for(@checkin) do %>
+    <select name="restaurant_id">
+      <% @restaurants.each do |restaurant| %>
+      <option value="<%= restaurant.id %>"><%= restaurant.name %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="送信"><input type="reset" value="リセット">
+  <% end %>
+</div>
