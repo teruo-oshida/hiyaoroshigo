@@ -1,5 +1,7 @@
-class RestaurantsController < ApplicationController
+﻿class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show]
+  before_action :authenticate_drinker!, only: [:show]
+
   def index
   end
 
