@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+﻿Rails.application.routes.draw do
   devise_for :drinkers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resource :terms, only: [:show]
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :sakes, only: [:index]
     resources :checkins, only: [:index, :create]
   end
+  resources :drinkers, only: [:show, :edit, :update]
   resources :drinkings, only: [:index, :new, :create, :delete]
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"

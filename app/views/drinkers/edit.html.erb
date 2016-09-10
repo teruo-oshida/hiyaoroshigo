@@ -1,2 +1,10 @@
-<h1>Drinkers#edit</h1>
-<p>Find me in app/views/drinkers/edit.html.erb</p>
+<%= form_for(@drinker) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit id: "button"%>
+  </div>
+<% end %>
