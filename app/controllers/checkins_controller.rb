@@ -10,6 +10,6 @@ class CheckinsController < ApplicationController
     restaurant_id = params[:restaurant][:id]
     user_id = current_drinker.id
     Checkin.create(restaurant_id: restaurant_id, drinker_id: user_id)
-    render text: "#{Restaurant.find(restaurant_id).name}にチェックイン"
+    redirect_to restaurant_path(restaurant_id)
   end
 end
