@@ -40,6 +40,7 @@ gem 'rqrcode'
 gem 'chunky_png'
 gem 'typus', git: "https://github.com/typus/typus", branch: "5-0-unstable"
 gem 'kaminari'
+gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
