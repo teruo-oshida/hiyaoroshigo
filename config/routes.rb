@@ -11,5 +11,4 @@ Rails.application.routes.draw do
   resources :drinkings, only: [:index, :new, :create, :delete]
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
-  get 'checkin/index'=>'checkin#index' 
 end
