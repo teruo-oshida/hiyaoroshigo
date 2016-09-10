@@ -4,3 +4,53 @@
 <p><%= image_tag "system/sakes/photos/000/000/001/original/@sake.photo_file_name", alt: 'Sake image' %></p>
 <p>foobar</p>
 <p><%= link_to '投票', new_drinking_path, remote: true %></p>
+
+<button id='map-button'>モーダルオープン</button>
+
+
+
+
+<div id="modal-content" style="display:none;">
+<div id="modal-close">✖︎</div>
+  <div>飲み方</div>
+  <div>
+  <ul>
+    <li><button>a</button></li>
+    <li><button>b</button></li>
+    <li><button>c</button></li>
+  </ul>
+  </div>
+  <div>評価する</div>
+  <div>
+  <ul>
+    <li><button>a</button></li>
+    <li><button>b</button></li>
+    <li><button>c</button></li>
+    <li><button>d</button></li>
+    <li><button>e</button></li>
+  </ul>
+  </div>
+  <div>
+    <button type="button" id="submit_button" class="modal-link">投票する</button>
+  </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+  $(function() {
+    $('#map-button').click(function(){
+      $('#modal-content').fadeIn();
+
+    });
+    $('#modal-close').click(function(){
+      $('#modal-content').fadeOut();
+    });
+    $('#submit_button').click(function(){
+      $('#modal-content').fadeOut();
+    });
+  });
+</script>
