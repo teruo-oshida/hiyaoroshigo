@@ -53,73 +53,73 @@ ja:
       delete_success: "%{model}を削除しました。"
       wipe_success: "%{resource}をゴミ箱から削除しました。"
       bulk_delete_success:
-        one: "Successfully deleted entry."
-        other: "Successfully deleted %{count} entries."
-      settings_update_success: "Settings successfully updated." # this can probably be removed later
-      image_removed: "Featured image removed."
-      image_set: "Featured image set."
-      set_new_password: "Please set a new password."
-      password_reset_email_success: "Password recovery link sent to your email."
-      bulk_no_action: "No bulk action selected."
-      bulk_no_items: "Items must be selected in order to perform actions on them. No items have been changed."
-      trash_recover_success: "%{resource} recovered from trash."
-      trash_recover_failed: "%{resource} cannot be recovered from trash."
+        one: "エントリを削除しました。"
+        other: "%{count}個のエントリを削除しました。"
+      settings_update_success: "設定を更新しました。" # this can probably be removed later
+      image_removed: "イメージを削除しました。"
+      image_set: "イメージを設定しました。"
+      set_new_password: "新しいパスワードを設定してください。"
+      password_reset_email_success: "パスワードリセットのメールを送信しました。"
+      bulk_no_action: "アクションが選択されていません。"
+      bulk_no_items: "アクションを実行するには、アイテムを選択する必要があります。アイテムは変更されていません。"
+      trash_recover_success: "%{resource}をゴミ箱から回収しました。"
+      trash_recover_failed: "%{resource}をゴミ箱から回収できませんでした。"
 
     errors:
       intro:
-        one: "An error prohibited this page from being saved:"
-        other: "%{count} errors prohibited this page from being saved:"
+        one: "エラー：保存できませんでした。"
+        other: "%{count}個のエラー：保存できませんでした。"
 
     dashboard:
-      title: "Dashboard"
-      model: "Model"
-      model_name: "Model Name"
-      items: "Items"
-      actions: "Actions"
-      no_applications: "No applications detected."
-      user: "User"
-      user: "Users"
-      status: "Status"
-      last_logged_in: "Last logged in"
-      resources: "Resources"
-      name: "Name"
+      title: "ダッシュボード"
+      model: "モデル"
+      model_name: "モデル名"
+      items: "アイテム"
+      actions: "アクション"
+      no_applications: "アプリケーションを検出できませんでした。"
+      user: "ユーザ"
+      user: "ユーザ"
+      status: "ステータス"
+      last_logged_in: "最終ログイン"
+      resources: "リソース"
+      name: "名前"
 
     resources:
       add:
-        title: "Add %{resource}"
+        title: "%{resource}を追加"
       edit:
-        title: "Edit '%{label}'"
+        title: "'%{label}'を編集"
       show:
-        title: "Details for '%{label}'"
+        title: "'%{label}'の詳細"
       edited_recently:
-        title: "Edited recently"
+        title: "最近、編集されたもの"
       destroy:
-        title: "Destroy %{label}"
+        title: "%{label}を削除"
 
     sessions:
       new:
-        title: "Sign in"
+        title: "サインイン"
 
     pagination:
-      previous: "&larr; Previous"
-      next: "Next &rarr;"
+      previous: "&larr; 前"
+      next: "次 &rarr;"
 
     sidebar:
-      filters: "Filters"
-      scopes: "Scopes"
-      export: "Export"
-      entry: "Entry"
-      actions: "Actions"
-      view_site: "View site"
-      search: "Search"
+      filters: "フィルタ"
+      scopes: "スコープ"
+      export: "エクスポート"
+      entry: "エントリ"
+      actions: "アクション"
+      view_site: "サイト"
+      search: "検索"
 
     labels:
-      read_only: "Read only"
+      read_only: "読み込みのみ"
 
     emails:
       password_reset:
-        title: "[%{admin_title}] Reset password"
+        title: "[%{admin_title}] パスワードのリセット"
 
     filters:
-      trash: "Trash"
-      view_all: "View all %{attribute}"
+      trash: "ゴミ箱"
+      view_all: "全ての%{attribute}"

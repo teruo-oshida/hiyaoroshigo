@@ -1,4 +1,4 @@
-require 'test_helper'
+﻿require 'test_helper'
 
 class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
@@ -10,5 +10,9 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     get restaurants_show_url
     assert_response :success
   end
+
+  # test "the truth" do
+  #   assert true
+  # end
 
 end

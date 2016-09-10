@@ -1,8 +1,8 @@
 # Use the README file as a reference to customize settings.
 
-Sake:
+Checkin:
   fields:
-    default: name, brewery_id, photo
-    form: name, brewery_id, photo
+    default: drinker_id, restaurant_id
+    form: drinker_id, restaurant_id
   relationships: 
   application: Application

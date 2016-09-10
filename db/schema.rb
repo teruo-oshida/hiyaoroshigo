@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905123722) do
+ActiveRecord::Schema.define(version: 20160910110541) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      default: "",    null: false
@@ -127,8 +127,12 @@ ActiveRecord::Schema.define(version: 20160905123722) do
   create_table "sakes", force: :cascade do |t|
     t.string   "name"
     t.integer  "brewery_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["brewery_id"], name: "index_sakes_on_brewery_id"
   end
 
