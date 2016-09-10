@@ -9,14 +9,14 @@ class Drinker < ApplicationRecord
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
     
     unless drinker
-      drinker = Drinker.create( name:     auth.extra.raw_info.name,
-                                 provider: auth.provider,
-                                 uid:      auth.uid,
-                                 email:    auth.info.email,
-                                 token:    auth.credentials.token,
-                                 password: Devise.friendly_token )
+      drinker = Drinker.create(name:     auth.extra.raw_info.name,
+                               provider: auth.provider,
+                               uid:      auth.uid,
+                               email:    auth.info.email,
+                               token:    auth.credentials.token,
+                               password: Devise.friendly_token)
     end
 
-    return drinker
+    drinker
   end
 end
