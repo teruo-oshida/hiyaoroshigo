@@ -10,11 +10,11 @@ class Drinker < ApplicationRecord
     
     unless drinker
       drinker = Drinker.create( name:     auth.extra.raw_info.name,
-                                provider: autch.provider,
-                                uid:      auth.uid,
-                                email:    auth.info.email,
-                                token:    auth.credentials.token,
-                                password: Devise.friendly_token[0.20] )
+                                 provider: auth.provider,
+                                 uid:      auth.uid,
+                                 email:    auth.info.email,
+                                 token:    auth.credentials.token,
+                                 password: Devise.friendly_token )
     end
 
     return drinker
