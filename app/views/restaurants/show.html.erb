@@ -1,4 +1,5 @@
-<h1>#Restaurant show</h1>
+<h1>酒造 お酒一覧</h1>
 <% @restaurant.sake_menu_items.each do |item| %>
   <p><%= link_to item.sake.name, restaurant_sakes_path(restaurant_id: @restaurant, id: item) %></p>
 <% end %>
+<%= current_drinker.id %>さん 
