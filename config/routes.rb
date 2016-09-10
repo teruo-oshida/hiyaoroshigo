@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :terms, only: [:show]
   get :signup, to: "devise/registrations#new"
   resources :festivals, only: [:index, :show]
+  get "/restaurants/map", to: "restaurants#map"
   resources :restaurants, only: [:index, :show] do
     resources :sakes, only: [:index]
     resources :checkins, only: [:index, :create]
