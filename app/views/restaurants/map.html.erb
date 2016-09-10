@@ -2,6 +2,7 @@
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 <div id="restaurant">
+  <%= render partial: "show", locals: { restaurant: @restaurant } %>
 </div>
 
 <script type="text/javascript">
@@ -14,7 +15,6 @@
           $.ajax({
             url: "/restaurants/" + id
           }).success(function(data) {
-            console.log("foo");
             $("#restaurant").empty().append(data);
           });
         });

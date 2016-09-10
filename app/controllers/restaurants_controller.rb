@@ -1,5 +1,5 @@
-﻿class RestaurantsController < ApplicationController
-  before_action :authenticate_drinker!, only: [:show]
+class RestaurantsController < ApplicationController
+  before_action :authenticate_drinker!
 
   def index
     @restaurants = Restaurant.all
@@ -7,11 +7,17 @@
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    render html: @restaurant.name
+    if request.xhr?
+      render partial: "show", locals: { restaurant: @restaurant }
+    end
   end
 
   def map
     @restaurants = Restaurant.all
+    @restaurant =
+      current_drinker.checkins.order("created_at DESC").first&.restaurant ||
+      current_drinker.ticket&.restaurant ||
+      Restaurant.first
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude

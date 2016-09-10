@@ -1,5 +1,7 @@
 class Drinker < ApplicationRecord
   has_many :drinkings
+  has_many :checkins
+  has_one :ticket
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
