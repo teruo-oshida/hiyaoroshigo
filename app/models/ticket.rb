@@ -11,7 +11,11 @@ class Ticket < ApplicationRecord
   end
 
   def used?
-    !drinker_id.nil?
+    if self.present?
+      return self.drinker_id.nil?
+    else
+      return false
+    end
   end
 
   private
