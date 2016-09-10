@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :festivals, only: [:index, :show]
   resources :restaurants, only: [:index, :show] do
     resources :sakes, only: [:index]
-    resources :checkins, only: [:index, :create]
   end
   resources :drinkers, only: [:show, :edit, :update]
   resources :drinkings, only: [:index, :new, :create, :delete]
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
+  resources :checkins, only: [:new, :create]
 end
