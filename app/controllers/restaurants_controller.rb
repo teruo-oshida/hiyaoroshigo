@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
       marker.picture({
-        url: "/assets/sake.png",
+        url: "/assets/sake#{restaurant.congestion_degree}.png",
         width: 32,
         height: 32
       })
