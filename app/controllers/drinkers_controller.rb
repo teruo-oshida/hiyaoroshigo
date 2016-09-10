@@ -4,6 +4,7 @@
   end
 
   def show
+    puts current_drinker
     @drinker_name = Drinker.first.name
   end
 

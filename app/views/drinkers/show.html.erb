@@ -5,4 +5,6 @@
   <%= link_to 'Edit', edit_drinker_path%>
 </div>
 
-<p>Find me in app/views/drinkers/show.html.erb</p>
+<div>
+  <%= link_to "Logout", destroy_drinker_session_path, method: :delete %>
+</div>
