@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
       marker.lng restaurant.longitude
       max = restaurant.tickets.count
       current = 
-        restaurant.checkins.where("created_at > ?", 30.minutes.ago).count
+        restaurant.checkins.where("created_at > ?", 60.minutes.ago).count
       marker.infowindow "#{restaurant.name} (#{current}/#{max})"
     end
   end
