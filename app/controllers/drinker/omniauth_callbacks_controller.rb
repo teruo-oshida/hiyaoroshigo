@@ -4,6 +4,7 @@ class Drinker::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     if @drinker.persisted?
       redirect_to "/restaurants/"
+      sign_in @drinker
     else
      logger.debug("failed!!")
      # session["devise.facebook_data"] = request.env["omniauth.auth"]
