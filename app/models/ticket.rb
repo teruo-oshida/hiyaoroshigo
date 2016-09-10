@@ -1,4 +1,4 @@
-require "securerandom"
+﻿require "securerandom"
 
 class Ticket < ApplicationRecord
   belongs_to :drinker
@@ -8,6 +8,10 @@ class Ticket < ApplicationRecord
 
   def signup_url
     "https://matsuetranquilo.shimane-oss.org/signup?passcode=" + passcode
+  end
+
+  def used?
+    !drinker_id.nil?
   end
 
   private
