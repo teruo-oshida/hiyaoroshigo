@@ -1,6 +1,6 @@
 <div id="sakes">
-<% @restaurant.sake_menu_items.each do |item| %>
-  <%= image_tag item.sake.photo.url %>
+<% @restaurant.sakes.each do |sake| %>
+  <div class="sake"><%= image_tag sake.photo.url, alt: sake.name %></div>
 <% end %>
 </div>
 <div id="sakename"></div>
