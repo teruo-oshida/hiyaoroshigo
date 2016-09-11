@@ -1,0 +1,7 @@
+﻿<h1><%= @restaurant.name %>#show お酒一覧</h1>
+
+<%= current_drinker.id %>さん <br>
+
+<% @restaurant.sake_menu_items.each do |sake_menu_item| %>
+  <%= sake_menu_item.sake.name %>  <%= link_to '投票する', drinkings_path %> <br>
+<% end %>
