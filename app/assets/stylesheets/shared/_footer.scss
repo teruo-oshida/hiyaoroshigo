@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+}
+
+$footer-height: 80px;
+.l_footer {
+  position: fixed;
+  bottom: 0;
+  height: $footer-height;
+  width: 100%;
+  $footer-bg-color: #0f0f0f;
+  background-color: $footer-bg-color;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+
+  &_profile-btn {
+    background-color: white;
+  }
+}
+
+.l_wrap {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
+
+.l_contents {
+  padding-bottom: $footer-height;
+}
+
