@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery-migrate
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
