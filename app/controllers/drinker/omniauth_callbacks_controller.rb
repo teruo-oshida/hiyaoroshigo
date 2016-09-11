@@ -4,7 +4,7 @@ class Drinker::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # request.env['omniauth.params']でパスフレーズを取得して、
     # ↓のfind_for_facebook_oauthに渡してその中で、
     # 紐づくticketレコードを生成してやれば良いかと
-    @drinker = Drinker.find_for_facebook_oauth(request.env["omniauth.auth"])
+    @drinker = Drinker.find_for_facebook_oauth(request.env["omniauth.auth"],request.env['omniauth.params'])
 
     if @drinker.persisted?
       redirect_by_checkin_status

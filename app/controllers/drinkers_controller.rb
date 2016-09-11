@@ -1,5 +1,9 @@
-﻿class DrinkersController < ApplicationController
+class DrinkersController < ApplicationController
   before_action :authenticate_drinker!
+
+  def redirector
+    redirect_to '/drinker/auth/facebook?passcode='+params[:passcode]
+  end
 
   def edit
     @drinker = current_drinker
