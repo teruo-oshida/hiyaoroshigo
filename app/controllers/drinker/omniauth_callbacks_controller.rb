@@ -20,7 +20,7 @@ class Drinker::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def redirect_by_checkin_status
     if @drinker.checked_in?
-      restaurant_id = drinker.checked_in_restaurant_id
+      restaurant_id = @drinker.checked_in_restaurant_id
       redirect_to restaurant_path(restaurant_id)
     else
       redirect_to new_checkin_path
