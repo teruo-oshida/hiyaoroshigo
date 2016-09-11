@@ -1,0 +1,45 @@
+$header-height: 80px;
+
+.l_header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $header-height;
+  $header-bg-color: #f0c12c;
+  background-color: $header-bg-color;
+
+  &_contents {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    & .profile-btn {
+      background-color: white;
+    }
+  }
+}
+
+.l_contents {
+  padding-top: $header-height;
+}
+
+.m_btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+
+  &_small {
+    height: 50px;
+  }
+
+  &_circle {
+    &.m_btn_small {
+      width: 50px;
+      border-radius: 25px;
+    }
+  }
+}
+
