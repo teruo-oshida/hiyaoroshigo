@@ -14,7 +14,6 @@
           $.ajax({
             url: "/restaurants/" + id
           }).success(function(data) {
-            console.log("foo");
             $("#restaurant").empty().append(data);
           });
         });

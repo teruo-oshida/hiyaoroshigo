@@ -5,7 +5,9 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    render html: @restaurant.name
+    if request.xhr?
+      render html: @restaurant.name
+    end
   end
 
   def map
