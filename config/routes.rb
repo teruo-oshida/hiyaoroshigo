@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'festivals/thewinner'
+
   get 'sakes/index'
 
   get 'drinkings/new'
