@@ -6,7 +6,7 @@
   end
 
   def show
-    @drinker_name = current_drinker.name
+    @drinker = current_drinker
   end
 
   def update

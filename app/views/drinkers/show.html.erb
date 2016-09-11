@@ -1,8 +1,18 @@
 ﻿<h1>プロフィール</h1>
 
 <div>
-  <p><b>ニックネーム: </b><%= @drinker_name %></p>
-  <%= link_to 'Edit', edit_drinker_path%>
+  <p><b>ユーザーネーム: </b></p>
+  <p><%= @drinker.name %>  <%= link_to 'Edit', edit_drinker_path%></p>
+</div>
+
+<div>
+  <p><b>飲み歩き伝</b></p>
+  <% @drinker.drinkings.reverse_each do |drink| %>
+    <div>
+      <p><%= drink.created_at.strftime("%Y.%m.%d") %></p>
+      <p><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
+    </div>
+  <% end %>
 </div>
 
 <div>
