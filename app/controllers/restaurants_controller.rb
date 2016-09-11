@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   def map
     @restaurants = Restaurant.all
     @restaurant =
-      current_drinker.checkins.order("created_at DESC").first&.restaurant ||
+      current_drinker.latest_checkin&.restaurant ||
       current_drinker.ticket&.restaurant ||
       Restaurant.first
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|

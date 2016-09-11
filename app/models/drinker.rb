@@ -28,11 +28,11 @@ class Drinker < ApplicationRecord
     Checkin.exists?(:drinker_id => self.id)
   end
 
+  def latest_checkin
+    checkins.order("created_at DESC").first
+  end
+
   def checked_in_restaurant_id
-    latest_checkin = Checkin
-      .where(:drinker_id => self.id)
-      .order("created_at DESC")
-      .first
-    latest_checkin.restaurant_id
+    latest_checkin&.restaurant_id
   end
 end
