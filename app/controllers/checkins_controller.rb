@@ -12,4 +12,5 @@ class CheckinsController < ApplicationController
     Checkin.create(restaurant_id: restaurant_id, drinker_id: user_id)
     redirect_to restaurant_path(restaurant_id)
   end
+
 end
