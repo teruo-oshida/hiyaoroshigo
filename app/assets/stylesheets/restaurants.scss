@@ -22,22 +22,54 @@
 
 // show.html.erb
 
-div#sakes {
-    width: 80%;
-    margin-left: 10%;
+#restaurant-name {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 8vw;
+    font-size: 6vw;
+    text-align: center;
 }
 
-div.sake img {
+#checkin-panel {
+    background-color: #eeeeee;
+    padding: 4vw;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#checkin-panel a {
+    text-decoration: none;
+}
+
+#checkin-panel a:link, #checkin-panel a:visited {
+    color: #aa00cc;
+}
+
+#sakes {
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 10vw;
+}
+
+.sake img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 60vw;
+    height: 60vw;
 }
 
-div#info {
+#sake-info {
     text-align: center;
 }
-div#info div {
-    padding: 10px;
+#sake-info div {
+    padding: 4vw;
+}
+#sake-name {
+    font-size: 5vw;
+    height: 15vw;
 }
 
 // ?
@@ -84,7 +116,7 @@ $icon-size: 30px;
   height:$icon-size;
 }
 
-// _show.html.erb
+// _detail.html.erb
 
 #restaurant-detail {
   padding: 4vw;
