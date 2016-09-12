@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     if request.xhr?
-      render partial: "show", locals: { restaurant: @restaurant }
+      render partial: "detail", locals: { restaurant: @restaurant }
     end
   end
 
