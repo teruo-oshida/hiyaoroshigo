@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912082520) do
+ActiveRecord::Schema.define(version: 20160912113328) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      default: "",    null: false
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160912082520) do
     t.string   "icon_content_type"
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
+    t.string   "official_name"
   end
 
   create_table "sake_menu_items", force: :cascade do |t|

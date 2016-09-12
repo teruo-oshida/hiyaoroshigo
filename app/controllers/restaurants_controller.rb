@@ -26,7 +26,7 @@ class RestaurantsController < ApplicationController
         width: 42,
         height: 42
       })
-      marker.infowindow restaurant.name
+      marker.infowindow restaurant.official_name
       marker.title restaurant.id.to_s
     end
   end
