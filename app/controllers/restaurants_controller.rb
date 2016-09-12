@@ -22,9 +22,9 @@ class RestaurantsController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
       marker.picture({
-        url: "/assets/sake#{restaurant.congestion_degree}.png",
-        width: 32,
-        height: 32
+        url: "/assets/marker#{restaurant.congestion_degree}.png",
+        width: 42,
+        height: 42
       })
       # max = restaurant.tickets.count
       # current = 
