@@ -25,10 +25,9 @@ function h_update()
   });
 }
 </script>
-<h1>プロフィール</h1>
 
 <div>
-  <p><b>ユーザーネーム: </b></p>
+  <p><b>ユーザーネーム</b></p>
   <%= form_for(@drinker) do |f| %>
     <p>
     <span class="profile-show"><%= @drinker.name %></span>
@@ -39,17 +38,22 @@ function h_update()
     </p>
   <% end %>
 </div>
-
+<div>
+  <p><b>称号</b></p>
+  <p>島根の酒豪</p>
+</div>
 <div>
   <p><b>飲み歩き伝</b></p>
+  <div id="profile-log">
   <% @drinker.drinkings.reverse_each do |drink| %>
     <div>
       <p><%= drink.created_at.strftime("%Y.%m.%d") %></p>
       <p><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
     </div>
   <% end %>
+  </div>
 </div>
 
 <div>
-  <%= link_to "Logout", destroy_drinker_session_path, method: :delete %>
+  <%= link_to "ログアウト", destroy_drinker_session_path, method: :delete %>
 </div>
