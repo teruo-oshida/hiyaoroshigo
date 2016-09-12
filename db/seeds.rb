@@ -58,7 +58,7 @@ Sake.transaction do
     東風,吉田酒造,"月山 純米吟醸生詰ひやおろし"
     東風,富士酒造,"出雲富士 秋雲純米ひやおろし"
     東風,木次酒造,"美波太平洋 純米原酒ひやおろし"
-    そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町木槽しぼり生詰瓶火入れ"
+    そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町 木槽しぼり生詰瓶火入れ"
     そば遊山,一宮酒造,"石見銀山 特別純米改良八反流ひやおろし"
     そば遊山,稲田本店,"稲田姫 いなたひめ良燗純米"
     老虎,旭日酒造,"十旭日 純米ひやおろし"
@@ -73,7 +73,9 @@ Sake.transaction do
   EOF
     r = restaurant_tbl[r_name]
     b = Brewery.find_or_create_by!(name: b_name)
-    s = Sake.find_or_create_by!(name: s_name, brewery: b)
+    s = Sake.find_or_create_by!(brewery: b)
+    s.name = s_name
+    s.save!
     SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
   end
 end
