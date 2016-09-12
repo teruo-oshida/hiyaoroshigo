@@ -6,7 +6,7 @@ class DrinkersController < ApplicationController
   end
 
   def login
-    
+
   end
 
   def edit
@@ -22,6 +22,6 @@ class DrinkersController < ApplicationController
     drinker = current_drinker
     drinker.name = params[:drinker][:name]
     drinker.save
-    redirect_to :action => "show"
+    redirect_to "/drinkers/edit"
   end
 end
