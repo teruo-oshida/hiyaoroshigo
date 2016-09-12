@@ -10,10 +10,10 @@
 
 <script type="text/javascript">
 var index = 0;
-var sakes = <%= raw @restaurant.sake_menu_items.map { |item|
+var sakes = <%= raw @restaurant.sakes.map { |sake|
   {
-    "name" => item.sake.name,
-    "vote_url" => drinkings_new_path(sake_id: item.sake.id)
+    "name" => sake.name,
+    "vote_url" => drinkings_new_path(sake_id: sake.id)
   }
 }.to_json %>;
 $('#sakes').slick({
