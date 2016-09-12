@@ -30,18 +30,19 @@ Sake.transaction do
   mtq2016.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
   mtq2016.save!
   restaurants = [
-    ["そば遊山", "そば遊山", "35.469174", "133.054291", "yu-zan.png"],
-    ["谷屋", "小料理 酒 谷屋", "35.466007", "133.058943", "taniya.png"],
-    ["誘酒庵", "誘酒庵", "35.463729", "133.059200", "yushu-an.png"],
-    ["老虎", "中国酒家 老虎", "35.465821", "133.059930", "lao-fuu.png"],
-    ["東風", "手打ちそば 東風", "35.458775", "133.060870", "tofu-gochi.png"]
-  ].map { |name, official_name, latitude, longitude, icon_file|
+    ["そば遊山", "そば遊山", "35.469174", "133.054291", "yu-zan.png", 30],
+    ["谷屋", "小料理 酒 谷屋", "35.466007", "133.058943", "taniya.png", 32],
+    ["誘酒庵", "誘酒庵", "35.463729", "133.059200", "yushu-an.png", 38],
+    ["老虎", "中国酒家 老虎", "35.465821", "133.059930", "lao-fuu.png", 30],
+    ["東風", "手打ちそば 東風", "35.458775", "133.060870", "tofu-gochi.png", 20]
+  ].map { |name, official_name, latitude, longitude, icon_file, capacity|
     File.open(File.join(RESTAURANT_ICON_DIR, icon_file)) { |icon|
       r = Restaurant.find_or_create_by!(name: name)
       r.official_name = official_name
       r.latitude = latitude
       r.longitude = longitude
       r.icon = icon
+      r.capacity = capacity
       r.save!
       r
     }

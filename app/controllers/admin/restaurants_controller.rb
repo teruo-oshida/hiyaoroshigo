@@ -1,2 +1,2 @@
-﻿class Admin::RestaurantsController < Admin::ResourcesController
+class Admin::RestaurantsController < Admin::ResourcesController
 end

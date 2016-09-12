@@ -2,7 +2,7 @@
 
 Restaurant:
   fields:
-    default: name, latitude, longitude
-    form: name, latitude, longitude
+    default: name, latitude, longitude, capacity, congestion_degree
+    form: name, latitude, longitude, capacity, congestion_degree
   relationships: 
   application: Application
