@@ -1,27 +1,21 @@
 <div>
   <div id="map"></div>
 </div>
-<div id="restaurant">
+<div id="restaurant-detail">
   <%= render partial: "show", locals: { restaurant: @restaurant } %>
 </div>
 
 <script type="text/javascript">
-    colors = ["#2ED02D","#F0A917","#D73E41"];//];
-    marker_info = <%=raw @markers.to_json %>;
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(marker_info);
+      markers = handler.addMarkers(<%=raw @markers.to_json %>);
       markers.map(function(marker) {
         var id = marker.getServiceObject().title;
         marker.getServiceObject().addListener('click', function(e) {
           $.ajax({
             url: "/restaurants/" + id
-            }).success(function(data) {
-            $("#restaurant").empty().append(data);
-            url = marker_info[id-1]["picture"]["url"]
-            status = url.charAt(url.length - 5);
-            $(".map-congestion").css("background-color",colors[status-1]);
-            $(".map-icon").attr("src",url);
+          }).success(function(data) {
+            $("#restaurant-detail").empty().append(data);
           });
         });
       });
@@ -30,4 +24,8 @@
     });
 </script>
 
-<a class="twitter-timeline" href="https://twitter.com/MatsueTranquilo">Tweets by MatsueTranquilo</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div id="twitter">
+  <h1 id="twitter-title">TWITTER</h1>
+  <a class="twitter-timeline" href="https://twitter.com/MatsueTranquilo" data-chrome="noheader">Tweets by MatsueTranquilo</a>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>

@@ -15,4 +15,14 @@ class Restaurant < ApplicationRecord
   def congestion_degree
     CONGESTION_DEGREES.sample
   end
+
+  CONGESTION_LABESL = {
+    1 => "お席に余裕あり",
+    2 => "（考え中）",
+    3 => "ほぼ満席"
+  }
+  
+  def congestion_label
+    CONGESTION_LABESL[congestion_degree]
+  end
 end
