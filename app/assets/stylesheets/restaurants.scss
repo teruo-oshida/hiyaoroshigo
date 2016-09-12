@@ -66,3 +66,16 @@ div#info div {
 #modal-content li{
   display: table-cell;
 }
+$icon-size: 30px;
+.map-congestion{
+  width:$icon-size;
+  height:$icon-size;
+  border-radius:50%;
+  background-color:gray
+}
+.map-icon{
+  width:$icon-size;
+  height:$icon-size;
+}
+
+
