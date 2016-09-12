@@ -1,10 +1,55 @@
-<%= form_for(@drinker) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<script>
+function edit()
+{
+  $(".profile-show").css("display","none");
+  $(".profile-edit").css("display","inline");
+}
+function cancel()
+{
+  $(".profile-show").css("display","inline");
+  $(".profile-edit").css("display","none");
+}
+function h_update()
+{
+  $.ajax({
+    url: "/drinker/",
+    type:"POST",
+    datatype:"json",
+    data: {"drinker":{"name":"uwaaaa"}},
+    timeout:10000
+  })
+  .success(function(data){
+      if(data.status == "success")
+      console.log("success!!");
+      console.log(data);
+  });
+}
+</script>
+<h1>プロフィール</h1>
 
-  <div class="actions">
-    <%= f.submit id: "button"%>
-  </div>
-<% end %>
+<div>
+  <p><b>ユーザーネーム: </b></p>
+  <%= form_for(@drinker) do |f| %>
+    <p>
+    <span class="profile-show"><%= @drinker.name %></span>
+    <span class="profile-edit"><%= f.text_field :name%></span>
+    <span class="profile-show"><button onClick="edit();" type="button">編集</button></span>
+    <span class="profile-edit"> <%= f.submit id: "button"%> </span>
+    <span class="profile-edit"><button onClick="cancel();" type="button">キャンセル</button></span>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  <p><b>飲み歩き伝</b></p>
+  <% @drinker.drinkings.reverse_each do |drink| %>
+    <div>
+      <p><%= drink.created_at.strftime("%Y.%m.%d") %></p>
+      <p><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Logout", destroy_drinker_session_path, method: :delete %>
+</div>
