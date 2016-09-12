@@ -26,10 +26,7 @@ class RestaurantsController < ApplicationController
         width: 42,
         height: 42
       })
-      # max = restaurant.tickets.count
-      # current = 
-      #   restaurant.checkins.where("created_at > ?", 60.minutes.ago).count
-      # marker.infowindow "#{restaurant.name} (#{current}/#{max})"
+      marker.infowindow restaurant.name
       marker.title restaurant.id.to_s
     end
   end
