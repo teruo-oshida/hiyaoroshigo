@@ -2,21 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// map.html.erb
+
 #map {
-position: relative;
-width: device-width;
-padding-bottom: 90%; // 横幅に対する高さの比
-height: 0;
-overflow: hidden;
+  position: relative;
+  width: device-width;
+  padding-bottom: 90%; // 横幅に対する高さの比
+  height: 0;
+  overflow: hidden;
 }
 
 #map iframe {
-position: absolute;
-top: 0;
-left: 0;
-width: 100% !important;
-height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
+
+// show.html.erb
 
 div#sakes {
     width: 80%;
@@ -35,6 +39,8 @@ div#info {
 div#info div {
     padding: 10px;
 }
+
+// ?
 
 #modal-content{
   width:50%;
@@ -78,4 +84,54 @@ $icon-size: 30px;
   height:$icon-size;
 }
 
+// _show.html.erb
 
+#restaurant-detail {
+  padding-top: 4vw;
+  padding-left: 4vw;
+  padding-bottom: 2vw;
+  overflow: hidden;
+}
+#restaurant-icon {
+  width: 18vw;
+  float: left;
+}
+img.restaurant-icon {
+  width: 100%;
+}
+#restaurant-info {
+  float: left;
+  padding: 2vw;
+}
+.restaurant-name {
+  padding: 2vw;
+  font-size: 8vw;
+}
+.congestion-label {
+  padding: 2px;
+  border-radius: 2px;
+  font-size: 4vw;
+}
+.congestion-1 {
+  color: #000000;
+  background-color: #e9bf25;
+}
+.congestion-2 {
+  color: #ffffff;
+  background-color: #ce722a;
+}
+.congestion-3 {
+  color: #ffffff;
+  background-color: #c6431c;
+}
+
+#twitter {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  border-top: solid 1px #aaaaaa;
+}
+#twitter-title {
+  padding: 0;
+  font-family: Arial;
+  font-size: 6vw;
+}

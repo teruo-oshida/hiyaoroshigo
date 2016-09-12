@@ -1,7 +1,13 @@
 <% if restaurant %>
-  <table><tr>
-    <td><img src="" class="map-icon" /></td>
-    <td><%= restaurant.name %></td>
-    <td><div class="map-congestion"></div></td>
-  </tr></table>
+<div id="restaurant-icon">
+<%= image_tag restaurant.icon.url, class: "restaurant-icon" %>
+</div>
+<div id="restaurant-info">
+  <div>
+    <span class="congestion-label congestion-<%= restaurant.congestion_degree %>">
+      <%= restaurant.congestion_label %>
+    </span>
+  </div>
+  <div class="restaurant-name"><%= restaurant.name %></div>
+</div>
 <% end %>

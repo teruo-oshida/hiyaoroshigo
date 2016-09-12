@@ -8,6 +8,8 @@
 
 require "csv"
 
+RESTAURANT_ICON_DIR = File.expand_path("seeds/images/restaurant_icons", __dir__)
+
 Sake.transaction do
   [
     [1, "ロック（加氷）", nil, false],
@@ -28,17 +30,20 @@ Sake.transaction do
   mtq2016.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
   mtq2016.save!
   restaurants = [
-    ["そば遊山", "35.4691079", "133.0520847"],
-    ["谷屋", "35.4659394", "133.056769"],
-    ["誘酒庵", "35.4637313", "133.0586467"],
-    ["老虎", "35.4658421", "133.0593685"],
-    ["東風", "35.4587895", "133.0586756"]
-  ].map { |name, latitude, longitude|
-    r = Restaurant.find_or_create_by!(name: name)
-    r.latitude = latitude
-    r.longitude = longitude
-    r.save!
-    r
+    ["そば遊山", "35.4691079", "133.0520847", "yu-zan.png"],
+    ["谷屋", "35.4659394", "133.056769", "taniya.png"],
+    ["誘酒庵", "35.4637313", "133.0586467", "yushu-an.png"],
+    ["老虎", "35.4658421", "133.0593685", "lao-fuu.png"],
+    ["東風", "35.4587895", "133.0586756", "tofu-gochi.png"]
+  ].map { |name, latitude, longitude, icon_file|
+    File.open(File.join(RESTAURANT_ICON_DIR, icon_file)) { |icon|
+      r = Restaurant.find_or_create_by!(name: name)
+      r.latitude = latitude
+      r.longitude = longitude
+      r.icon = icon
+      r.save!
+      r
+    }
   }
   restaurants.each do |restaurant|
     RestaurantParticipation.find_or_create_by!(festival: mtq2016,
