@@ -17,6 +17,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="l_wrap">
+      <%= render :partial => "shared/header" %>
+      <div class="l_contents l_contents_no-footer">
+        <%= yield %>
+      </div>
+      <%= render :partial => "shared/footer" %>
+    </div>
   </body>
 </html>
