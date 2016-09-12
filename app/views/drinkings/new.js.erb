@@ -1,0 +1,10 @@
+$('#vote-modal').html('<%= escape_javascript(render 'new') %>');
+$('#vote-modal').dialog({
+  dialogClass: 'no-titlebar',
+  draggable:   false,
+  modal:       true,
+  resizable:   false
+});
+$('.close').click(function() {
+  $('#vote-modal').dialog('close');
+});
