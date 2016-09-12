@@ -1,0 +1,32 @@
+<div class="modal-content">
+  <%= form_for(@drinking, remote: true) do |f| %>
+    <div class="modal-header">
+      <button type="button" class="close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>飲み方</p>
+      <div class="field">
+        <% @temperatures.each do |t| %>
+          <%= f.radio_button :sake_temperature_id, t.id %>
+          <%= f.label :sake_temperature_id, t.name, value: t.id %>
+        <% end %>
+        <%= f.hidden_field :festival_id, value: @festival_id %>
+        <%= f.hidden_field :restaurant_id, value: @restaurant_id %>
+        <%= f.hidden_field :sake_id, value: @sake_id %>
+      </div>
+      <p>評価する</p>
+      <%= f.fields_for :vote do |v| %>
+        <div class="field">
+          <% (Vote::MIN_SCORE..Vote::MAX_SCORE).each do |i| %>
+            <%= v.radio_button :score, i %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit '投票', class: 'close' %>
+    </div>
+  <% end %>
+</div>

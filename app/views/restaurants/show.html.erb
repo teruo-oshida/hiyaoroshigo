@@ -14,16 +14,19 @@
 <div id="sake-info">
   <div id="sake-name"></div>
   <div>
-    <button class="normal" onclick="vote()">投票</button>
+    <%= button_to '投票', '', class: 'normal', method: :get, remote: true, form: { id: 'vote' } %>
   </div>
+</div>
+<div id="vote-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 </div>
 
 <script type="text/javascript">
   var index = 0;
   var sakes = <%= raw @restaurant.sakes.map { |sake|
     {
-      "name" => sake.name,
-      "vote_url" => new_drinking_path(sake_id: sake.id)
+      "name"     => sake.name,
+      "vote_url" =>
+        new_drinking_path(restaurant_id: @restaurant.id, sake_id: sake.id)
     }
   }.to_json %>;
 
@@ -31,8 +34,8 @@
     $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br/>'));
   }
 
-  function vote() {
-    location.href = sakes[index].vote_url;
+  function setVoteUrl(url) {
+    $('#vote').attr('action', url);
   }
 
   $('#sakes').slick({
@@ -44,6 +47,8 @@
   $('#sakes').on('afterChange', function(e, slick, currentSlide) {
     index = currentSlide;
     setSakeName(sakes[currentSlide].name);
+    setVoteUrl(sakes[index].vote_url);
   });
   setSakeName(sakes[0].name);
+  setVoteUrl(sakes[0].vote_url);
 </script>
