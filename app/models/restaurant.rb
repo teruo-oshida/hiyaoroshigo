@@ -6,6 +6,8 @@ class Restaurant < ApplicationRecord
   has_many :drinkings
   has_many :checkins
   has_many :tickets
+  has_attached_file :icon
+  validates_attachment_content_type :icon, :content_type => /\Aimage\/.*\Z/
 
   CONGESTION_DEGREES = [1, 2, 3]
 
