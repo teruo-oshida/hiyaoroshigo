@@ -1,4 +1,6 @@
+
 <!-- <div style='width: 800px;'> -->
+<%= @markers.to_json %>
 <div>
   <!-- <div id="map" style='width: 800px; height: 400px;'></div> -->
   <div id="map"></div>
@@ -8,16 +10,22 @@
 </div>
 
 <script type="text/javascript">
+    colors = ["#2ED02D","#F0A917","#D73E41"];//];
+    marker_info = <%=raw @markers.to_json %>;
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @markers.to_json %>);
+      markers = handler.addMarkers(marker_info);
       markers.map(function(marker) {
         var id = marker.getServiceObject().title;
         marker.getServiceObject().addListener('click', function(e) {
           $.ajax({
             url: "/restaurants/" + id
-          }).success(function(data) {
+            }).success(function(data) {
             $("#restaurant").empty().append(data);
+            url = marker_info[id-1]["picture"]["url"]
+            status = url.charAt(url.length - 5);
+            $(".map-congestion").css("background-color",colors[status-1]);
+            $(".map-icon").attr("src",url);
           });
         });
       });
