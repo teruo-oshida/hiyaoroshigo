@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>Hiyaoroshigo</title>
+    <meta charset="UTF-8">
+    <title>松江トランキーロ</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,6 +18,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="l_wrap">
+      <%= render :partial => "shared/header" %>
+      <div class="l_contents l_contents_no-footer">
+        <%= yield %>
+      </div>
+      <%= render :partial => "shared/footer" %>
+    </div>
   </body>
 </html>
