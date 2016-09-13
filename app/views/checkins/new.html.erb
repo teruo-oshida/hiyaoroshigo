@@ -28,11 +28,7 @@
         id: r.id,
         distance: distance
       };
-    }).sort(function(x, y) {
-      if (x.distance < y.distance) { return -1; }
-      else if (x.distance > y.distance) { return 1; }
-      else { return 0; }
-    })[0];
+    }).sort(function(x, y) { return x.distance - y.distance; })[0];
     $('#checkin_restaurant_id').val(nearest_restaurant.id);
   });
 </script>
