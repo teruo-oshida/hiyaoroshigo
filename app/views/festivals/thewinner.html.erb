@@ -1,6 +1,9 @@
-﻿<h1>結果発表</h1>
-<div>
-  <p>1位は...</p>
-  <p><%= @sake.name %></p>
-  <p><%= image_tag @sake.photo.url %></p>
+﻿<div class="thewinner">
+<h1 class="thewinner-title">結果発表</h1>
+<div class="thewinner-wrap-content">
+  <p class="thewinner-no1">1位は...</p>
+  <p class="thewinner-hiyaoroshi"><%= @sake.name %></p>
+  <p class="thweinner-image">
+    <%= image_tag @sake.photo.url %>
+  </p>
 </div>

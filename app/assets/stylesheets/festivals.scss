@@ -1,3 +1,11 @@
 // Place all the styles related to the festivals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.thewinner
+{
+  text-align:center; margin-top:0px;padding-top:0px;
+  #{&}-title { margin-top:-2vw; font-size:7vw }
+  #{&}-wrap-content { background-image:url(""); padding-bottom:20vw; padding-top:11vw;}
+  #{&}-no1{ font-weight:bold; font-size:6vw; margin-bottom:2vw; }
+  #{&}-hiyaoroshi{ font-weight:bold; font-size:7vw; margin-top:0px; color:#D30F13; }
+}
