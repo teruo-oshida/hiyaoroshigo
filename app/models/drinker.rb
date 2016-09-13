@@ -15,7 +15,6 @@ class Drinker < ApplicationRecord
     unless drinker
       if Ticket.find_by(params[:passcode]).used?
         drinker = Drinker.new(full_name:     auth.extra.raw_info.name,
-                              name:     auth.extra.raw_info.name,
                               provider: auth.provider,
                               uid:      auth.uid,
                               email:    auth.info.email,
