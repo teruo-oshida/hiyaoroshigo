@@ -44,6 +44,7 @@ gem 'typus', git: "https://github.com/typus/typus", branch: "5-0-unstable"
 gem 'kaminari'
 gem 'paperclip'
 gem 'gmaps4rails'
+gem 'font-awesome-rails'
 gem 'unicorn'
 
 group :development, :test do
