@@ -1,4 +1,6 @@
 class DrinkingsController < ApplicationController
+  before_action :authenticate_drinker!
+
   def new
     @drinking = Drinking.new
     @drinking.build_vote
