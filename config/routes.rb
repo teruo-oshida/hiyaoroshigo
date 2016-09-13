@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/drinkers/edit", to: "drinkers#edit"
   post "/drinker/", to: "drinkers#update"
   resources :drinkers, only: [:show, :edit, :update]
-  resources :drinkings, only: [:new, :create, :destroy]
+  resources :drinkings, only: [:show, :new, :create, :destroy]
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
   resources :checkins, only: [:new, :create]

@@ -4,6 +4,9 @@ class Drinking < ApplicationRecord
   belongs_to :restaurant
   belongs_to :sake
   belongs_to :sake_temperature
-  has_one :vote
+  has_one :vote, dependent: :destroy
   accepts_nested_attributes_for :vote
+
+  # 松江トランキーロ2016に関しては各お酒への投票は一人一回のみ
+  validates :drinker_id, uniqueness: { scope: %i(sake_id) }
 end
