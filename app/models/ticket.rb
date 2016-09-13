@@ -11,11 +11,11 @@ class Ticket < ApplicationRecord
   end
 
   def used?
-    self&.drinker_id.nil?
+    !self&.drinker_id.nil?
   end
 
   private
-  
+
   def set_passcode
     self.passcode ||= SecureRandom.hex(3)
   end
