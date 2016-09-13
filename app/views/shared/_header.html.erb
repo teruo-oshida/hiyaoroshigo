@@ -1,7 +1,11 @@
 <header class="l_header">
   <div class="l_header_contents">
-    <a class="profile-btn m_btn m_btn_small m_btn_circle">
-      <img src="">
-    </a>
+    <% unless profile %>
+     <a href="javascript:history.back();" class="profile-back">戻る</a>
+    <% else %>
+     <a class="profile-btn m_btn m_btn_small m_btn_circle">
+       <img src="">
+     </a>
+    <% end %>
   </div>
 </header>

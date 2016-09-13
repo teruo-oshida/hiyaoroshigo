@@ -1,3 +1,34 @@
 // Place all the styles related to the drinkers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-edit { display:none; }
+.profile-back { padding-left:0px; }
+
+$border1:#E4E4E4;
+$border2:#DDDDDD;
+$background2:#F2F2F2;
+
+.profile { text-align:center; }
+
+.drinker-name
+{
+  font-size:20px; border-bottom: inset 2px $border1; margin:0px 15px;
+  button{ font-size:10px;}
+  input[type="submit"]{font-size:10px;}
+  input[type="text"]{width:10em;}
+}
+
+.sake-title { font-size:1.8em; border-bottom: inset 2px $border1; margin:0px 15px; }
+
+.drinker-log { height:50%; margin-top:30px; padding-top:20px; padding-bottom:30px; background-color:$background2; }
+
+.logs{ height:10em; overflow:scroll; -webkit-overflow-scrolling: touch; margin:0px 15px; }
+
+.log
+{
+  margin:10px 0px; border-bottom: inset 2px $border2;
+  p{margin:-2px 0px; padding:0px; text-align:left;}
+  #{&}-date{ font-size:15px; }
+  #{&}-sake{ }
+}
+
