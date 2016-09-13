@@ -18,7 +18,6 @@ class DrinkersController < ApplicationController
   end
 
   def update
-    p params[:drinker][:name]
     drinker = current_drinker
     drinker.name = params[:drinker][:name]
     drinker.save
