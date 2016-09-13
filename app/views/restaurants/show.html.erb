@@ -25,7 +25,7 @@
   var sakes = <%= raw @restaurant.sakes.map { |sake|
     if sake.voted?(current_drinker)
       text  = '投票を取り消す'
-      url   = drinking_path(1)
+      url   = drinking_path(@drinkings.find_by(sake: sake))
       klass = 'normal cancel'
     else
       text  = '投票'

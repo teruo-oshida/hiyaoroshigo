@@ -15,7 +15,12 @@ class DrinkingsController < ApplicationController
     Drinking.create!(drinking_params.merge(drinker: current_drinker))
   end
 
+  def show
+    @drinking = Drinking.find(params[:id])
+  end
+
   def destroy
+    Drinking.find(params[:id]).destroy!
   end
 
   private
