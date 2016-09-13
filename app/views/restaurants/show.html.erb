@@ -4,18 +4,35 @@
 <div id="checkin-panel">
   <%= link_to "今いるお店が、上記と違う場合はこちら", new_checkin_path %>
 </div>
-<div id="sakes">
-  <% @restaurant.sakes.each do |sake| %>
-    <div class="sake">
-      <%= image_tag sake.photo(:medium), alt: sake.name %>
-    </div>
-  <% end %>
+<div id="sake-select-panel">
+  <div class="shouji">
+    <%= image_tag asset_path("shouji_left_x2.png") %>
+  </div>
+  <div id="sakes">
+    <% @restaurant.sakes.each do |sake| %>
+      <div class="sake">
+        <%= image_tag sake.photo(:medium), alt: sake.name %>
+      </div>
+    <% end %>
+  </div>
+  <div class="shouji">
+    <%= image_tag asset_path("shouji_right_x2.png") %>
+  </div>
 </div>
 <div id="sake-info">
-  <div id="sake-name"></div>
-  <div class="vote-button-area">
-    <%= render 'show' %>
+  <div class="sake-change">
+    <%= image_tag asset_path("slider-prev.png"),
+                  onclick: "$('#sakes').slick('slickPrev');" %>
   </div>
+  <div id="sake-name">
+  </div>
+  <div class="sake-change">
+    <%= image_tag asset_path("slider-next.png"),
+                  onclick: "$('#sakes').slick('slickNext');" %>
+  </div>
+</div>
+<div class="vote-button-area">
+  <%= render 'show' %>
 </div>
 <div id="vote-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 </div>
@@ -40,7 +57,7 @@
 
   $('#sakes').slick({
     infinite: false,
-    arrows: true,
+    arrows: false,
     dots: true
   });
 
