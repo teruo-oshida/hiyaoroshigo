@@ -1,0 +1,24 @@
+<%= button_to '投票', '', id: 'vote-button', class: 'normal', method: :get, remote: true, form: { id: 'vote' } %>
+
+<script type="text/javascript">
+  var index = 0;
+  var sakes = <%= raw @restaurant.sakes.map { |sake|
+    if sake.voted?(current_drinker)
+      text  = '投票を取り消す'
+      url   = drinking_path(@drinkings.find_by(sake: sake))
+      klass = 'normal cancel'
+    else
+      text  = '投票'
+      url   = new_drinking_path(restaurant_id: @restaurant.id, sake_id: sake.id)
+      klass = 'normal'
+    end
+    { name: sake.name, vote_text: text, vote_url: url, klass: klass }
+  }.to_json %>;
+
+  var currentSlide = $('#sakes').slick('slickCurrentSlide');
+
+  setSakeName(sakes[currentSlide].name);
+  setVoteText(sakes[currentSlide].vote_text);
+  setVoteUrl(sakes[currentSlide].vote_url);
+  setVoteButtonClass(sakes[currentSlide].klass);
+</script>

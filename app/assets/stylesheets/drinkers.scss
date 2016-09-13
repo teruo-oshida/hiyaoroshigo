@@ -9,7 +9,7 @@ $border2:#DDDDDD;
 $background2:#F2F2F2;
 
 .profile { text-align:center; }
-
+.profile-warning { font-size:2vw; }
 .drinker-name
 {
   font-size:20px; border-bottom: inset 2px $border1; margin:0px 15px;
@@ -31,4 +31,5 @@ $background2:#F2F2F2;
   #{&}-date{ font-size:15px; }
   #{&}-sake{ }
 }
+
 
