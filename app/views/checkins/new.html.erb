@@ -4,6 +4,9 @@
     <p><%= f.collection_select(:restaurant_id, @restaurants, :id, :official_name) %></p>
     <p id="checkin-button"><%= f.submit "チェックイン", class: "normal" %></p>
   <% end %>
+  <p id="checkin-notice">
+  チェックイン情報は30分間有効です。
+  </p>
 </div>
 
 <script type="text/javascript">

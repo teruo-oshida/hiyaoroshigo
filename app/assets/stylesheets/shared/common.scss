@@ -1,24 +1,10 @@
-button.sign-in{
-    width:245px;
-    height:45px;
-    background-image: url(../assets/wood_button.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    border-style: none;
-    border-bottom: 4px solid #977C12;
-    border-radius: 14px;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 700;
-}
-
 input[type=submit].normal,
 input[type=button].normal {
   width: 60vw;
   height: 10vw;
   font-size: 5vw;
   font-weight: bold;
-  // background-color: #f1ca03;
+  background-color: #f1ca03;
   background-image: url(../../assets/wood_button.png);
   background-repeat: repeat;
   border-bottom: 1vw solid #977C12;
