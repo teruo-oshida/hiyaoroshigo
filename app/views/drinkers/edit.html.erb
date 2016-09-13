@@ -13,7 +13,7 @@
 </script>
 
 <div class="profile">
-  <p><b>ユーザーネーム</b></p>
+  <p><b>トランキーロネーム(酒呑みニックネーム)</b></p>
   <%= form_for(@drinker) do |f| %>
     <p class="drinker-name">
     <span class="profile-show"><%= @drinker.name %></span>
@@ -23,17 +23,18 @@
     <span class="profile-edit"><button onClick="cancel();" type="button">キャンセル</button></span>
     </p>
   <% end %>
+  <p class="profile-warning">※トランキーロネーム、称号、呑みログは公開されます</p>
 </div>
 <div class="profile">
   <p><b>称号</b></p>
   <p class="sake-title">島根の酒豪</p>
 </div>
 <div class="drinker-log profile">
-  <p><b>飲み歩き伝</b></p>
+  <p><b>呑みログ</b></p>
   <div class="logs">
   <% @drinker.drinkings.reverse_each do |drink| %>
     <div class="log">
-      <p class="log-date"><%= drink.created_at.strftime("%Y.%m.%d") %></p>
+      <p class="log-date"><%= drink.created_at.strftime("%Y.%m.%d %h:%m") %></p>
       <p class="log-sake"><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
     </div>
   <% end %>
