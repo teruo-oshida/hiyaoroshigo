@@ -14,8 +14,7 @@ Rails.application.routes.draw do
     resources :sakes, only: [:index]
   end
   get "/drinkers/edit", to: "drinkers#edit"
-  post "/drinker/", to: "drinkers#update"
-  resources :drinkers, only: [:show, :edit, :update]
+  resource :drinkers, only: [:edit, :update]
   resources :drinkings, only: [:new, :create, :destroy]
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
