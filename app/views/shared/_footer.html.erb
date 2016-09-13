@@ -1,10 +1,12 @@
 <footer class="l_footer">
-  <% 3.times.each do %>
-    <a class="m_btn m_btn_with-caption">
-      <div class="m_btn_img">
-      </div>
-      <span class="m_btn_text"></span>
-    </a>
-  <% end %>
+  <div class="footer-btn">
+    <%= link_to "", "/restaurants/vote", class: "footer-vote" %>
+  </div>
+  <div class="footer-btn">
+    <%= link_to "", "/restaurants/map", class: "footer-map" %>
+  </div>
+  <div class="footer-btn">
+    <%= link_to "", "/thewinner", class: "footer-winner" %>
+  </div>
 </footer>
 

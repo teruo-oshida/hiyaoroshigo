@@ -8,7 +8,8 @@ $footer-height: 13vw;
   bottom: 0;
   height: $footer-height;
   width: 100%;
-  $footer-bg-color: #0f0f0f;
+  overflow: hidden;
+  $footer-bg-color: #ffe9a9;
   background-color: $footer-bg-color;
   display: flex;
   justify-content: space-around;
@@ -16,6 +17,35 @@ $footer-height: 13vw;
 
   &_profile-btn {
     background-color: white;
+  }
+
+  & .footer-btn {
+    width: 33.3333333%;
+    height: $footer-height;
+    background-image: url(../../assets/wood-backgrand.png);
+    background-size: cover;
+    border-left:1px solid #ffffff;
+    border-right:1px solid #ceaf7c;
+    box-sizing: border-box;
+    text-align: center;
+    float: left;
+
+    & a {
+	width: 100%;
+	height: $footer-height;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center center;
+    }
+    & a.footer-vote {
+	background-image: url(../../assets/wood-post-on-40.png);
+    }
+    & a.footer-map {
+	background-image: url(../../assets/wood-map-on-40.png);
+    }
+    & a.footer-winner {
+	background-image: url(../../assets/wood-win-on-40.png);
+    }
   }
 }
 
