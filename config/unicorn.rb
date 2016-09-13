@@ -1,7 +1,7 @@
 worker_processes 4
 
-listen '/tmp/unicorn.sock'
-pid    '/tmp/unicorn.pid'
+listen File.expand_path('tmp/sockets/unicorn.sock')
+pid    File.expand_path('tmp/pids/unicorn.pid')
 
 stderr_path File.expand_path('log/unicorn.log')
 stdout_path File.expand_path('log/unicorn.log')
