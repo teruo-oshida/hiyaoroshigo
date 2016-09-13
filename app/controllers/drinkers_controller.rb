@@ -2,7 +2,11 @@ class DrinkersController < ApplicationController
   before_action :authenticate_drinker!, only:[:edit, :show, :update]
 
   def redirector
-    redirect_to '/drinker/auth/facebook?passcode='+params[:passcode]
+    if params[:passcode].present?
+      redirect_to '/drinker/auth/facebook?passcode='+params[:passcode]
+    else
+      redirect_to '/login'
+    end
   end
 
   def login
