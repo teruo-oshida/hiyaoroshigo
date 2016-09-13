@@ -1,6 +1,6 @@
 <header class="l_header">
   <div class="l_header_contents">
-    <% if defined?(profile) %>
+    <% unless profile %>
      <a href="javascript:history.back();" class="profile-back">戻る</a>
     <% else %>
      <a class="profile-btn m_btn m_btn_small m_btn_circle">
