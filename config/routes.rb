@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   get "/drinkers/edit", to: "drinkers#edit"
   resource :drinkers, only: [:edit, :update]
-  resources :drinkings, only: [:new, :create, :destroy]
+  resources :drinkings, only: [:show, :new, :create, :destroy]
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
   resources :checkins, only: [:new, :create]

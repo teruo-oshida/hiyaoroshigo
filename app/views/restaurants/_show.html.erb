@@ -1,0 +1,53 @@
+<%= button_to '投票', '', id: 'vote-button', class: 'normal', method: :get, remote: true, form: { id: 'vote' } %>
+
+<script type="text/javascript">
+  var index = 0;
+  var sakes = <%= raw @restaurant.sakes.map { |sake|
+    if sake.voted?(current_drinker)
+      text  = '投票を取り消す'
+      url   = drinking_path(@drinkings.find_by(sake: sake))
+      klass = 'normal cancel'
+    else
+      text  = '投票'
+      url   = new_drinking_path(restaurant_id: @restaurant.id, sake_id: sake.id)
+      klass = 'normal'
+    end
+    { name: sake.name, vote_text: text, vote_url: url, klass: klass }
+  }.to_json %>;
+
+  function setSakeName(name) {
+    $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br/>'));
+  }
+
+  function setVoteText(text) {
+    $('#vote-button').val(text);
+  }
+
+  function setVoteUrl(url) {
+    $('#vote').attr('action', url);
+  }
+
+  function setVoteButtonClass(class_name) {
+    $('#vote-button').removeClass();
+    $('#vote-button').addClass(class_name);
+  }
+
+  setSakeName(sakes[0].name);
+  setVoteText(sakes[0].vote_text);
+  setVoteUrl(sakes[0].vote_url);
+  setVoteButtonClass(sakes[0].klass);
+
+  $('#sakes').slick({
+    infinite: false,
+    arrows: true,
+    dots: true
+  });
+
+  $('#sakes').on('afterChange', function(e, slick, currentSlide) {
+    index = currentSlide;
+    setSakeName(sakes[index].name);
+    setVoteText(sakes[index].vote_text);
+    setVoteUrl(sakes[index].vote_url);
+    setVoteButtonClass(sakes[index].klass);
+  });
+</script>

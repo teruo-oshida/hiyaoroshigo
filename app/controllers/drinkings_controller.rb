@@ -1,4 +1,7 @@
 class DrinkingsController < ApplicationController
+  before_action :authenticate_drinker!
+  before_action :set_drinking, only: %i(show destroy)
+
   def new
     @drinking = Drinking.new
     @drinking.build_vote
@@ -10,13 +13,32 @@ class DrinkingsController < ApplicationController
   end
 
   def create
-    Drinking.create(drinking_params.merge(drinker: current_drinker))
+    drinking = Drinking.new(drinking_params.merge(drinker: current_drinker))
+    drinking.save!
+
+    @restaurant = drinking.restaurant
+    @drinkings  = Drinking.where(drinker:    current_drinker,
+                                 restaurant: @restaurant,
+                                 sake:       @restaurant.sakes)
+  end
+
+  def show
   end
 
   def destroy
+    @drinking.destroy!
+
+    @restaurant = @drinking.restaurant
+    @drinkings  = Drinking.where(drinker:    current_drinker,
+                                 restaurant: @restaurant,
+                                 sake:       @restaurant.sakes)
   end
 
   private
+
+  def set_drinking
+    @drinking = Drinking.find(params[:id])
+  end
 
   def drinking_params
     params.require(:drinking)

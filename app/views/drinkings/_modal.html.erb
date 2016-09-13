@@ -9,7 +9,7 @@
       <p>飲み方</p>
       <div class="field">
         <% @temperatures.each do |t| %>
-          <%= f.radio_button :sake_temperature_id, t.id %>
+          <%= f.radio_button :sake_temperature_id, t.id, checked: t.default? %>
           <%= f.label :sake_temperature_id, t.name, value: t.id %>
         <% end %>
         <%= f.hidden_field :festival_id, value: @festival_id %>
@@ -20,13 +20,13 @@
       <%= f.fields_for :vote do |v| %>
         <div class="field">
           <% (Vote::MIN_SCORE..Vote::MAX_SCORE).each do |i| %>
-            <%= v.radio_button :score, i %>
+            <%= v.radio_button :score, i, checked: (i == Vote::DEFAULT_SCORE) %>
           <% end %>
         </div>
       <% end %>
     </div>
     <div class="modal-footer">
-      <%= f.submit '投票', class: 'close' %>
+      <%= f.submit '投票', class: 'normal close' %>
     </div>
   <% end %>
 </div>
