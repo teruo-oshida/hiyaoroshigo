@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<% profile = yield:profile %>
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
@@ -18,12 +19,13 @@
   </head>
 
   <body>
-    <div class="l_wrap">
-      <%= render partial: "shared/header", locals: {profile: (yield :profile)} %>
-      <div class="l_contents <%= 'l_contents_no-footer' if (yield :profile).blank? %>">
+  <div class="l_wrap">
+
+      <%= render partial: "shared/header", locals: {profile: profile.blank?} %>
+      <div class="l_contents <%= 'l_contents_no-footer' unless profile.blank? %>">
         <%= yield %>
       </div>
-      <%= render partial: "shared/footer" if (yield :profile).blank? %>
+      <%= render partial: "shared/footer" if profile.blank? %>
     </div>
   </body>
 </html>
