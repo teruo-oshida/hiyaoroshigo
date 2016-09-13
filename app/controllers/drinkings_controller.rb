@@ -1,28 +1,26 @@
 class DrinkingsController < ApplicationController
-  def index
-    @drinking = Drinking.new
-    @vote = Vote.new
-  end
-
   def new
-    @drinking = Drinking.create(sake_id: params[:sake_id], drinker_id: current_drinker.id)
-    @vote = Vote.create(drinking_id: @drinking.id, score: 0)
+    @drinking = Drinking.new
+    @drinking.build_vote
+
+    @festival_id   = Festival.current&.take&.id
+    @restaurant_id = params[:restaurant_id]
+    @sake_id       = params[:sake_id]
+    @temperatures  = SakeTemperature.enabled
   end
 
   def create
-   # @drinking = Drinking.create(drinking_params)
-    @vote = Vote.create(vote_params)
+    Drinking.create(drinking_params.merge(drinker: current_drinker))
   end
 
-  def show
+  def destroy
   end
 
   private
-    def drinking_params
-      params.require(:drinking).permit(:sake_id)
-    end
 
-    def vote_params
-      params.require(:vote).permit(:drinking_id, :score)
-    end
+  def drinking_params
+    params.require(:drinking)
+          .permit(:festival_id, :restaurant_id, :sake_id, :sake_temperature_id,
+                  vote_attributes: :score)
+  end
 end

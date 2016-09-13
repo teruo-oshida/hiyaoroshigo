@@ -1,32 +1,54 @@
-<div id="sakes">
-<% @restaurant.sakes.each do |sake| %>
-  <div class="sake"><%= image_tag sake.photo.url, alt: sake.name %></div>
-<% end %>
+<div id="restaurant-name">
+  <%= @restaurant.official_name %>
 </div>
-<div id="info">
-<div id="sakename"></div>
-<div><button onclick="vote()">投票</button></div>
+<div id="checkin-panel">
+  <%= link_to "今いるお店が、上記と違う場合はこちら", new_checkin_path %>
+</div>
+<div id="sakes">
+  <% @restaurant.sakes.each do |sake| %>
+    <div class="sake">
+      <%= image_tag sake.photo(:medium), alt: sake.name %>
+    </div>
+  <% end %>
+</div>
+<div id="sake-info">
+  <div id="sake-name"></div>
+  <div>
+    <%= button_to '投票', '', class: 'normal', method: :get, remote: true, form: { id: 'vote' } %>
+  </div>
+</div>
+<div id="vote-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 </div>
 
 <script type="text/javascript">
-var index = 0;
-var sakes = <%= raw @restaurant.sakes.map { |sake|
-  {
-    "name" => sake.name,
-    "vote_url" => drinkings_new_path(sake_id: sake.id)
+  var index = 0;
+  var sakes = <%= raw @restaurant.sakes.map { |sake|
+    {
+      "name"     => sake.name,
+      "vote_url" =>
+        new_drinking_path(restaurant_id: @restaurant.id, sake_id: sake.id)
+    }
+  }.to_json %>;
+
+  function setSakeName(name) {
+    $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br/>'));
   }
-}.to_json %>;
-$('#sakes').slick({
-  infinite: false,
-  arrows: true,
-  dots: true
-});
-$('#sakes').on('afterChange', function(e, slick, currentSlide) {
-  index = currentSlide;
-  $('#sakename').empty().append(sakes[currentSlide].name);
-});
-$('#sakename').empty().append(sakes[0].name);
-function vote() {
-  location.href = sakes[index].vote_url;
-}
+
+  function setVoteUrl(url) {
+    $('#vote').attr('action', url);
+  }
+
+  $('#sakes').slick({
+    infinite: false,
+    arrows: true,
+    dots: true
+  });
+
+  $('#sakes').on('afterChange', function(e, slick, currentSlide) {
+    index = currentSlide;
+    setSakeName(sakes[currentSlide].name);
+    setVoteUrl(sakes[index].vote_url);
+  });
+  setSakeName(sakes[0].name);
+  setVoteUrl(sakes[0].vote_url);
 </script>

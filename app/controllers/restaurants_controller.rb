@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     if request.xhr?
-      render partial: "show", locals: { restaurant: @restaurant }
+      render partial: "detail", locals: { restaurant: @restaurant }
     end
   end
 
@@ -22,14 +22,11 @@ class RestaurantsController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
       marker.picture({
-        url: "/assets/marker#{restaurant.congestion_degree}.png",
+        url: "/assets/marker#{restaurant.current_congestion_degree}.png",
         width: 42,
         height: 42
       })
-      # max = restaurant.tickets.count
-      # current = 
-      #   restaurant.checkins.where("created_at > ?", 60.minutes.ago).count
-      # marker.infowindow "#{restaurant.name} (#{current}/#{max})"
+      marker.infowindow restaurant.official_name
       marker.title restaurant.id.to_s
     end
   end

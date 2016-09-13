@@ -14,3 +14,15 @@
  *= require_tree .
  *= require_self
  */
+
+input.normal {
+  width: 60vw;
+  height: 10vw;
+  font-size: 5vw;
+  font-weight: bold;
+  background-color: #f1ca03;
+  color: #ffffff;
+  border-style: none;
+  border-radius: 2vw;
+  box-shadow: 0vw 1vw 0vw 0vw #ccb200;
+}

@@ -8,6 +8,8 @@
 
 require "csv"
 
+RESTAURANT_ICON_DIR = File.expand_path("seeds/images/restaurant_icons", __dir__)
+
 Sake.transaction do
   [
     [1, "ロック（加氷）", nil, false],
@@ -28,17 +30,22 @@ Sake.transaction do
   mtq2016.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
   mtq2016.save!
   restaurants = [
-    ["そば遊山", "35.4691079", "133.0520847"],
-    ["谷屋", "35.4659394", "133.056769"],
-    ["誘酒庵", "35.4637313", "133.0586467"],
-    ["老虎", "35.4658421", "133.0593685"],
-    ["東風", "35.4587895", "133.0586756"]
-  ].map { |name, latitude, longitude|
-    r = Restaurant.find_or_create_by!(name: name)
-    r.latitude = latitude
-    r.longitude = longitude
-    r.save!
-    r
+    ["そば遊山", "そば遊山", "35.469174", "133.054291", "yu-zan.png", 30],
+    ["谷屋", "小料理 酒 谷屋", "35.466007", "133.058943", "taniya.png", 32],
+    ["誘酒庵", "誘酒庵", "35.463729", "133.059200", "yushu-an.png", 38],
+    ["老虎", "中国酒家 老虎", "35.465821", "133.059930", "lao-fuu.png", 30],
+    ["東風", "手打ちそば 東風", "35.458775", "133.060870", "tofu-gochi.png", 20]
+  ].map { |name, official_name, latitude, longitude, icon_file, capacity|
+    File.open(File.join(RESTAURANT_ICON_DIR, icon_file)) { |icon|
+      r = Restaurant.find_or_create_by!(name: name)
+      r.official_name = official_name
+      r.latitude = latitude
+      r.longitude = longitude
+      r.icon = icon
+      r.capacity = capacity
+      r.save!
+      r
+    }
   }
   restaurants.each do |restaurant|
     RestaurantParticipation.find_or_create_by!(festival: mtq2016,
@@ -51,7 +58,7 @@ Sake.transaction do
     東風,吉田酒造,"月山 純米吟醸生詰ひやおろし"
     東風,富士酒造,"出雲富士 秋雲純米ひやおろし"
     東風,木次酒造,"美波太平洋 純米原酒ひやおろし"
-    そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町木槽しぼり生詰瓶火入れ"
+    そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町 木槽しぼり生詰瓶火入れ"
     そば遊山,一宮酒造,"石見銀山 特別純米改良八反流ひやおろし"
     そば遊山,稲田本店,"稲田姫 いなたひめ良燗純米"
     老虎,旭日酒造,"十旭日 純米ひやおろし"
@@ -66,7 +73,9 @@ Sake.transaction do
   EOF
     r = restaurant_tbl[r_name]
     b = Brewery.find_or_create_by!(name: b_name)
-    s = Sake.find_or_create_by!(name: s_name, brewery: b)
+    s = Sake.find_or_create_by!(brewery: b)
+    s.name = s_name
+    s.save!
     SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
   end
 end

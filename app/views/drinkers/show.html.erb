@@ -7,10 +7,10 @@
 
 <div>
   <p><b>飲み歩き伝</b></p>
-  <% @drinker.drinkings.reverse_each do |drink| %>
+  <% @drinker.drinkings.order("created_at DESC").each do |drink| %>
     <div>
-      <p><%= drink.created_at.strftime("%Y.%m.%d") %></p>
-      <p><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
+      <p><%= drink.created_at.strftime("%Y.%m.%d %H:%M") %></p>
+      <p><%= drink.sake&.name %>  <%= drink.sake_temperature&.name %></p>
     </div>
   <% end %>
 </div>
