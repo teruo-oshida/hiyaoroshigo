@@ -12,7 +12,7 @@
   }
 </script>
 
-<div>
+<div class="profile">
   <p><b>ユーザーネーム</b></p>
   <%= form_for(@drinker) do |f| %>
     <p class="drinker-name">
@@ -24,11 +24,11 @@
     </p>
   <% end %>
 </div>
-<div>
+<div class="profile">
   <p><b>称号</b></p>
   <p class="sake-title">島根の酒豪</p>
 </div>
-<div class="drinker-log">
+<div class="drinker-log profile">
   <p><b>飲み歩き伝</b></p>
   <div class="logs">
   <% @drinker.drinkings.reverse_each do |drink| %>
@@ -38,10 +38,8 @@
     </div>
   <% end %>
   </div>
-</div>
 
-<div>
   <a rel="nofollow" data-method="delete" href="/drinker/sign_out">
-    <button class="normal">ログアウト</button>
+    <input type="button" value="ログアウト" class="normal">
   </a>
 </div>
