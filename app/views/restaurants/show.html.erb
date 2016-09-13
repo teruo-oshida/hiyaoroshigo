@@ -20,10 +20,19 @@
   </div>
 </div>
 <div id="sake-info">
-  <div id="sake-name"></div>
-  <div class="vote-button-area">
-    <%= render 'show' %>
+  <div class="sake-change">
+    <%= image_tag asset_path("slider-prev.png"),
+                  onclick: "$('#sakes').slick('slickPrev');" %>
   </div>
+  <div id="sake-name">
+  </div>
+  <div class="sake-change">
+    <%= image_tag asset_path("slider-next.png"),
+                  onclick: "$('#sakes').slick('slickNext');" %>
+  </div>
+</div>
+<div class="vote-button-area">
+  <%= render 'show' %>
 </div>
 <div id="vote-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 </div>

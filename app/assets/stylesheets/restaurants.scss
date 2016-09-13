@@ -75,14 +75,29 @@
 }
 
 #sake-info {
+    margin-top: 4vw;
+    overflow: hidden;
     text-align: center;
 }
-#sake-info div {
-    padding: 4vw;
+.sake-change {
+    width: 15vw;
+    float: left;
+}
+.sake-change img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4vw;
 }
 #sake-name {
     font-size: 4vw;
+    width: 70vw;
     height: 12vw;
+    float: left;
+}
+.vote-button-area {
+    margin-top: 4vw;
+    text-align: center;
 }
 
 // ?
