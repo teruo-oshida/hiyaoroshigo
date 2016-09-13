@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get :signup, to: "drinkers#redirector"
   get :login, to: "drinkers#login"
   resources :festivals, only: [:index, :show]
+  get "/restaurants/vote", to: "restaurants#vote"
   get "/restaurants/map", to: "restaurants#map"
   resources :restaurants, only: [:index, :show] do
     resources :sakes, only: [:index]
