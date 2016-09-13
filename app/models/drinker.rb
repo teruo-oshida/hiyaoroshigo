@@ -40,4 +40,23 @@ class Drinker < ApplicationRecord
   def checked_in_restaurant_id
     latest_checkin&.restaurant_id
   end
+
+  def sake_title
+    drinks = drinkings.order(:created_at).pluck(:created_at)
+    case drinks.size
+    when 0...5  then '酒勇者見習い'
+    when 5...8  then '日本酒初級戦士'
+    when 8...10 then '山陰酒武闘家'
+    else gentle_pace?(drinks) ? '伝説の酒勇者' : '呑み過ぎ遊び人'
+    end
+  end
+
+  private
+
+  def gentle_pace?(drinked_ats)
+    froms = drinked_ats[0..-2]
+    tos   = drinked_ats[1..-1]
+    interval = 15 <= drinks.size ? 5.minutes : 10.minutes
+    froms.zip(tos).all? { |from, to| interval <= (to - from) }
+  end
 end
