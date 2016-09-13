@@ -1,29 +1,14 @@
 <script>
-function edit()
-{
-  $(".profile-show").css("display","none");
-  $(".profile-edit").css("display","inline");
-}
-function cancel()
-{
-  $(".profile-show").css("display","inline");
-  $(".profile-edit").css("display","none");
-}
-function h_update()
-{
-  $.ajax({
-    url: "/drinker/",
-    type:"POST",
-    datatype:"json",
-    data: {"drinker":{"name":"uwaaaa"}},
-    timeout:10000
-  })
-  .success(function(data){
-      if(data.status == "success")
-      console.log("success!!");
-      console.log(data);
-  });
-}
+  function edit()
+  {
+   $(".profile-show").css("display","none");
+   $(".profile-edit").css("display","inline");
+  }
+  function cancel()
+  {
+   $(".profile-show").css("display","inline");
+   $(".profile-edit").css("display","none");
+  }
 </script>
 
 <div>
