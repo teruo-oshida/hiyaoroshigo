@@ -6,7 +6,8 @@ input[type=button].normal {
   font-weight: bold;
   background-color: #f1ca03;
   background-image: url(../../assets/wood_button.png);
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom: 1vw solid #977C12;
   color: #ffffff;
   border-style: none;
