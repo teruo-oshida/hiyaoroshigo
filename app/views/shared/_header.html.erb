@@ -1,11 +1,15 @@
 <header class="l_header">
   <div class="l_header_contents">
     <% unless profile %>
-     <a href="javascript:history.back();" class="profile-back">戻る</a>
+     <div class="profile-btn profile-back-btn">
+       <a href="javascript:history.back();">
+         <%= fa_icon "chevron-left" %>
+       </a>
+     </div>
     <% else %>
-     <a class="profile-btn m_btn m_btn_small m_btn_circle">
-       <img src="">
-     </a>
+     <div class="profile-btn profile-show-btn">
+       <%= link_to fa_icon("user"), "/drinkers/edit" %>
+     </div>
     <% end %>
   </div>
 </header>
