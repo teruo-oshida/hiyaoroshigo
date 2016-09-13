@@ -24,10 +24,7 @@
     var nearest_restaurant = restaurants.map(function(r) {
       var distance = Math.sqrt(Math.pow((r.latitude - lat) * lat2m, 2) +
                                Math.pow((r.longitude - lon) * lon2m, 2));
-      return {
-        id: r.id,
-        distance: distance
-      };
+      return { id: r.id, distance: distance };
     }).sort(function(x, y) { return x.distance - y.distance; })[0];
     $('#checkin_restaurant_id').val(nearest_restaurant.id);
   });
