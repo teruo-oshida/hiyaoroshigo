@@ -10,7 +10,7 @@ class DrinkingsController < ApplicationController
   end
 
   def create
-    Drinking.create(drinking_params.merge(drinker: current_drinker))
+    Drinking.create!(drinking_params.merge(drinker: current_drinker))
   end
 
   def destroy
