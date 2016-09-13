@@ -3,4 +3,5 @@ class Vote < ApplicationRecord
 
   MIN_SCORE = 1
   MAX_SCORE = 5
+  DEFAULT_SCORE = 3
 end
