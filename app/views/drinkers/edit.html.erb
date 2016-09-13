@@ -14,7 +14,7 @@
 <div>
   <p><b>ユーザーネーム</b></p>
   <%= form_for(@drinker) do |f| %>
-    <p>
+    <p class="drinker-name">
     <span class="profile-show"><%= @drinker.name %></span>
     <span class="profile-edit"><%= f.text_field :name%></span>
     <span class="profile-show"><button onClick="edit();" type="button">編集</button></span>
@@ -25,11 +25,17 @@
 </div>
 <div>
   <p><b>称号</b></p>
-  <p>島根の酒豪</p>
+  <p class="sake-title">島根の酒豪</p>
 </div>
-<div>
+<div class="drinker-log">
   <p><b>飲み歩き伝</b></p>
-  <div id="profile-log">
+  <div class="logs">
+   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
+   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
+   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
+   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
+   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
+   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
   <% @drinker.drinkings.reverse_each do |drink| %>
     <div>
       <p><%= drink.created_at.strftime("%Y.%m.%d") %></p>
