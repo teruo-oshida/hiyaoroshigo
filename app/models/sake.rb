@@ -3,7 +3,7 @@ class Sake < ApplicationRecord
   has_many :sake_menu_items
   has_many :drinkings
 
-  has_attached_file :photo, styles: { medium: "400x400#", thumb: "150x150#" }
+  has_attached_file :photo, styles: { medium: "588x412#", thumb: "150x150#" }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   def voted?(drinker)

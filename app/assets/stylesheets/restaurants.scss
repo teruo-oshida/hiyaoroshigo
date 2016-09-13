@@ -47,18 +47,31 @@
     color: #aa00cc;
 }
 
+#sake-select-panel {
+    margin-top: 6vw;
+    overflow: hidden;
+}
+
+.shouji {
+    width: 15vw;
+    float: left;
+}
+.shouji img {
+    width: 100%;
+}
+
 #sakes {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-top: 10vw;
+    width: 70vw;
+    float: left;
+    background-color: #ffe9a9;
 }
 
 .sake img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
-    height: 60vw;
+    width: 70vw;
+    height: 49vw;
 }
 
 #sake-info {
@@ -68,8 +81,8 @@
     padding: 4vw;
 }
 #sake-name {
-    font-size: 5vw;
-    height: 15vw;
+    font-size: 4vw;
+    height: 12vw;
 }
 
 // ?
