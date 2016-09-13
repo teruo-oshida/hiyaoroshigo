@@ -19,11 +19,11 @@
 
   <body>
     <div class="l_wrap">
-      <%= render :partial => "shared/header" %>
-      <div class="l_contents l_contents_no-footer">
+      <%= render partial: "shared/header", locals: {profile: (yield :profile)} %>
+      <div class="l_contents <%= 'l_contents_no-footer' if (yield :profile).blank? %>">
         <%= yield %>
       </div>
-      <%= render :partial => "shared/footer" %>
+      <%= render partial: "shared/footer" if (yield :profile).blank? %>
     </div>
   </body>
 </html>
