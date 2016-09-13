@@ -1,3 +1,4 @@
+<% provide :profile, "x" %>
 <script>
   function edit()
   {
@@ -30,21 +31,17 @@
 <div class="drinker-log">
   <p><b>飲み歩き伝</b></p>
   <div class="logs">
-   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
-   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
-   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
-   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
-   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
-   <div class="log"><p class="log-date">2016.09.18</p><p class="log-sake">純米吟醸「山田錦」 常温</p></div>
   <% @drinker.drinkings.reverse_each do |drink| %>
-    <div>
-      <p><%= drink.created_at.strftime("%Y.%m.%d") %></p>
-      <p><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
+    <div class="log">
+      <p class="log-date"><%= drink.created_at.strftime("%Y.%m.%d") %></p>
+      <p class="log-sake"><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
     </div>
   <% end %>
   </div>
 </div>
 
 <div>
-  <%= link_to "ログアウト", destroy_drinker_session_path, method: :delete %>
+  <a rel="nofollow" data-method="delete" href="/drinker/sign_out">
+    <button class="normal">ログアウト</button>
+  </a>
 </div>
