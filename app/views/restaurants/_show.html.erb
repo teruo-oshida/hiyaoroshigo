@@ -15,39 +15,10 @@
     { name: sake.name, vote_text: text, vote_url: url, klass: klass }
   }.to_json %>;
 
-  function setSakeName(name) {
-    $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br/>'));
-  }
+  var currentSlide = $('#sakes').slick('slickCurrentSlide');
 
-  function setVoteText(text) {
-    $('#vote-button').val(text);
-  }
-
-  function setVoteUrl(url) {
-    $('#vote').attr('action', url);
-  }
-
-  function setVoteButtonClass(class_name) {
-    $('#vote-button').removeClass();
-    $('#vote-button').addClass(class_name);
-  }
-
-  setSakeName(sakes[0].name);
-  setVoteText(sakes[0].vote_text);
-  setVoteUrl(sakes[0].vote_url);
-  setVoteButtonClass(sakes[0].klass);
-
-  $('#sakes').slick({
-    infinite: false,
-    arrows: true,
-    dots: true
-  });
-
-  $('#sakes').on('afterChange', function(e, slick, currentSlide) {
-    index = currentSlide;
-    setSakeName(sakes[index].name);
-    setVoteText(sakes[index].vote_text);
-    setVoteUrl(sakes[index].vote_url);
-    setVoteButtonClass(sakes[index].klass);
-  });
+  setSakeName(sakes[currentSlide].name);
+  setVoteText(sakes[currentSlide].vote_text);
+  setVoteUrl(sakes[currentSlide].vote_url);
+  setVoteButtonClass(sakes[currentSlide].klass);
 </script>
