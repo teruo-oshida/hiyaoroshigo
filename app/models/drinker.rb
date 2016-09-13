@@ -11,22 +11,25 @@ class Drinker < ApplicationRecord
   # TODO: パスフレーズを受け取ってticketレコードを紐付ける処理を追加する
   def self.find_for_facebook_oauth(auth,params)
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
-
+    status = false
+    status = true if drinker
     unless drinker
-      if Ticket.find_by(params[:passcode]).used?
-        drinker = Drinker.new(full_name:     auth.extra.raw_info.name,
-                              provider: auth.provider,
-                              uid:      auth.uid,
-                              email:    auth.info.email,
-                              token:    auth.credentials.token,
-                              password: Devise.friendly_token)
-        drinker.build_ticket
-        drinker.save
-        # TODO: エラー処理を追加する
+      ticket = Ticket.find_by(passcode: params["passcode"])
+      if Ticket.find_by(passcode: params["passcode"]).present?
+        unless ticket.used?
+          ticket.build_drinker(full_name:     auth.extra.raw_info.name,
+                               provider: auth.provider,
+                               uid:      auth.uid,
+                               email:    auth.info.email,
+                               token:    auth.credentials.token,
+                               password: Devise.friendly_token)
+          ticket.save!
+          status = true
+          drinker = ticket.drinker
+        end
       end
     end
-
-    drinker
+    {status: status, drinker: drinker}
   end
 
   def checked_in?
