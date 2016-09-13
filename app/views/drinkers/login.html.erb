@@ -1,5 +1,21 @@
+<div class="login-wrap">
+<div class="wrap-img">
+<img src="" class="login-img"/>
+</div>
 <form method="GET" action="/signup">
-  <input name="passcode" type="text">
-  <input type="submit" value="送信">
+<div class="wrap-passcode">
+  <b><p class="login-info">パスコードとは</p></b>
+  <input name="passcode" type="text" class="passcode">
+</div>
+<div class="button-wrap">
+  <button class="sign-in" type="submit">サインイン</button>
+</div>
 </form>
-  <a href="/drinker/auth/facebook">フェイスブックでログイン</a>
+<div class="facebook-button-wrap">
+  <b><p class="login-info">ログインしたことがある方は</p></b>
+  <button class="facebook" onClick="location.href='/drinker/auth/facebook'">Facebookでログイン</button>
+</div>
+<div class="login-terms">
+<a href="/terms">利用規約</a>
+</div>
+</div>
