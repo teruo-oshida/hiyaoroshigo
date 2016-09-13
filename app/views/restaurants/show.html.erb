@@ -19,3 +19,41 @@
 </div>
 <div id="vote-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 </div>
+
+<script type="text/javascript">
+  function setSakeName(name) {
+    $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br/>'));
+  }
+
+  function setVoteText(text) {
+    $('#vote-button').val(text);
+  }
+
+  function setVoteUrl(url) {
+    $('#vote').attr('action', url);
+  }
+
+  function setVoteButtonClass(class_name) {
+    $('#vote-button').removeClass();
+    $('#vote-button').addClass(class_name);
+  }
+
+  $('#sakes').slick({
+    infinite: false,
+    arrows: true,
+    dots: true
+  });
+
+  $('#sakes').on('afterChange', function(e, slick, currentSlide) {
+    index = currentSlide;
+    setSakeName(sakes[index].name);
+    setVoteText(sakes[index].vote_text);
+    setVoteUrl(sakes[index].vote_url);
+    setVoteButtonClass(sakes[index].klass);
+  });
+
+  setSakeName(sakes[0].name);
+  setVoteText(sakes[0].vote_text);
+  setVoteUrl(sakes[0].vote_url);
+  setVoteButtonClass(sakes[0].klass);
+</script>
