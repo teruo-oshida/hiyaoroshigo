@@ -38,8 +38,8 @@ class Restaurant < ApplicationRecord
 
   CONGESTION_LABELS = {
     1 => "お席に余裕あり",
-    2 => "（考え中）",
-    3 => "ほぼ満席"
+    2 => "賑わっています",
+    3 => "空席わずかです"
   }
   
   def congestion_label
