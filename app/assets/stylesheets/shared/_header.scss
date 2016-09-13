@@ -7,15 +7,34 @@ $header-height: 18vw;
   height: $header-height;
   $header-bg-color: #f0c12c;
   background-color: $header-bg-color;
+  background-image: url(../../assets/noren-background-1.png);
+  background-size: cover;
 
   &_contents {
-    padding: 10px 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    height: $header-height;
+    background-image: url(../../assets/noren-background-2.png);
+    background-size: contain;
+    background-repeat: repeat-x;
 
     & .profile-btn {
-      background-color: white;
+	width: 14vw;
+	height: 18vw;
+	padding-top: 8vw;
+	font-size: 8vw;
+
+	& a:link, & a:visited {
+	    color: white;
+	}
+    }
+
+    & .profile-show-btn {
+	padding-right: 3vw;
+	text-align: right;
+	float: right;
+    }
+
+    & .profile-back-btn {
+	padding-left: 3vw;
     }
   }
 }
@@ -23,23 +42,3 @@ $header-height: 18vw;
 .l_contents {
   padding-top: $header-height;
 }
-
-.m_btn {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-
-  &_small {
-    height: 50px;
-  }
-
-  &_circle {
-    &.m_btn_small {
-      width: 50px;
-      border-radius: 25px;
-    }
-  }
-}
-
