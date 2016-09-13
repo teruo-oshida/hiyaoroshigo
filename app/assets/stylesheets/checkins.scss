@@ -1,3 +1,26 @@
 // Place all the styles related to the checkins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#checkin {
+    padding: 4vw;
+    font-size: 5vw;
+    text-align: center;
+}
+
+#checkin select {
+    width: 80vw;
+    border-radius: 2vw;
+    border: solid 1px #888888;
+    margin: 0;
+    padding: 2vw;
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    box-sizing: content-box;
+}
+
+p#checkin-button {
+    margin-top: 10vw;
+}

@@ -15,7 +15,8 @@
  *= require_self
  */
 
-input.normal {
+input[type=submit].normal,
+input[type=button].normal {
   width: 60vw;
   height: 10vw;
   font-size: 5vw;

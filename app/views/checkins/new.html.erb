@@ -1,7 +1,38 @@
-<h1>Shops</h1>
-<div>
-  <%= form_for(@checkin) do %>
-    <%= collection_select(:restaurant, :id, @restaurants, :id, :name) %>
-    <input type="submit" value="送信"><input type="reset" value="リセット">
+<div id="checkin">
+  <%= form_for(@checkin) do |f| %>
+    <p>今いるお店を選んでチェックイン</p>
+    <p><%= f.collection_select(:restaurant_id, @restaurants, :id, :official_name) %></p>
+    <p id="checkin-button"><%= f.submit "チェックイン", class: "normal" %></p>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  var restaurants = <%= raw @restaurants.map { |r|
+    {
+      "id" => r.id,
+      "latitude" => r.latitude.to_f,
+      "longitude" => r.longitude.to_f
+    }
+  }.to_json %>
+
+  var lat2m = 110946.25761306843;
+  var lon2m = 91187.58845251965;
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var nearest_restaurant = restaurants.map(function(r) {
+      var distance = Math.sqrt(Math.pow((r.latitude - lat) * lat2m, 2) +
+                               Math.pow((r.longitude - lon) * lon2m, 2));
+      return {
+        id: r.id,
+        distance: distance
+      };
+    }).sort(function(x, y) {
+      if (x.distance < y.distance) { return -1; }
+      else if (x.distance > y.distance) { return 1; }
+      else { return 0; }
+    })[0];
+    $('#checkin_restaurant_id').val(nearest_restaurant.id);
+  });
+</script>

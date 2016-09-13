@@ -1,16 +1,19 @@
 class CheckinsController < ApplicationController
-   before_action :authenticate_drinker!
+  before_action :authenticate_drinker!
 
   def new
     @checkin = Checkin.new
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.order("id")
   end
 
   def create
-    restaurant_id = params[:restaurant][:id]
-    user_id = current_drinker.id
-    Checkin.create(restaurant_id: restaurant_id, drinker_id: user_id)
-    redirect_to restaurant_path(restaurant_id)
+    checkin = Checkin.create(checkin_params.merge(drinker: current_drinker))
+    redirect_to restaurant_path(checkin.restaurant)
   end
 
+  private
+
+  def checkin_params
+    params.require(:checkin).permit(:restaurant_id)
+  end
 end
