@@ -92,9 +92,9 @@
     width: 4vw;
 }
 #sake-name {
-    font-size: 4vw;
+    font-size: 6vw;
     width: 70vw;
-    height: 13vw;
+    height: 28vw;
     float: left;
 }
 .vote-button-area {
@@ -187,8 +187,10 @@ img.restaurant-icon {
 }
 
 #twitter {
+  padding-top: 4vw;
   padding-left: 4vw;
   padding-right: 4vw;
+  background-color: #f5f5f5;
   border-top: solid 1px #aaaaaa;
 }
 #twitter-title {
