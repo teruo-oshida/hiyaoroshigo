@@ -10,9 +10,7 @@ class Drinker::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_by_checkin_status
       sign_in @drinker[:drinker]
     else
-     logger.debug("failed!!")
-     # session["devise.facebook_data"] = request.env["omniauth.auth"]
-     redirect_to login_path;
+      redirect_to login_path, alert: @drinker[:error]
     end
   end
 

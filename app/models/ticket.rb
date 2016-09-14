@@ -10,8 +10,8 @@ class Ticket < ApplicationRecord
     "https://matsuetranquilo.shimane-oss.org/signup?passcode=" + passcode
   end
 
-  def used?
-    !self&.drinker_id.nil?
+  def unused?
+    drinker_id.nil?
   end
 
   private
