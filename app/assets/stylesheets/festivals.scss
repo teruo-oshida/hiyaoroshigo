@@ -20,3 +20,15 @@
     height: 49vw;
   }
 }
+
+.comingsoon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height:148vw;
+  background-image: url("../assets/top-coming-soon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
