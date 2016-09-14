@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     session[:drinker_return_to] = env['PATH_INFO']
     redirect_to login_path unless drinker_signed_in?
   end
+  
+  def after_sign_out_path_for(resource)
+    "/login"
+  end
 end
