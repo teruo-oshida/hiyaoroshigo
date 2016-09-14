@@ -7,8 +7,8 @@
        </a>
      </div>
    <% else %>
-     <% if restaurant.present?  %>
-       <span id="restaurant-name" ><%= restaurant %></span>
+     <% if title.present?  %>
+       <span id="header-title" ><%= title %></span>
      <% end %>
      <div class="profile-btn profile-show-btn">
        <%= link_to fa_icon("user"), "/drinkers/edit" %>
