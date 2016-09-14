@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "shared/common";
+
 .ui-dialog {
   display: table;
   height: 50vh !important;
@@ -26,8 +28,29 @@
 }
 
 .modal-text {
-  margin-top:    2vh;
-  margin-bottom: 2vh;
-  font-size:     4vw;
+  margin-top:    4vh;
+  margin-bottom: 4vh;
+  font-size:     5vw;
   font-weight:   bold;
+}
+
+.modal-body input[type=radio] {
+  display: none;
+}
+
+.modal-body input[type=radio]:checked + label {
+  margin:     2vw;
+  background: #f3c517;
+  color:      #FFF;
+  border:     none;
+}
+
+.modal-body label {
+  margin:        1.6vw;
+  padding:       3vw 5vw;
+  font-size:     5vw;
+  font-weight:   bold;
+  color:         #ccc;
+  border:        0.4vw solid #ccc;
+  border-radius: 4vw;
 }
