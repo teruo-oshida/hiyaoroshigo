@@ -14,11 +14,10 @@ class FestivalsController < ApplicationController
 
   def thewinner
     if current_festival.ended?
-      sakes  = Sake.all
-      sake = sakes.max do |sake|
-        sake.drinkings.sum { |drinking| drinking&.vote&.score.to_i }
-      end
-      @sake = sake
+      sake_id, sum_score =
+        Drinking.limit(1).group(:sake_id).joins(:vote).
+        order("sum_score DESC").sum(:score).first
+      @sake = Sake.find(sake_id)
     else
       @sake = nil
     end
