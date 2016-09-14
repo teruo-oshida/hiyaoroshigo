@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.includes(:sakes).find(params[:id])
     @drinkings  = Drinking.where(drinker:    current_drinker,
+                                 festival:   current_festival,
                                  restaurant: @restaurant,
                                  sake:       @restaurant.sakes)
     if request.xhr?
