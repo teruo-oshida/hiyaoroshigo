@@ -43,7 +43,7 @@ class FestivalTest < ActiveSupport::TestCase
       Vote.create(drinking: Drinking.create(festival_id: 2, sake_id: sake.id),
                   score: rand(5) + 1)
     }
-    winner, = sakes.max { |(_, x), (_, y)|  x <=> y }
+    winner, = sakes.max_by { |_, sum_score| sum_score }
     assert_equal(winner, Festival.find(1).winner.id)
   end
 end
