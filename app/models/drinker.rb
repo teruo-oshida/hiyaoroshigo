@@ -38,7 +38,8 @@ class Drinker < ApplicationRecord
   end
 
   def checked_in?
-    Checkin.exists?(:drinker_id => self.id)
+    Checkin.exists?(["drinker_id = ? and created_at >= ?",
+                     self.id, 30.minutes.ago])
   end
 
   def latest_checkin

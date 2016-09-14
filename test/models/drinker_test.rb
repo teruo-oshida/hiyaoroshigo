@@ -18,4 +18,15 @@ class DrinkerTest < ActiveSupport::TestCase
     Checkin.create!(drinker: drinker, restaurant_id: 2)
     assert_equal(2, drinker.checked_in_restaurant_id)
   end
+
+  test "checked_in?" do
+    drinker = Drinker.create!(email: "foo@example.com", password: "password")
+    assert_equal(false, drinker.checked_in?)
+    Checkin.create!(drinker: drinker, restaurant_id: 4,
+                    created_at: 30.minutes.ago)
+    assert_equal(false, drinker.checked_in?)
+    Checkin.create!(drinker: drinker, restaurant_id: 4,
+                    created_at: 29.minutes.ago)
+    assert_equal(true, drinker.checked_in?)
+  end
 end

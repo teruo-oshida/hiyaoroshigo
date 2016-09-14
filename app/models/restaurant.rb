@@ -17,7 +17,7 @@ class Restaurant < ApplicationRecord
   CONGESTION_DEGREES = [1, 2, 3]
 
   def current_congestion_degree
-    if congestion_degree.present? && updated_at > 60.minutes.ago
+    if congestion_degree.present? && updated_at >= 30.minutes.ago
       congestion_degree
     else
       f = recent_checkin_count.to_f / capacity
@@ -32,7 +32,7 @@ class Restaurant < ApplicationRecord
   end
 
   def recent_checkin_count
-    checkins.where("created_at > ?", 60.minutes.ago).
+    checkins.where("created_at >= ?", 30.minutes.ago).
       count("DISTINCT drinker_id")
   end
 
