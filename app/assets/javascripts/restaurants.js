@@ -1,6 +1,6 @@
 var restaurants = restaurants || {};
 
-restaurants.index = 0;
+restaurants.index = 0
 
 restaurants.setSakeName = function(name) {
   $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br>'));
@@ -19,11 +19,19 @@ restaurants.setVoteButtonClass = function(class_name) {
   $('#vote-button').addClass(class_name);
 };
 
+restaurants.setScore = function(score){
+  var text = "あなたの採点：";
+  for(var i=1;i<=5;i++)text+=i<=score?"★":"☆";
+  if(score<1||5<score)text="";
+  $('#sake-name').append('<br>'+text);
+}
+
 restaurants.updateSake = function() {
   this.setSakeName(this.sakes[this.index].name);
   this.setVoteText(this.sakes[this.index].vote_text);
   this.setVoteUrl(this.sakes[this.index].vote_url);
   this.setVoteButtonClass(this.sakes[this.index].klass);
+  this.setScore(this.sakes[this.index].score);
 };
 
 restaurants.selectSake = function(index) {
