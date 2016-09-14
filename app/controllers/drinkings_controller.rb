@@ -1,5 +1,6 @@
 class DrinkingsController < ApplicationController
   before_action :authenticate_drinker!
+  before_action :check_current_festival_not_ended
   before_action :set_drinking, only: %i(show destroy)
 
   def new

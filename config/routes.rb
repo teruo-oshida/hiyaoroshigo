@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resource :drinkers, only: [:edit, :update]
   resources :drinkings, only: [:show, :new, :create, :destroy]
   get :comingsoon, to: "festivals#comingsoon"
-  get :itsitoolate, to: "festivals#itstoolate"
+  get :itstoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
   resources :checkins, only: [:new, :create]
 end

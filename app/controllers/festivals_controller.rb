@@ -9,6 +9,9 @@ class FestivalsController < ApplicationController
     end
   end
 
+  def itstoolate
+  end
+
   def thewinner
     sakes  = Sake.all
     sake = sakes.max do |sake|

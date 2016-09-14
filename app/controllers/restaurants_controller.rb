@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_drinker!
+  before_action :check_current_festival_not_ended
 
   def index
     @restaurants = Restaurant.all
