@@ -14,4 +14,11 @@ class TicketTest < ActiveSupport::TestCase
                  ticket.passcode,
                  ticket.signup_url)
   end
+
+  test "unused return true or false" do
+    ticket = Ticket.new(drinker_id:"jon due", passcode:"abcdefg")
+    assert_not ticket.unused?, " 既にdrinker_idが代入されているなら、falseでなければならない"
+    ticket.drinker_id = nil
+    assert ticket.unused?, "drinker_idがnilなら、trueでなければならない"
+  end
 end
