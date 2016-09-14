@@ -10,4 +10,11 @@ class Sake < ApplicationRecord
   def voted?(drinker)
     drinkings.exists?(drinker: drinker)
   end
+
+  def self.winner
+    sake_id, sum_score =
+      Drinking.limit(1).group(:sake_id).joins(:vote).
+      order("sum_score DESC").sum(:score).first
+    find(sake_id)
+  end
 end

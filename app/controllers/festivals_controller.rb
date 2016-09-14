@@ -14,10 +14,7 @@ class FestivalsController < ApplicationController
 
   def thewinner
     if current_festival.ended?
-      sake_id, sum_score =
-        Drinking.limit(1).group(:sake_id).joins(:vote).
-        order("sum_score DESC").sum(:score).first
-      @sake = Sake.find(sake_id)
+      @sake = Sake.winner
     else
       @sake = nil
     end
