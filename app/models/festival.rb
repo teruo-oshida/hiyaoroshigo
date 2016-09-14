@@ -20,4 +20,10 @@ class Festival < ApplicationRecord
   def votable?
     started? && !ended?
   end
+
+  def winner
+    sake_id, = drinkings.limit(1).group(:sake_id).joins(:vote).
+      order("sum_score DESC").sum(:score).first
+    Sake.find(sake_id)
+  end
 end
