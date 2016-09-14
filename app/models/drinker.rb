@@ -11,12 +11,13 @@ class Drinker < ApplicationRecord
   # TODO: パスフレーズを受け取ってticketレコードを紐付ける処理を追加する
   def self.find_for_facebook_oauth(auth,params)
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
+    error = ""
     status = false
     status = true if drinker
     unless drinker
       ticket = Ticket.find_by(passcode: params["passcode"])
-      if Ticket.find_by(passcode: params["passcode"]).present?
-        unless ticket.used?
+      if ticket.present?
+        if ticket.unused?
           ticket.build_drinker(full_name:     auth.extra.raw_info.name,
                                provider: auth.provider,
                                uid:      auth.uid,
@@ -26,10 +27,14 @@ class Drinker < ApplicationRecord
           ticket.save!
           status = true
           drinker = ticket.drinker
+        else
+          error = "既に使われているパスコードです"
         end
+      else
+        error = "存在しないパスコードです"
       end
     end
-    {status: status, drinker: drinker}
+    {status: status, drinker: drinker, error: error}
   end
 
   def checked_in?
