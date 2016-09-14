@@ -2,10 +2,6 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_drinker!
   before_action :check_current_festival_not_ended
 
-  def index
-    @restaurants = current_festival.restaurants
-  end
-
   def show
     @restaurant = Restaurant.find(params[:id])
     @drinkings  = Drinking.where(drinker:    current_drinker,
