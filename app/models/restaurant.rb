@@ -45,4 +45,8 @@ class Restaurant < ApplicationRecord
   def congestion_label
     CONGESTION_LABELS[current_congestion_degree]
   end
+
+  def festival_sakes(festival)
+    sakes.where(["sake_menu_items.festival_id = ?", festival])
+  end
 end

@@ -9,7 +9,7 @@
     <%= image_tag asset_path("shouji_left_x2.png") %>
   </div>
   <div id="sakes">
-    <% @restaurant.sakes.each do |sake| %>
+    <% @restaurant.festival_sakes(@current_festival).each do |sake| %>
       <div class="sake">
         <%= image_tag sake.photo(:medium), alt: sake.name %>
       </div>

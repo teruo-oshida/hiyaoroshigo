@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
   var index = 0;
-  var sakes = <%= raw @restaurant.sakes.map { |sake|
+  var sakes = <%= raw @restaurant.festival_sakes(@current_festival).map { |sake|
     if sake.voted?(current_drinker)
       text  = '投票を取り消す'
       url   = drinking_path(@drinkings.find_by(sake: sake))
