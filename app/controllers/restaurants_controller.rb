@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :check_current_festival_not_ended
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = current_festival.restaurants
   end
 
   def show
@@ -26,7 +26,7 @@ class RestaurantsController < ApplicationController
   end
 
   def map
-    @restaurants = Restaurant.all
+    @restaurants = current_festival.restaurants
     @restaurant =
       current_drinker.latest_checkin&.restaurant ||
       current_drinker.ticket&.restaurant ||

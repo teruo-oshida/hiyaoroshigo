@@ -4,7 +4,7 @@ class CheckinsController < ApplicationController
 
   def new
     @checkin = Checkin.new
-    @restaurants = Restaurant.order("id")
+    @restaurants = current_festival.restaurants.order("id")
   end
 
   def create
