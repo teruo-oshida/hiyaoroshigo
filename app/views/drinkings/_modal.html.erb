@@ -20,7 +20,7 @@
       </div>
       <p class="hiya-modal_text">評価する</p>
       <%= f.fields_for :vote do |v| %>
-        <%= v.select :score, (Vote::MIN_SCORE..Vote::MAX_SCORE), {}, class: 'js-scores', selected:Vote::DEFAULT_SCORE %>
+        <%= v.select :score, (Vote::MIN_SCORE..Vote::MAX_SCORE), {selected: Vote::DEFAULT_SCORE}, class: 'js-scores' %>
       <% end %>
     </div>
     <div class="hiya-modal_footer">
