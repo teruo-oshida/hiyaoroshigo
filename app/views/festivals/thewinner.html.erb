@@ -1,9 +1,20 @@
-﻿<div class="thewinner">
-<h1 class="thewinner-title">結果発表</h1>
-<div class="thewinner-wrap-content">
+<div class="thewinner">
+<h1 class="thewinner-title">
+  <% if @sake %>
+    結果発表
+  <% else %>
+    結果発表は<%= @current_festival.end_at.strftime("%H:%M") %>です
+  <% end %>
+</h1>
+<div class="thewinner-wrap-content<%= ' thewinner-result' if @sake %>">
+  <% if @sake %>
   <p class="thewinner-no1">1位は...</p>
   <p class="thewinner-hiyaoroshi"><%= @sake.name %></p>
   <p class="thewinner-image">
     <%= image_tag @sake.photo(:medium) %>
   </p>
+  <% else %>
+  <p class="thewinner-coming-soon">近日発表</p>
+  <p class="thewinner-wait">少々お待ちください。</p>
+  <% end %>
 </div>
