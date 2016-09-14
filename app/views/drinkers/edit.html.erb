@@ -32,7 +32,8 @@
 <div class="drinker-log profile">
   <p><b>呑みログ</b></p>
   <div class="logs">
-  <% @drinker.drinkings.reverse_each do |drink| %>
+  <% @drinker.drinkings.includes(:sake, :sake_temperature).
+    reverse_each do |drink| %>
     <div class="log">
       <p class="log-date"><%= drink.created_at.strftime("%Y.%m.%d %H:%M") %></p>
       <p class="log-sake"><%= drink.sake.name %>  <%= drink.sake_temperature.name %></p>
@@ -43,4 +44,7 @@
   <a rel="nofollow" data-method="delete" href="/drinker/sign_out">
     <input type="button" value="ログアウト" class="normal">
   </a>
+</div>
+<div class="profile-login-terms">
+  <a href="/terms">利用規約</a>
 </div>

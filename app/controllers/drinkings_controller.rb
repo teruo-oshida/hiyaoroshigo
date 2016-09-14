@@ -1,25 +1,24 @@
 class DrinkingsController < ApplicationController
   before_action :authenticate_drinker!
+  before_action :check_current_festival_not_ended
   before_action :set_drinking, only: %i(show destroy)
 
   def new
     @drinking = Drinking.new
     @drinking.build_vote
 
-    @festival_id   = Festival.current&.take&.id
     @restaurant_id = params[:restaurant_id]
     @sake_id       = params[:sake_id]
     @temperatures  = SakeTemperature.enabled
   end
 
   def create
-    drinking = Drinking.new(drinking_params.merge(drinker: current_drinker))
+    drinking = Drinking.new(drinking_params.merge(drinker: current_drinker,
+                                                  festival: current_festival))
     drinking.save!
 
     @restaurant = drinking.restaurant
-    @drinkings  = Drinking.where(drinker:    current_drinker,
-                                 restaurant: @restaurant,
-                                 sake:       @restaurant.sakes)
+    @drinkings = get_drinkings(@restaurant)
   end
 
   def show
@@ -29,20 +28,28 @@ class DrinkingsController < ApplicationController
     @drinking.destroy!
 
     @restaurant = @drinking.restaurant
-    @drinkings  = Drinking.where(drinker:    current_drinker,
-                                 restaurant: @restaurant,
-                                 sake:       @restaurant.sakes)
+    @drinkings = get_drinkings(@restaurant)
   end
 
   private
 
   def set_drinking
     @drinking = Drinking.find(params[:id])
+    if current_drinker.id != @drinking.drinker_id
+      render nothing: true, status: 403
+    end
+  end
+
+  def get_drinkings(restaurant)
+    Drinking.where(drinker:    current_drinker,
+                   festival:   current_festival,
+                   restaurant: restaurant,
+                   sake:       restaurant.sakes)
   end
 
   def drinking_params
     params.require(:drinking)
-          .permit(:festival_id, :restaurant_id, :sake_id, :sake_temperature_id,
+          .permit(:restaurant_id, :sake_id, :sake_temperature_id,
                   vote_attributes: :score)
   end
 end

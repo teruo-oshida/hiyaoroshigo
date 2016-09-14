@@ -23,7 +23,7 @@ namespace :tickets do
       ]
         restaurant = name ? Restaurant.find_by(name: name) : nil
         n.times do
-          Ticket.create!(festival: mtq2016, 
+          Ticket.create!(festival: mtq2016,
                          restaurant: restaurant)
         end
       end
@@ -72,7 +72,7 @@ namespace :tickets do
         f.puts("id,festival_id,restaurant_id,passcode")
         Ticket.order("id").each do |ticket|
           f.puts([
-            ticket.id, 
+            ticket.id,
             ticket.festival_id,
             ticket.restaurant_id,
             ticket.passcode
@@ -89,7 +89,7 @@ namespace :tickets do
         Ticket.transaction do
           f.each_line do |line|
             next if /^id,/ =~ line
-            id, festival_id, restaurant_id, passcode = line.split(/,/)
+            id, festival_id, restaurant_id, passcode = line.chomp.split(/,/)
             Ticket.create!(id: id,
                            festival_id: festival_id,
                            restaurant_id: restaurant_id,

@@ -12,7 +12,6 @@
           <%= f.radio_button :sake_temperature_id, t.id, checked: t.default? %>
           <%= f.label :sake_temperature_id, t.name, value: t.id %>
         <% end %>
-        <%= f.hidden_field :festival_id, value: @festival_id %>
         <%= f.hidden_field :restaurant_id, value: @restaurant_id %>
         <%= f.hidden_field :sake_id, value: @sake_id %>
       </div>

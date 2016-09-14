@@ -29,6 +29,7 @@
     width: 100%;
     padding-top: 7vw;
     font-size: 6vw;
+    font-weight: bold;
     text-align: center;
     pointer-events: none;
 }
@@ -45,7 +46,7 @@
 }
 
 #checkin-panel a:link, #checkin-panel a:visited {
-    color: #aa00cc;
+    color: #af4089;
 }
 
 #sake-select-panel {
@@ -78,11 +79,12 @@
 #sake-info {
     margin-top: 2vw;
     overflow: hidden;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .sake-change {
-    width: 15vw;
-    float: left;
+    padding: 0 5vw;
 }
 .sake-change img {
     display: block;
@@ -91,10 +93,8 @@
     width: 4vw;
 }
 #sake-name {
-    font-size: 4vw;
-    width: 70vw;
-    height: 13vw;
-    float: left;
+    font-size: 6vw;
+    text-align: center;
 }
 .vote-button-area {
     margin-top: 2vw;
@@ -148,7 +148,7 @@ $icon-size: 30px;
 // _detail.html.erb
 
 #restaurant-detail {
-  padding: 4vw;
+  padding: 3vw;
   overflow: hidden;
 }
 #restaurant-icon {
@@ -160,16 +160,16 @@ img.restaurant-icon {
 }
 #restaurant-info {
   float: left;
-  padding-top: 2vw;
   padding-left: 4vw;
 }
 .restaurant-name {
-  padding: 2vw;
-  font-size: 8vw;
+  padding-top: 2vw;
+  font-size: 7vw;
 }
 .congestion-label {
-  padding: 2px;
-  border-radius: 2px;
+  display: inline-block;
+  padding: 1vw;
+  border-radius: 1vw;
   font-size: 4vw;
 }
 .congestion-1 {
@@ -186,8 +186,10 @@ img.restaurant-icon {
 }
 
 #twitter {
+  padding-top: 4vw;
   padding-left: 4vw;
   padding-right: 4vw;
+  background-color: #f5f5f5;
   border-top: solid 1px #aaaaaa;
 }
 #twitter-title {

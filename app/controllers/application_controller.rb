@@ -27,4 +27,10 @@ class ApplicationController < ActionController::Base
       redirect_to "/comingsoon"
     end
   end
+  
+  def check_current_festival_not_ended
+    if current_festival.ended?
+      redirect_to "/itstoolate"
+    end
+  end
 end

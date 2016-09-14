@@ -1,13 +1,11 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_drinker!
-
-  def index
-    @restaurants = Restaurant.all
-  end
+  before_action :check_current_festival_not_ended
 
   def show
     @restaurant = Restaurant.find(params[:id])
     @drinkings  = Drinking.where(drinker:    current_drinker,
+                                 festival:   current_festival,
                                  restaurant: @restaurant,
                                  sake:       @restaurant.sakes)
     if request.xhr?
@@ -24,7 +22,7 @@ class RestaurantsController < ApplicationController
   end
 
   def map
-    @restaurants = Restaurant.all
+    @restaurants = current_festival.restaurants
     @restaurant =
       current_drinker.latest_checkin&.restaurant ||
       current_drinker.ticket&.restaurant ||

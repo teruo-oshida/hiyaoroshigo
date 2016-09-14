@@ -13,7 +13,7 @@ namespace :votes do
         festival = Festival.find_by(name: "松江トランキーロ2016")
         f.each_line do |line|
           next if /^sake_id,/ =~ line
-          sake_id, count = line.split(/,/)
+          sake_id, count = line.chomp.split(/,/)
           count.to_i.times do
             Vote.create!(drinking: Drinking.create!(festival: festival,
                                                     sake_id: sake_id),
