@@ -3,10 +3,8 @@
 <%= image_tag restaurant.icon.url, class: "restaurant-icon" %>
 </div>
 <div id="restaurant-info">
-  <div>
-    <span class="congestion-label congestion-<%= restaurant.current_congestion_degree %>">
-      <%= restaurant.congestion_label %>
-    </span>
+  <div class="congestion-label congestion-<%= restaurant.current_congestion_degree %>">
+    <%= restaurant.congestion_label %>
   </div>
   <div class="restaurant-name"><%= restaurant.official_name %></div>
 </div>
