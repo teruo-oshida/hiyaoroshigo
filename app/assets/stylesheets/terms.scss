@@ -1,0 +1,17 @@
+// Place all the styles related to the terms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.terms {
+  padding: 5vw;
+  font-size: 3.5vw;
+
+  ol {
+    margin: 0 0 0 5vw;
+    padding: 0;
+  }
+
+  .center{
+    text-align: center;
+  }
+}
