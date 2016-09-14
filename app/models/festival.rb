@@ -12,4 +12,12 @@ class Festival < ApplicationRecord
   def started?
     Time.current >= start_at
   end
+  
+  def ended?
+    Time.current >= end_at
+  end
+  
+  def votable?
+    started? && !ended?
+  end
 end
