@@ -64,7 +64,7 @@ class Drinker < ApplicationRecord
   def gentle_pace?(drinked_ats)
     froms = drinked_ats[0..-2]
     tos   = drinked_ats[1..-1]
-    interval = 15 <= drinks.size ? 5.minutes : 10.minutes
+    interval = 15 <= drinked_ats.size ? 5.minutes : 10.minutes
     froms.zip(tos).all? { |from, to| interval <= (to - from) }
   end
 end
