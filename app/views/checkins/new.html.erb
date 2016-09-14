@@ -30,5 +30,7 @@
       return { id: r.id, distance: distance };
     }).sort(function(x, y) { return x.distance - y.distance; })[0];
     $('#checkin_restaurant_id').val(nearest_restaurant.id);
+  }, function(e) {
+    console.warn("getCurrentPosition(): " + e.code + ": " + e.message);
   });
 </script>
