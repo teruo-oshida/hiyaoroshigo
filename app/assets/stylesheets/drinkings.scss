@@ -2,6 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.ui-dialog {
+  display: table;
+  height: 50vh !important;
+}
+
+.modal {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .no-titlebar .ui-dialog-titlebar {
   display: none;
+}
+
+.modal-body, .modal-footer {
+  text-align: center;
+}
+
+.modal-footer {
+  margin-top:    4vw;
+  margin-bottom: 4vw;
+}
+
+.modal-text {
+  margin-top:    2vh;
+  margin-bottom: 2vh;
+  font-size:     4vw;
+  font-weight:   bold;
 }
