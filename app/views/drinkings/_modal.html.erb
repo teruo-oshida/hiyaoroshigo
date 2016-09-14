@@ -7,7 +7,7 @@
     </div>
     <div class="modal-body">
       <p class="modal-text">飲み方</p>
-      <div class="field">
+      <div class="field temperatures">
         <% @temperatures.each do |t| %>
           <%= f.radio_button :sake_temperature_id, t.id, checked: t.default? %>
           <%= f.label :sake_temperature_id, t.name, value: t.id %>
@@ -18,9 +18,7 @@
       <p class="modal-text">評価する</p>
       <%= f.fields_for :vote do |v| %>
         <div class="field">
-          <% (Vote::MIN_SCORE..Vote::MAX_SCORE).each do |i| %>
-            <%= v.radio_button :score, i, checked: (i == Vote::DEFAULT_SCORE) %>
-          <% end %>
+          <%= v.select :score, (Vote::MIN_SCORE..Vote::MAX_SCORE), {}, { id: 'scores' } %>
         </div>
       <% end %>
     </div>
@@ -29,3 +27,12 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+    $('#scores').barrating({
+      theme:         'fontawesome-stars',
+      initialRating: 3
+    });
+  });
+</script>

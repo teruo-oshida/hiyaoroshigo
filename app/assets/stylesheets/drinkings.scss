@@ -34,6 +34,7 @@
   font-weight:   bold;
 }
 
+// 飲み方
 .modal-body input[type=radio] {
   display: none;
 }
@@ -41,7 +42,7 @@
 .modal-body input[type=radio]:checked + label {
   margin:     2vw;
   background: #f3c517;
-  color:      #FFF;
+  color:      #fff;
   border:     none;
 }
 
@@ -53,4 +54,28 @@
   color:         #ccc;
   border:        0.4vw solid #ccc;
   border-radius: 4vw;
+}
+
+// 評価する
+.br-theme-fontawesome-stars .br-widget {
+  margin-top: -2vh;
+  padding-bottom: 5vh;
+}
+
+.br-theme-fontawesome-stars .br-widget a {
+  font: normal normal normal 10vw/1 FontAwesome !important;
+  margin-right: 1.5vw !important;
+  margin-left: 1.5vw !important;
+}
+
+.br-theme-fontawesome-stars .br-widget a:after {
+  color: #ccc !important;
+}
+
+.br-theme-fontawesome-stars .br-widget a.br-active:after {
+  color: #f3c517 !important;
+}
+
+.br-theme-fontawesome-stars .br-widget a.br-selected:after {
+  color: #f3c517 !important;
 }
