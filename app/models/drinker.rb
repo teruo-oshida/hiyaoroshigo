@@ -12,10 +12,12 @@ class Drinker < ApplicationRecord
   def self.find_for_facebook_oauth(auth,params)
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
     return { status: true, drinker: drinker } if drinker
-    return { status: false, error: "メールアドレスが取得できませんでした。スタッフにお問い合わせください" } unless auth.info.email.present?
+    if auth.info.email.blank?
+      return { status: false, error: "メールアドレスが取得できませんでした。スタッフにお問い合わせください" }
+    end
     ticket = Ticket.find_by(passcode: params["passcode"])
-    return { status: false, error: "存在しないパスコードです" } unless ticket.present?
-    return { status: false, error: "既に使われているパスコードです" } unless ticket.unused?
+    return { status: false, error: "存在しないパスコードです" } if ticket.blank?
+    return { status: false, error: "既に使われているパスコードです" } if ticket.used?
     ticket.build_drinker(full_name: auth.extra.raw_info.name,
                          provider:  auth.provider,
                          uid:       auth.uid,
