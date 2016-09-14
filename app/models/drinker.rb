@@ -16,22 +16,26 @@ class Drinker < ApplicationRecord
     status = true if drinker
     unless drinker
       ticket = Ticket.find_by(passcode: params["passcode"])
-      if ticket.present?
-        if ticket.unused?
-          ticket.build_drinker(full_name:     auth.extra.raw_info.name,
-                               provider: auth.provider,
-                               uid:      auth.uid,
-                               email:    auth.info.email,
-                               token:    auth.credentials.token,
-                               password: Devise.friendly_token)
-          ticket.save!
-          status = true
-          drinker = ticket.drinker
+      if auth.info.email.present?
+        if ticket.present?
+          if ticket.unused?
+            ticket.build_drinker(full_name:     auth.extra.raw_info.name,
+                                 provider: auth.provider,
+                                 uid:      auth.uid,
+                                 email:    auth.info.email,
+                                 token:    auth.credentials.token,
+                                 password: Devise.friendly_token)
+            ticket.save!
+            status = true
+            drinker = ticket.drinker
+          else
+            error = "既に使われているパスコードです"
+          end
         else
-          error = "既に使われているパスコードです"
+          error = "存在しないパスコードです"
         end
       else
-        error = "存在しないパスコードです"
+        error = "メールアドレスが取得できませんでした。スタッフにお問い合わせください"
       end
     end
     {status: status, drinker: drinker, error: error}
