@@ -2,7 +2,11 @@ class FestivalsController < ApplicationController
   skip_before_action :check_current_festival_started, only: [:comingsoon]
 
   def comingsoon
-    reset_session
+    if current_festival.started?
+      redirect_to "/login"
+    else
+      reset_session
+    end
   end
 
   def thewinner

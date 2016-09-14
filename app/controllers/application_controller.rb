@@ -23,8 +23,7 @@ class ApplicationController < ActionController::Base
   end
   
   def check_current_festival_started
-    if !self.is_a?(Admin::ResourcesController) &&
-        Time.current < current_festival.start_at
+    if !self.is_a?(Admin::ResourcesController) && !current_festival.started?
       redirect_to "/comingsoon"
     end
   end

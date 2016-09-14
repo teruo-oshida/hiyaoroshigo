@@ -8,4 +8,8 @@ class Festival < ApplicationRecord
     now = Time.current
     where('start_at <= ? AND ? <= end_at', now, now)
   }
+  
+  def started?
+    Time.current >= start_at
+  end
 end
