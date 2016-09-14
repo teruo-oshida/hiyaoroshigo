@@ -1,4 +1,9 @@
 class FestivalsController < ApplicationController
+  skip_before_action :check_current_festival_started, only: [:comingsoon]
+
+  def comingsoon
+  end
+
   def thewinner
     sakes  = Sake.all
     sake = sakes.max do |sake|
