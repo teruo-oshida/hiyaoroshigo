@@ -73,7 +73,6 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
-    database_rewinder (0.6.4)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -81,22 +80,13 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
-    factory_girl (4.7.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.7.0)
-      factory_girl (~> 4.7.0)
-      railties (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
-    fuubar (2.2.0)
-      rspec-core (~> 3.0)
-      ruby-progressbar (~> 1.4)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -208,25 +198,7 @@ GEM
       railties (>= 4.2.0, < 5.1)
     rqrcode (0.10.1)
       chunky_png (~> 1.0)
-    rspec-core (3.5.3)
-      rspec-support (~> 3.5.0)
-    rspec-expectations (3.5.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.5.0)
-    rspec-mocks (3.5.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.5.0)
-    rspec-rails (3.5.2)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.5.0)
-      rspec-expectations (~> 3.5.0)
-      rspec-mocks (~> 3.5.0)
-      rspec-support (~> 3.5.0)
-    rspec-support (3.5.0)
     ruby-graphviz (1.2.2)
-    ruby-progressbar (1.8.1)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -252,7 +224,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    timecop (0.8.1)
     ttfunk (1.4.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
@@ -287,11 +258,8 @@ DEPENDENCIES
   byebug
   chunky_png
   coffee-rails (~> 4.2)
-  database_rewinder
   devise
-  factory_girl_rails
   font-awesome-rails
-  fuubar
   gmaps4rails
   jbuilder (~> 2.5)
   jquery-migrate-rails
@@ -307,13 +275,11 @@ DEPENDENCIES
   rails-erd
   rails-i18n (~> 5.0.0)
   rqrcode
-  rspec-rails
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   thinreports
-  timecop
   turbolinks (~> 5)
   typus!
   tzinfo-data

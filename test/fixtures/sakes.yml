@@ -1,0 +1,60 @@
+sake1:
+  id: 1
+  name: 月山 純米吟醸生詰ひやおろし
+  brewery_id: 1
+sake2:
+  id: 2
+  name: 出雲富士 秋雲純米ひやおろし
+  brewery_id: 2
+sake3:
+  id: 3
+  name: 美波太平洋 純米原酒ひやおろし
+  brewery_id: 3
+sake4:
+  id: 4
+  name: 誉池月 純米ひやおろし改良雄町木槽しぼり生詰瓶火入れ
+  brewery_id: 4
+sake5:
+  id: 5
+  name: 石見銀山 特別純米改良八反流ひやおろし
+  brewery_id: 5
+sake6:
+  id: 6
+  name: 稲田姫 いなたひめ良燗純米
+  brewery_id: 6
+sake7:
+  id: 7
+  name: 十旭日 純米ひやおろし
+  brewery_id: 7
+sake8:
+  id: 8
+  name: 千代むすび 純米強力60氷温ひやおろし
+  brewery_id: 8
+sake9:
+  id: 9
+  name: 豊の秋 純米生詰原酒ひやおろし
+  brewery_id: 9
+sake10:
+  id: 10
+  name: 山陰東郷 純米ひやおろし
+  brewery_id: 10
+sake11:
+  id: 11
+  name: 李白 特別純米生詰ひやおろし
+  brewery_id: 11
+sake12:
+  id: 12
+  name: 菊弥栄 純米酒秋あがり
+  brewery_id: 12
+sake13:
+  id: 13
+  name: 純米八郷 70冷やおろし
+  brewery_id: 13
+sake14:
+  id: 14
+  name: ヤマサン正宗 純米原酒七号ひやおろし
+  brewery_id: 14
+sake15:
+  id: 15
+  name: 華泉 津和野純米原酒秋ざかり
+  brewery_id: 15

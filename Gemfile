@@ -52,7 +52,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
-
 end
 
 group :development do
@@ -64,15 +63,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
   gem 'bullet'
-end
-
-group :test do
-  ### Testing ###
-  gem 'rspec-rails',        group: :development # A testing framework for Rails 3.x and 4.x
-  gem 'factory_girl_rails', group: :development # A fixtures replacement
-  gem 'timecop'                                 # Making it dead simple to test time-dependent code
-  gem 'database_rewinder'                       # Minimalist's tiny and ultra-fast database cleaner
-  gem 'fuubar'                                  # The instafailing RSpec progress bar formatter
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,45 @@
+brewery1:
+  id: 1
+  name: 吉田酒造
+brewery2:
+  id: 2
+  name: 富士酒造
+brewery3:
+  id: 3
+  name: 木次酒造
+brewery4:
+  id: 4
+  name: 池月酒造
+brewery5:
+  id: 5
+  name: 一宮酒造
+brewery6:
+  id: 6
+  name: 稲田本店
+brewery7:
+  id: 7
+  name: 旭日酒造
+brewery8:
+  id: 8
+  name: 千代むすび酒造
+brewery9:
+  id: 9
+  name: 米田酒造
+brewery10:
+  id: 10
+  name: 福羅酒造
+brewery11:
+  id: 11
+  name: 李白酒造
+brewery12:
+  id: 12
+  name: 岡田屋本店
+brewery13:
+  id: 13
+  name: 久米桜酒造
+brewery14:
+  id: 14
+  name: 酒持田本店
+brewery15:
+  id: 15
+  name: 華泉酒造
