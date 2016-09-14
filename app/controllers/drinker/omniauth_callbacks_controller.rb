@@ -10,7 +10,7 @@ class Drinker::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_by_checkin_status
       sign_in @drinker[:drinker]
     else
-     redirect_to login_path, alert: @drinker[:error];
+     redirect_to login_path, alert: @drinker[:error]
     end
   end
 
