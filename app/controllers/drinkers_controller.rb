@@ -10,7 +10,7 @@ class DrinkersController < ApplicationController
   end
 
   def login
-
+    reset_session
   end
 
   def edit

@@ -21,11 +21,11 @@
   <body>
   <div class="l_wrap">
 
-      <%= render partial: "shared/header", locals: {profile: profile.blank?} %>
+      <%= if current_drinker; render partial: "shared/header", locals: {profile: profile.blank?}; end %>
       <div class="l_contents <%= 'l_contents_no-footer' unless profile.blank? %>">
         <%= yield %>
       </div>
-      <%= render partial: "shared/footer" if profile.blank? %>
+      <%= if current_drinker; render partial: "shared/footer" if profile.blank?; end %>
     </div>
   </body>
 </html>

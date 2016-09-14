@@ -1,16 +1,20 @@
-input[type=submit].normal,
-input[type=button].normal {
+.basic-button {
   width: 60vw;
   height: 10vw;
   font-size: 5vw;
   font-weight: bold;
-  background-color: #f1ca03;
-  background-image: url(../../assets/wood_button.png);
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 1vw solid #977C12;
   color: #ffffff;
   border-style: none;
   border-radius: 2vw;
-  box-shadow: 0vw 1vw 0vw 0vw #ccb200;
+}
+
+button.normal,
+input[type=submit].normal,
+input[type=button].normal {
+  @extend .basic-button;
+  background-color: #f1ca03;
+  background-image: url(../../assets/wood_button.png);
+  border-bottom: 1vw solid #977C12;
 }

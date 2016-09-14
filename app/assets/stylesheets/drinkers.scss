@@ -1,6 +1,9 @@
 // Place all the styles related to the drinkers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "shared/common";
+
 .profile-edit { display:none; }
 .profile-back { padding-left:0px; }
 
@@ -37,56 +40,53 @@ $background2:#F2F2F2;
 .button-wrap{
     margin-top: 5vw;
     text-align:center;
-   }
+}
 .facebook-button-wrap
 {
    margin-top: 7vw;
 }
 
-   button:focus {
-    outline: none;
-   }
+input.passcode {
+  font-size: 8vw;
+  font-family: monospace;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom: 1px solid #aaa;
+}
 
-   button.sign-in:hover{
-    border-top: 4px solid #977C12;
-    border-bottom: 0px;
-   }
+button:focus {
+  outline: none;
+}
 
-   button.facebook:hover{
-    border-top: 4px solid #1f356b;
-    border-bottom: 0px;
-   }
+input[type=submit].sign-in:hover{
+  border-top: 4px solid #977C12;
+  border-bottom: 0px;
+}
 
-   button.sign-in{
-    width:245px;
-    height:45px;
-    background-image: url(../assets/wood_button.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    border-style: none;
-    border-bottom: 4px solid #977C12;
-    border-radius: 14px;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 700;
-   }
+button.facebook:hover{
+  border-top: 4px solid #1f356b;
+  border-bottom: 0px;
+}
 
-   button.facebook{
-    width:245px;
-    height:45px;
-    background-image: url(../assets/wood_facebook_button.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    border-style: none;
-    border-bottom: 4px solid #2B4174;
-    border-radius: 14px;
-    font-size:16px;
-    color: #fff;
-    font-weight: 700;
-   }
-.login-wrap{ text-align:center; }
-.wrap-passcode{ border-bottom: 1px inset gray; margin:0px 20px; margin-top:8vw;}
+button.facebook {
+  @extend .basic-button;
+  background-color: #2B4174;
+  background-image: url(../assets/wood_facebook_button.png);
+  border-bottom: 1vw solid #2B4174;
+}
+
+.login-wrap{ text-align: center; }
+.wrap-passcode{ padding-top: 8vw; }
 .login-img{ width:31vw; height:31vw; }
-.wrap-img{ margin-top:14vw; }
-.login-info{ margin-top:0px; margin-bottom:0px; }
+.login-info{
+   margin-top:0px; margin-bottom:0px;
+   font-size: 4vw;
+   font-weight: bold;
+}
+.passcode-info {
+  width: 80vw;
+  font-size: 3vw;
+  margin: auto;
+}
 .login-terms { margin-top:11vw; }
