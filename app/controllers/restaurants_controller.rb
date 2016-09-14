@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.includes(:sakes).find(params[:id])
     @drinkings  = Drinking.where(drinker:    current_drinker,
                                  restaurant: @restaurant,
                                  sake:       @restaurant.sakes)
