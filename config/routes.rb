@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get :itsitoolate, to: "festivals#itstoolate"
   get :thewinner, to: "festivals#thewinner"
   resources :checkins, only: [:new, :create]
+  root "restaurants#vote"
 end
