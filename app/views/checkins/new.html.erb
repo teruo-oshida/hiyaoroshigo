@@ -2,7 +2,7 @@
   <%= form_for(@checkin) do |f| %>
     <p>今いるお店を選んでチェックイン</p>
     <p><%= f.collection_select(:restaurant_id, @restaurants, :id, :official_name) %></p>
-    <p id="checkin-button"><%= f.submit "チェックイン", class: "normal" %></p>
+    <p id="checkin-button"><%= f.submit "チェックインする", class: "normal" %></p>
   <% end %>
   <p id="checkin-notice">
   チェックイン情報は30分間有効です。
