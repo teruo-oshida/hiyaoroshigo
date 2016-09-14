@@ -1,6 +1,6 @@
 var restaurants = restaurants || {};
 
-restaurants.index = 0
+restaurants.index = 0;
 
 restaurants.setSakeName = function(name) {
   $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br>'));
