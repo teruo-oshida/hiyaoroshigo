@@ -15,6 +15,11 @@
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 
+    <% for size in [16, 24, 32, 48, 64] %>
+      <%= favicon_link_tag("favicon-#{size}px.png",
+                           { sizes: "#{size}x#{size}", type: "image/png" }) %>
+    <% end %>
+
     <meta name="viewport" content="width=device-width">
   </head>
 
