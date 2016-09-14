@@ -10,7 +10,9 @@ class DrinkersController < ApplicationController
   end
 
   def login
+    error = flash[:alert] unless flash[:alert].blank?
     reset_session
+    flash.now[:alert] = error
   end
 
   def edit
