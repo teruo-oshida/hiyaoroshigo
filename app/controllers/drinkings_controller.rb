@@ -18,9 +18,7 @@ class DrinkingsController < ApplicationController
     drinking.save!
 
     @restaurant = drinking.restaurant
-    @drinkings  = Drinking.where(drinker:    current_drinker,
-                                 restaurant: @restaurant,
-                                 sake:       @restaurant.sakes)
+    @drinkings = get_drinkings(@restaurant)
   end
 
   def show
@@ -30,18 +28,20 @@ class DrinkingsController < ApplicationController
     @drinking.destroy!
 
     @restaurant = @drinking.restaurant
-    @drinkings  = Drinking.where(drinker:    current_drinker,
-                                 restaurant: @restaurant,
-                                 sake:       @restaurant.sakes)
+    @drinkings = get_drinkings(@restaurant)
   end
 
   private
 
   def set_drinking
-    @drinking = Drinking.find(params[:id])
-    if current_drinker.id != @drinking.drinker_id
-      render nothing: true, status: 403
-    end
+    @drinking = current_drinker.drinkings.find(params[:id])
+  end
+
+  def get_drinkings(restaurant)
+    Drinking.where(drinker:    current_drinker,
+                   festival:   current_festival,
+                   restaurant: restaurant,
+                   sake:       restaurant.sakes)
   end
 
   def drinking_params

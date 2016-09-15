@@ -42,3 +42,15 @@ $header-height: 18vw;
 .l_contents {
   padding-top: $header-height;
 }
+
+#header-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 7vw;
+    font-size: 6vw;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+}

@@ -1,6 +1,4 @@
-<div id="restaurant-name">
-  <%= @restaurant.official_name %>
-</div>
+  <% provide(:title, @restaurant.official_name) %>
 <div id="checkin-panel">
   <%= link_to "今いるお店が、上記と違う場合はこちら", new_checkin_path %>
 </div>
@@ -9,7 +7,7 @@
     <%= image_tag asset_path("shouji_left_x2.png") %>
   </div>
   <div class="sake-slick js-sake-slick">
-    <% @restaurant.sakes.each do |sake| %>
+    <% @restaurant.festival_sakes(@current_festival).each do |sake| %>
       <div class="sake">
         <%= image_tag sake.photo(:medium), alt: sake.name %>
       </div>
