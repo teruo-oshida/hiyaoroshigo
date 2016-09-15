@@ -11,17 +11,54 @@ $border1:#E4E4E4;
 $border2:#DDDDDD;
 $background2:#F2F2F2;
 
-.profile { text-align:center; }
-.profile-warning { font-size:2vw; }
-.drinker-name
-{
-  font-size:20px; border-bottom: inset 2px $border1; margin:0px 15px;
-  button{ font-size:10px;}
-  input[type="submit"]{font-size:10px;}
-  input[type="text"]{width:10em;}
+.profile {
+  text-align: center;
+
+  a#{&}-edit-button:link,
+  a#{&}-edit-button:visited {
+  }
 }
 
-.sake-title { font-size:1.8em; border-bottom: inset 2px $border1; margin:0px 15px; }
+.profile-warning { font-size:2vw; }
+
+.drinker-name
+{
+  display: flex;
+  justify-content: center;
+  font-size: 6vw;
+  border-bottom: inset 1px $border1;
+  margin: 0 4vw;
+  padding: 2vw;
+
+  & a:link, & a:visited {
+    color: black;
+  }
+
+  &-edit {
+    width: 20%;
+    text-align: left;
+  }
+
+  &-content {
+    width: 60%;
+
+    & input[type=text] {
+      width: 90%;
+    }
+  }
+
+  &-operations {
+    width: 20%;
+    text-align: right;
+  }
+}
+
+.sake-title {
+  font-size: 1.8em;
+  border-bottom: inset 1px $border1;
+  margin: 0 4vw;
+  padding: 2vw;
+}
 
 .drinker-log { height:50%; margin-top:30px; padding-top:20px; padding-bottom:30px; background-color:$background2; }
 

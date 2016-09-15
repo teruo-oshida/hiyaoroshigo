@@ -1,30 +1,31 @@
 <% provide :profile, "x" %>
-<script>
-  function edit()
-  {
-   $(".profile-show").css("display","none");
-   $(".profile-edit").css("display","inline");
-  }
-  function cancel()
-  {
-   $(".profile-show").css("display","inline");
-   $(".profile-edit").css("display","none");
-  }
-</script>
 
 <div class="profile">
   <p><b>トランキーロネーム(酒呑みニックネーム)</b></p>
   <%= form_for @drinker, :url => {:controller=>'drinkers' ,:action => 'update'} do |f| %>
-    <p class="drinker-name">
-    <span class="profile-show"><%= @drinker.name %></span>
-    <span class="profile-edit"><%= f.text_field :name%></span>
-    <span class="profile-show"> <button onClick="edit();" type="button">編集</button></span>
-    <span class="profile-edit"> <%= f.submit id: "button"%> </span>
-    <span class="profile-edit"><button onClick="cancel();" type="button">キャンセル</button></span>
-    </p>
+    <div class="drinker-name">
+      <div class="drinker-name-edit">
+        <div class="profile-show">
+        <%= link_to fa_icon("pencil-square-o"), "javascript: drinkers.edit()" %>
+        </div>
+      </div>
+      <div class="drinker-name-content">
+        <span class="profile-show"><%= @drinker.name %></span>
+        <span class="profile-edit"><%= f.text_field :name%></span>
+      </div>
+      <div class="drinker-name-operations">
+        <div class="profile-edit">
+          <%= link_to fa_icon("floppy-o"),
+            "javascript: $('.edit_drinker').submit()" %>
+          &nbsp;
+          <%= link_to fa_icon("times"), "javascript: drinkers.cancel()" %>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <p class="profile-warning">※トランキーロネーム、称号、呑みログは公開されます</p>
-</div>
+  <p class="profile-warning">
+  ※トランキーロネーム、称号、呑みログは公開されます
+  </p>
 <div class="profile">
   <p><b>称号</b></p>
   <p class="sake-title"><%= @drinker.sake_title %></p>
