@@ -10,3 +10,16 @@
   </div>
 </footer>
 
+<%
+selected_tab_class = case params[:action]
+when 'thewinner'
+  '.footer-winner'
+when 'map'
+  '.footer-map'
+else
+  %w(restaurants checkins).include?(params[:controller]) ? '.footer-vote' : '.footer-dummy'
+end
+%>
+<%= javascript_tag do %>
+  $('<%= j selected_tab_class %>').parent().addClass('is-selected')
+<% end %>
