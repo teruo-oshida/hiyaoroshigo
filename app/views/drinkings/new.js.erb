@@ -1,11 +1,19 @@
-$('#vote-modal').html('<%= escape_javascript(render 'new') %>');
-$('#vote-modal').dialog({
-  dialogClass: 'no-titlebar',
-  draggable:   false,
-  modal:       true,
-  resizable:   false,
-  width:       '84vw'
-});
-$('.close').click(function() {
-  $('#vote-modal').dialog('close');
-});
+(function() {
+  var $modal = $('.js-modal');
+  $modal.html('<%= escape_javascript(render 'new') %>');
+  $modal.dialog({
+    dialogClass: 'hiya-modal vote-modal',
+    draggable:   false,
+    modal:       true,
+    resizable:   false,
+    width:       '82vw'
+  });
+  var closeModal = function() { $modal.dialog('close'); };
+
+  $modal.find('.js-modal-close-button').on('click', function() {
+    closeModal();
+  });
+  $modal.find('form').on('submit', function() {
+    closeModal();
+  });
+}());

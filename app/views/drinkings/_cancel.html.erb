@@ -1,0 +1,15 @@
+<div>
+  <%= form_for(@drinking, method: :delete, remote: true) do |f| %>
+    <div class="modal-header">
+      <button type="button" class="hiya-modal_btn-close js-modal-close-button">
+        <%= fa_icon "times" %>
+      </button>
+    </div>
+    <div class="hiya-modal_contents">
+      <p class="hiya-modal_text">本当に投票を取り消しますか？<br>この酔っ払いめ！</p>
+    </div>
+    <div class="hiya-modal_footer">
+      <%= f.submit '投票を取り消す', class: 'normal close hiya-modal_footer_submit-btn' %>
+    </div>
+  <% end %>
+</div>
