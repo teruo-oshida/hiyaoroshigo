@@ -6,7 +6,7 @@
   <div class="shouji">
     <%= image_tag asset_path("shouji_left_x2.png") %>
   </div>
-  <div id="sakes">
+  <div class="sake-slick js-sake-slick">
     <% @restaurant.festival_sakes(@current_festival).each do |sake| %>
       <div class="sake">
         <%= image_tag sake.photo(:medium), alt: sake.name %>
@@ -18,21 +18,19 @@
   </div>
 </div>
 <div id="sake-info">
-  <div class="sake-change">
-    <%= image_tag asset_path("slider-prev.png"),
-                  onclick: "$('#sakes').slick('slickPrev');" %>
+  <div class="sake-slick_btn js-sake-slick-prev">
+    <%= image_tag asset_path("slider-prev.png") %>
   </div>
   <div id="sake-name">
   </div>
-  <div class="sake-change">
-    <%= image_tag asset_path("slider-next.png"),
-                  onclick: "$('#sakes').slick('slickNext');" %>
+  <div class="sake-slick_btn js-sake-slick-next">
+    <%= image_tag asset_path("slider-next.png") %>
   </div>
 </div>
 <div class="vote-button-area">
   <%= render 'show' %>
 </div>
-<div id="vote-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade js-modal" tabindex="-1" role="dialog" aria-hidden="true">
 </div>
 
 <script type="text/javascript">
@@ -52,12 +50,6 @@
     $('#vote-button').removeClass();
     $('#vote-button').addClass(class_name);
   }
-
-  $('#sakes').slick({
-    infinite: false,
-    arrows: false,
-    dots: true
-  });
 
   $('#sakes').on('afterChange', function(e, slick, currentSlide) {
     index = currentSlide;
