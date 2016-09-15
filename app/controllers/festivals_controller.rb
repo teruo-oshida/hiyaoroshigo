@@ -14,11 +14,7 @@ class FestivalsController < ApplicationController
 
   def thewinner
     if current_festival.ended?
-      sakes  = Sake.all
-      sake = sakes.max do |sake|
-        sake.drinkings.sum { |drinking| drinking&.vote&.score.to_i }
-      end
-      @sake = sake
+      @sake = current_festival.winner
     else
       @sake = nil
     end
