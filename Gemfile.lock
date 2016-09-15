@@ -224,6 +224,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    timecop (0.8.1)
     ttfunk (1.4.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
@@ -280,6 +281,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   thinreports
+  timecop
   turbolinks (~> 5)
   typus!
   tzinfo-data
