@@ -1,11 +1,11 @@
 var drinkers = drinkers || {};
 
 drinkers.edit = function() {
-  $(".profile-show").css("display","none");
-  $(".profile-edit").css("display","inline");
+  $(".profile-show").hide();
+  $(".profile-edit").show();
 }
 
 drinkers.cancel = function() {
-  $(".profile-show").css("display","inline");
-  $(".profile-edit").css("display","none");
+  $(".profile-edit").hide();
+  $(".profile-show").show();
 }
