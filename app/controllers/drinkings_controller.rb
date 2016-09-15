@@ -34,10 +34,7 @@ class DrinkingsController < ApplicationController
   private
 
   def set_drinking
-    @drinking = Drinking.find(params[:id])
-    if current_drinker.id != @drinking.drinker_id
-      render nothing: true, status: 403
-    end
+    @drinking = current_drinker.drinkings.find(params[:id])
   end
 
   def get_drinkings(restaurant)
