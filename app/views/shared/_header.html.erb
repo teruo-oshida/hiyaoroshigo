@@ -1,6 +1,6 @@
 <header class="l_header">
   <div class="l_header_contents">
-   <% if profile %>
+   <% if profile.present? %>
      <% if profile == "x" %>
        <div class="profile-btn profile-back-btn">
          <%= link_to fa_icon("chevron-left"), "/restaurants/vote" %>
