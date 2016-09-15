@@ -47,6 +47,18 @@ $footer-height: 13vw;
 	background-image: url(../../assets/wood-win-40.png);
     }
   }
+
+  & .is-selected {
+    & a.footer-vote {
+	background-image: url(../../assets/wood-post-on-40.png);
+    }
+    & a.footer-map {
+	background-image: url(../../assets/wood-map-on-40.png);
+    }
+    & a.footer-winner {
+	background-image: url(../../assets/wood-win-on-40.png);
+    }
+  }
 }
 
 .l_wrap {
