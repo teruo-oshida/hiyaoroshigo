@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<% profile = yield:profile %>
+<% profile = yield :profile %>
+<% title = yield :title %>
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
@@ -27,8 +28,8 @@
   <body>
   <div class="l_wrap">
 
-      <%= if current_drinker; render partial: "shared/header", locals: {profile: profile.blank?}; end %>
-      <div class="l_contents <%= 'l_contents_no-footer' unless profile.blank? %>">
+      <%= if current_drinker; render partial: "shared/header", locals: {profile: profile.present?, title: title}; end %>
+      <div class="l_contents <%= 'l_contents_no-footer' if profile.present? %>">
         <%= yield %>
       </div>
       <%= if current_drinker; render partial: "shared/footer" if profile.blank?; end %>
