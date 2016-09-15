@@ -19,14 +19,28 @@ class DrinkersController < ApplicationController
     @drinker = current_drinker
   end
 
+  def edit_first
+    @drinker = current_drinker
+  end
+
   def show
     @drinker = current_drinker
   end
 
   def update
-    drinker = current_drinker
-    drinker.name = params[:drinker][:name]
-    drinker.save
-    redirect_to "/drinkers/edit"
+    if params[:drinker][:name].present?
+      current_drinker.name = params[:drinker][:name]
+      current_drinker.save
+    end
+    if params[:drinker][:is_first].present?
+      if current_drinker.name.present?
+        redirect_to "/restaurants/vote"
+      else
+        flash[:error] = "トランキーロネームを入力してください"
+        redirect_to "/drinkers/edit_first"
+      end
+    else
+      redirect_to "/drinkers/edit"
+    end
   end
 end

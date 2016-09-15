@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/restaurants/map", to: "restaurants#map"
   resources :restaurants, only: [:show]
   get "/drinkers/edit", to: "drinkers#edit"
+  get "/drinkers/edit_first", to: "drinkers#edit_first"
   resource :drinkers, only: [:edit, :update]
   resources :drinkings, only: [:show, :new, :create, :destroy]
   get :comingsoon, to: "festivals#comingsoon"

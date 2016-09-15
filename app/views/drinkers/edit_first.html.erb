@@ -1,0 +1,25 @@
+<% provide :profile, "no" %>
+
+<div class="profile">
+  <%= form_for @drinker, :url => {:controller=>'drinkers' ,:action => 'update'} do |f| %>
+    <h2>トランキーロネームを入力してください。</h2>
+    <div class="drinker-name">
+      <div>
+        <%= f.text_field :name, class: "profile-edit_input", placeholder: "トランキーロネーム" %>
+      </div>
+    </div>
+    <% if flash[:error] %>
+      <p class="profile-error">
+      <%= flash[:error] %>
+      </p>
+    <% end %>
+    <p class="profile-warning">
+    トランキーロネームは酒呑みのニックネームです。<br>
+    ※公開されてもよい名前を入力してください。
+    </p>
+    <div>
+      <%= f.hidden_field :is_first, value: "true" %>
+      <%= f.submit "はじめる", class: "normal" %>
+    </div>
+  <% end %>
+</div>
