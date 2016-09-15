@@ -22,18 +22,6 @@
 
 // show.html.erb
 
-#restaurant-name {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 7vw;
-    font-size: 6vw;
-    font-weight: bold;
-    text-align: center;
-    pointer-events: none;
-}
-
 #checkin-panel {
     background-color: #eeeeee;
     padding: 4vw;
@@ -50,22 +38,33 @@
 }
 
 #sake-select-panel {
-    margin-top: 4vw;
-    overflow: hidden;
+  display: flex;
+  margin-top: 4vw;
+  overflow: hidden;
 }
 
 .shouji {
-    width: 15vw;
-    float: left;
-}
-.shouji img {
+  width: 15vw;
+
+  & img {
     width: 100%;
+  }
 }
 
-#sakes {
-    width: 70vw;
-    float: left;
-    background-color: #ffe9a9;
+.sake-slick {
+  width: 70vw;
+  background-color: #ffe9a9;
+
+  &_btn {
+    padding: 0 5vw;
+
+    & img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 4vw;
+    }
+  }
 }
 
 .sake img {
@@ -83,15 +82,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.sake-change {
-    padding: 0 5vw;
-}
-.sake-change img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 4vw;
-}
+
 #sake-name {
     font-size: 6vw;
     text-align: center;

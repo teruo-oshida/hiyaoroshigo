@@ -2,6 +2,101 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.no-titlebar .ui-dialog-titlebar {
-  display: none;
+body .ui-widget-overlay {
+  opacity: .7;
+}
+
+.hiya-modal {
+  border-radius: 15px;
+
+  &.ui-dialog {
+    overflow: visible;
+    
+    & .ui-dialog-titlebar {
+      display: none;
+    }
+    
+    & .ui-dialog-content {
+      overflow: visible;
+      outline: none;
+    }
+  }
+
+  &_contents {
+    margin-top: 3vw;
+  }
+
+  &_btn-close {
+    position: absolute;
+    top: -4vw;
+    right: -4vw;
+    width: 10.5vw;
+    height: 10.5vw;
+    background-color: white;
+    border-radius: 100%;
+    border: 1px solid #d0d0d0;
+
+    #{&}button {
+      font-size: 6vw;
+    }
+  }
+
+  &_text {
+    text-align: center;
+    font-weight: 600;
+    font-weight: bold;
+    margin: 0 0 5.5vw;
+  }
+
+  &_footer {
+    margin: 12vw 0 3vw;
+    padding: 0 3vw;
+
+    &_submit-btn.normal.close {
+      width: 100%;
+      height: 13vw;
+    }
+  }
+}
+
+.vote-modal {
+  &_temperatures {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10vw;
+
+    &_item {
+      & input[type="radio"] {
+        display: none;
+
+        & + label {
+          padding: 2.5vw 4vw;
+          font-size: 5vw;
+          font-weight: bold;
+          color: #ccc;
+          border: 0.4vw solid #ccc;
+          border-radius: 4vw;
+        }
+
+        &:checked + label {
+          background-color: #f3c517;
+          color:      #fff;
+          border:     none;
+        }
+      }
+    }
+  }
+
+  & .br-theme-fontawesome-stars .br-widget {
+    display: flex;
+    justify-content: space-around;
+
+    & a {
+      font-size: 10vw;
+
+      &.br-selected:after {
+        color: #f3c517;
+      }
+    }
+  }
 }

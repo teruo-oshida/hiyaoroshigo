@@ -1,31 +1,39 @@
-<div class="modal-content">
+<div>
   <%= form_for(@drinking, remote: true) do |f| %>
     <div class="modal-header">
-      <button type="button" class="close">
-        <span>&times;</span>
+      <button type="button" class="hiya-modal_btn-close js-modal-close-button">
+        <%= fa_icon "times" %>
       </button>
     </div>
-    <div class="modal-body">
-      <p>飲み方</p>
-      <div class="field">
+    <div class="hiya-modal_contents">
+      <p class="hiya-modal_text">飲み方</p>
+      <div class="vote-modal_temperatures">
         <% @temperatures.each do |t| %>
-          <%= f.radio_button :sake_temperature_id, t.id, checked: t.default? %>
-          <%= f.label :sake_temperature_id, t.name, value: t.id %>
+          <div class="vote-modal_temperatures_item">
+            <%= f.radio_button :sake_temperature_id, t.id,
+              checked: t.default? %>
+            <%= f.label :sake_temperature_id, t.name, value: t.id %>
+          </div>
         <% end %>
         <%= f.hidden_field :restaurant_id, value: @restaurant_id %>
         <%= f.hidden_field :sake_id, value: @sake_id %>
       </div>
-      <p>評価する</p>
+      <p class="hiya-modal_text">評価する</p>
       <%= f.fields_for :vote do |v| %>
-        <div class="field">
-          <% (Vote::MIN_SCORE..Vote::MAX_SCORE).each do |i| %>
-            <%= v.radio_button :score, i, checked: (i == Vote::DEFAULT_SCORE) %>
-          <% end %>
-        </div>
+        <%= v.select :score, (Vote::MIN_SCORE..Vote::MAX_SCORE), {}, class: 'js-scores' %>
       <% end %>
     </div>
-    <div class="modal-footer">
-      <%= f.submit '投票', class: 'normal close' %>
+    <div class="hiya-modal_footer">
+      <%= f.submit '投票する', class: 'normal close hiya-modal_footer_submit-btn' %>
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+    $('.js-scores').barrating({
+      theme:         'fontawesome-stars',
+      initialRating: 3
+    });
+  });
+</script>

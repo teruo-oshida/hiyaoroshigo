@@ -1,12 +1,13 @@
 <header class="l_header">
   <div class="l_header_contents">
-    <% unless profile %>
+    <% if profile %>
      <div class="profile-btn profile-back-btn">
-       <a href="javascript:history.back();">
-         <%= fa_icon "chevron-left" %>
-       </a>
+       <%= link_to fa_icon("chevron-left"), "/restaurants/vote" %>
      </div>
-    <% else %>
+   <% else %>
+     <% if title.present?  %>
+       <span id="header-title" ><%= title %></span>
+     <% end %>
      <div class="profile-btn profile-show-btn">
        <%= link_to fa_icon("user"), "/drinkers/edit" %>
      </div>
