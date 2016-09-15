@@ -44,9 +44,16 @@ $background2:#F2F2F2;
     font-weight: bold;
     margin: 2vw 0;
   }
-}
 
-.profile-warning { font-size:2vw; }
+  &-error {
+    font-size: 4vw;
+    color: red;
+  }
+
+  &-warning {
+    font-size: 2vw;
+  }
+}
 
 .drinker-name
 {
