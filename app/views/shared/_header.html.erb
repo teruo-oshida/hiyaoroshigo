@@ -2,9 +2,7 @@
   <div class="l_header_contents">
     <% if profile %>
      <div class="profile-btn profile-back-btn">
-       <a href="javascript:history.back();">
-         <%= fa_icon "chevron-left" %>
-       </a>
+       <%= link_to fa_icon("chevron-left"), "/restaurants/vote" %>
      </div>
    <% else %>
      <% if title.present?  %>
