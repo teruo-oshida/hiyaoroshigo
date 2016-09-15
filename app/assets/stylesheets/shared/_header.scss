@@ -7,13 +7,13 @@ $header-height: 18vw;
   height: $header-height;
   $header-bg-color: #f0c12c;
   background-color: $header-bg-color;
-  background-image: url(../../assets/noren-background-1.png);
+  background-image: asset-url("noren-background-1.png");
   background-size: cover;
   z-index: 100;
 
   &_contents {
     height: $header-height;
-    background-image: url(../../assets/noren-background-2.png);
+    background-image: asset-url("noren-background-2.png");
     background-size: contain;
     background-repeat: repeat-x;
 

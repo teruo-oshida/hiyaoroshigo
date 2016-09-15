@@ -15,7 +15,7 @@ input[type=submit].normal,
 input[type=button].normal {
   @extend .basic-button;
   background-color: #f1ca03;
-  background-image: url(../../assets/wood_button.png);
+  background-image: asset-url("wood_button.png");
   border-bottom: 1vw solid #977C12;
 }
 

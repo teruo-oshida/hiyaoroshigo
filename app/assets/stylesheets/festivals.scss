@@ -15,7 +15,7 @@
     padding-top:11vw;
   }
   #{&}-result {
-    background-image: url("../assets/result-background.png");
+    background-image: asset-url("result-background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -41,7 +41,7 @@
   left: 0;
   width: 100vw;
   height:148vw;
-  background-image: url("../assets/top-coming-soon.png");
+  background-image: asset-url("top-coming-soon.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;

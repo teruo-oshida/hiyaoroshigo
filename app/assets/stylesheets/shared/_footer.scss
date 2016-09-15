@@ -22,7 +22,7 @@ $footer-height: 13vw;
   & .footer-btn {
     width: 33.3333333%;
     height: $footer-height;
-    background-image: url(../../assets/wood-backgrand.png);
+    background-image: asset-url("wood-backgrand.png");
     background-size: cover;
     border-left:1px solid #ffffff;
     border-right:1px solid #ceaf7c;
@@ -38,25 +38,25 @@ $footer-height: 13vw;
 	background-position: center center;
     }
     & a.footer-vote {
-	background-image: url(../../assets/wood-post-40.png);
+	background-image: asset-url("wood-post-40.png");
     }
     & a.footer-map {
-	background-image: url(../../assets/wood-map-40.png);
+	background-image: asset-url("wood-map-40.png");
     }
     & a.footer-winner {
-	background-image: url(../../assets/wood-win-40.png);
+	background-image: asset-url("wood-win-40.png");
     }
   }
 
   & .is-selected {
     & a.footer-vote {
-	background-image: url(../../assets/wood-post-on-40.png);
+	background-image: asset-url("wood-post-on-40.png");
     }
     & a.footer-map {
-	background-image: url(../../assets/wood-map-on-40.png);
+	background-image: asset-url("wood-map-on-40.png");
     }
     & a.footer-winner {
-	background-image: url(../../assets/wood-win-on-40.png);
+	background-image: asset-url("wood-win-on-40.png");
     }
   }
 }
