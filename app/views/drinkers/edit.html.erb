@@ -1,7 +1,7 @@
 <% provide :profile, "x" %>
 
 <div class="profile">
-  <p><b>トランキーロネーム(酒呑みニックネーム)</b></p>
+  <h2>トランキーロネーム(酒呑みニックネーム)</h2>
   <%= form_for @drinker, :url => {:controller=>'drinkers' ,:action => 'update'} do |f| %>
     <div class="drinker-name">
       <div class="drinker-name-edit">
@@ -27,11 +27,11 @@
   ※トランキーロネーム、称号、呑みログは公開されます
   </p>
 <div class="profile">
-  <p><b>称号</b></p>
+  <h2>称号</h2>
   <p class="sake-title"><%= @drinker.sake_title %></p>
 </div>
 <div class="drinker-log profile">
-  <p><b>呑みログ</b></p>
+  <h2>呑みログ</h2>
   <div class="logs">
   <% @drinker.drinkings.includes(:sake, :sake_temperature).
     reverse_each do |drink| %>
@@ -45,7 +45,8 @@
   <a rel="nofollow" data-method="delete" href="/drinker/sign_out">
     <input type="button" value="ログアウト" class="normal">
   </a>
-</div>
-<div class="profile-login-terms">
-  <a href="/terms">利用規約</a>
+
+  <div class="profile-login-terms">
+    <a href="/terms">利用規約</a>
+  </div>
 </div>

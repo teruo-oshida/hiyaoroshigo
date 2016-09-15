@@ -14,8 +14,10 @@ $background2:#F2F2F2;
 .profile {
   text-align: center;
 
-  a#{&}-edit-button:link,
-  a#{&}-edit-button:visited {
+  & h2 {
+    font-size: 4vw;
+    font-weight: bold;
+    margin: 2vw 0;
   }
 }
 
@@ -26,7 +28,7 @@ $background2:#F2F2F2;
   display: flex;
   justify-content: center;
   font-size: 6vw;
-  border-bottom: inset 1px $border1;
+  border-bottom: solid 1px $border1;
   margin: 0 4vw;
   padding: 2vw;
 
@@ -55,19 +57,33 @@ $background2:#F2F2F2;
 
 .sake-title {
   font-size: 1.8em;
-  border-bottom: inset 1px $border1;
+  border-bottom: solid 1px $border1;
   margin: 0 4vw;
   padding: 2vw;
 }
 
-.drinker-log { height:50%; margin-top:30px; padding-top:20px; padding-bottom:30px; background-color:$background2; }
+.drinker-log {
+  height: 100vw;
+  margin-top: 5vw;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+  background-color: $background2;
+  border-top: solid 1px $border2;
+}
 
-.logs{ height:10em; overflow:scroll; -webkit-overflow-scrolling: touch; margin:0px 15px; }
+.logs {
+  height: 40vw;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin: 0px 5vw;
+}
 
 .log
 {
-  margin:10px 0px; border-bottom: inset 2px $border2;
-  p{margin:-2px 0px; padding:0px; text-align:left;}
+  margin: 10px 0px;
+  padding: 1vw 0;
+  border-bottom: solid 1px $border2;
+  p{margin: 0px; padding:0px; text-align:left;}
   #{&}-date{ font-size:15px; }
   #{&}-sake{ }
 }
