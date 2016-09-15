@@ -22,9 +22,12 @@
       <%= favicon_link_tag("favicon-#{size}px.png",
                            { sizes: "#{size}x#{size}", type: "image/png" }) %>
     <% end %>
-
+    <%= favicon_link_tag("home-icon.png",rel:"apple-touch-icon-precomposed") %>
     <meta name="viewport" content="width=device-width">
     <meta name="robots" content="noindex,nofollow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="ひやおろしGO">
   </head>
 
   <body>
