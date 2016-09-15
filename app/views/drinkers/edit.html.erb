@@ -4,22 +4,16 @@
   <h2>トランキーロネーム(酒呑みニックネーム)</h2>
   <%= form_for @drinker, :url => {:controller=>'drinkers' ,:action => 'update'} do |f| %>
     <div class="drinker-name">
-      <div class="drinker-name-edit">
-        <div class="profile-show">
+      <div class="profile-show">
+        <span class="profile-show_name"><%= @drinker.name.nil? ? "トランキーロネーム" : @drinker.name %></span>
         <%= link_to fa_icon("pencil-square-o"), "javascript: drinkers.edit()" %>
-        </div>
       </div>
-      <div class="drinker-name-content">
-        <span class="profile-show"><%= @drinker.name %></span>
-        <span class="profile-edit"><%= f.text_field :name%></span>
-      </div>
-      <div class="drinker-name-operations">
-        <div class="profile-edit">
-          <%= link_to fa_icon("floppy-o"),
-            "javascript: $('.edit_drinker').submit()" %>
-          &nbsp;
-          <%= link_to fa_icon("times"), "javascript: drinkers.cancel()" %>
-        </div>
+      <div class="profile-edit" style="display: none">
+        <%= f.text_field :name, class: "profile-edit_input", placeholder: "トランキーロネーム" %>
+        <%= link_to fa_icon("floppy-o"),
+          "javascript: $('.edit_drinker').submit()", class: "profile-edit_save" %>
+        &nbsp;
+        <%= link_to fa_icon("times"), "javascript: drinkers.cancel()" %>
       </div>
     </div>
   <% end %>
