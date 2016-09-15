@@ -6,6 +6,7 @@ drinkers.edit = function() {
 }
 
 drinkers.cancel = function() {
+  $(".edit_drinker")[0].reset();
   $(".profile-show").css("display","inline");
   $(".profile-edit").css("display","none");
 }
