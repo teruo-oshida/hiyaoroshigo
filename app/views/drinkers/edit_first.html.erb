@@ -8,9 +8,9 @@
         <%= f.text_field :name, class: "profile-edit_input", placeholder: "トランキーロネーム" %>
       </div>
     </div>
-    <% if flash[:error] %>
+    <% if flash[:alert] %>
       <p class="profile-error">
-      <%= flash[:error] %>
+      <%= flash[:alert] %>
       </p>
     <% end %>
     <p class="profile-warning">

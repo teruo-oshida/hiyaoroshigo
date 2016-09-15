@@ -1,5 +1,5 @@
 class DrinkersController < ApplicationController
-  before_action :authenticate_drinker!, only:[:edit, :show, :update]
+  before_action :authenticate_drinker!, only:[:edit, :edit_first, :show, :update]
 
   def redirector
     if params[:passcode].present?
@@ -36,8 +36,8 @@ class DrinkersController < ApplicationController
       if current_drinker.name.present?
         redirect_to "/restaurants/vote"
       else
-        flash[:error] = "トランキーロネームを入力してください"
-        redirect_to "/drinkers/edit_first"
+        redirect_to "/drinkers/edit_first",
+          alert: "トランキーロネームを入力してください"
       end
     else
       redirect_to "/drinkers/edit"
