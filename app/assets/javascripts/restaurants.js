@@ -67,4 +67,12 @@ $(document).on('turbolinks:load', function() {
       $sakesSlick.slick('slick' + x);
     });
   });
+  $(".sake-slick").click(function(){
+    var index = $('.js-sake-slick').slick('slickCurrentSlide');
+    var path = restaurants.sakes[index].vote_url;
+    $(".l_contents").prepend('<div class="zoom-window"><img class="zoom-image" src="'+path+'"></div>');
+  });
+  $(document).on("click",".zoom-window",function(){
+    $(this).remove();
+  });
 });
