@@ -4,7 +4,7 @@
   <%= form_for @drinker, :url => {:controller=>'drinkers' ,:action => 'update'} do |f| %>
     <h2>トランキーロネームを入力してください。</h2>
     <div class="drinker-name">
-      <div>
+      <div class="profile-edit">
         <%= f.text_field :name, class: "profile-edit_input", placeholder: "トランキーロネーム" %>
       </div>
     </div>
