@@ -6,15 +6,20 @@
 
 .profile-edit {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   &_input {
     flex-grow: 1;
-    margin-right: 4vw;
+    flex-basis: 62vw;
     overflow: hidden;
   }
 
+  .fa {
+    font-size: 6vw;
+  }
+
   &_save {
+    margin-left: 4vw;
     margin-right: 2vw;
   }
 }
