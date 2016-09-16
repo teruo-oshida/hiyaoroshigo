@@ -31,7 +31,8 @@ class RestaurantsController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
       marker.picture({
-        url: "/assets/marker#{restaurant.current_congestion_degree}.png",
+        url: ActionController::Base.helpers.
+          asset_path("marker#{restaurant.current_congestion_degree}.png"),
         width: 42,
         height: 42
       })
