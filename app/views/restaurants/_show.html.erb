@@ -1,20 +1,32 @@
 <%= button_to '投票', '', id: 'vote-button', class: 'normal', method: :get, remote: true, form: { id: 'vote' } %>
 
 <script type="text/javascript">
+<%
+  drinking_tbl = @drinkings.includes(:sake, :vote).each_with_object({}) { |d, h|
+    h[d.sake.id] = d
+  }
+%>
   (function() {
     restaurants.setSakes(<%= raw @restaurant.festival_sakes(@current_festival).map { |sake|
-      if sake.voted?(current_drinker)
+      if drinking = drinking_tbl[sake.id]
         text  = '投票を取り消す'
-        url   = drinking_path(@drinkings.find_by(sake: sake))
-        score = @drinkings.find_by(sake: sake).vote.score
+        url   = drinking_path(drinking)
+        score = drinking.vote.score
         klass = 'normal cancel'
       else
         text  = '投票'
-        url   = new_drinking_path(restaurant_id: @restaurant.id, sake_id: sake.id)
+        url   = new_drinking_path(restaurant_id: @restaurant.id,
+                                  sake_id: sake.id)
         score = -1
         klass = 'normal'
       end
-      { name: sake.name, vote_text: text, vote_url: url, klass: klass, score:score }
+      {
+        name: sake.name,
+        vote_text: text,
+        vote_url: url,
+        klass: klass,
+        score: score
+      }
     }.to_json %>);
 
     restaurants.updateSake();

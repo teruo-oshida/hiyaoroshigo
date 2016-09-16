@@ -33,4 +33,10 @@ class ApplicationController < ActionController::Base
       redirect_to "/itstoolate"
     end
   end
+
+  def restaurant_drinkings(restaurant)
+    Drinking.where(drinker:    current_drinker,
+                   festival:   current_festival,
+                   restaurant: restaurant)
+  end
 end

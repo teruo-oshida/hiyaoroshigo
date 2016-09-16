@@ -4,10 +4,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @drinkings  = Drinking.where(drinker:    current_drinker,
-                                 festival:   current_festival,
-                                 restaurant: @restaurant,
-                                 sake:       @restaurant.sakes)
+    @drinkings  = restaurant_drinkings(@restaurant)
     if request.xhr?
       render partial: "detail", locals: { restaurant: @restaurant }
     end
