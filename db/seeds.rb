@@ -9,6 +9,7 @@
 require "csv"
 
 RESTAURANT_ICON_DIR = File.expand_path("seeds/images/restaurant_icons", __dir__)
+SAKE_PHOTO_DIR = File.expand_path("seeds/images/sake_photos", __dir__)
 
 Sake.transaction do
   [
@@ -54,28 +55,34 @@ Sake.transaction do
   restaurant_tbl = restaurants.each_with_object({}) { |r, h|
     h[r.name] = r
   }
-  CSV.parse(<<-EOF.gsub(/^\s*/, "")) do |r_name, b_name, s_name|
-    東風,吉田酒造,"月山 純米吟醸生詰ひやおろし"
-    東風,富士酒造,"出雲富士 秋雲純米ひやおろし"
-    東風,木次酒造,"美波太平洋 純米原酒ひやおろし"
-    そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町 木槽しぼり生詰瓶火入れ"
-    そば遊山,一宮酒造,"石見銀山 特別純米改良八反流ひやおろし"
-    そば遊山,稲田本店,"稲田姫 いなたひめ良燗純米"
-    老虎,旭日酒造,"十旭日 純米ひやおろし"
-    老虎,千代むすび酒造,"千代むすび 純米強力60氷温ひやおろし"
-    老虎,米田酒造,"豊の秋 純米生詰原酒ひやおろし"
-    誘酒庵,福羅酒造,"山陰東郷 純米ひやおろし"
-    誘酒庵,李白酒造,"李白 特別純米生詰ひやおろし"
-    誘酒庵,岡田屋本店,"菊弥栄 純米酒秋あがり"
-    谷屋,久米桜酒造,"純米八郷 70冷やおろし"
-    谷屋,酒持田本店,"ヤマサン正宗 純米原酒七号ひやおろし"
-    谷屋,華泉酒造,"華泉 津和野純米原酒秋ざかり"
+  CSV.parse(<<-EOF.gsub(/^\s*/, "")) do |no,r_name, b_name, s_name|
+    1,東風,吉田酒造,"月山 純米吟醸生詰ひやおろし"
+    2,東風,富士酒造,"出雲富士 秋雲純米ひやおろし"
+    3,東風,木次酒造,"美波太平洋 純米原酒ひやおろし"
+    4,そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町 木槽しぼり生詰瓶火入れ"
+    5,そば遊山,一宮酒造,"石見銀山 特別純米改良八反流ひやおろし"
+    6,そば遊山,稲田本店,"稲田姫 いなたひめ良燗純米"
+    7,老虎,旭日酒造,"十旭日 純米ひやおろし"
+    8,老虎,千代むすび酒造,"千代むすび 純米強力60氷温ひやおろし"
+    9,老虎,米田酒造,"豊の秋 純米生詰原酒ひやおろし"
+    10,誘酒庵,福羅酒造,"山陰東郷 純米ひやおろし"
+    11,誘酒庵,李白酒造,"李白 特別純米生詰ひやおろし"
+    12,誘酒庵,岡田屋本店,"菊弥栄 純米酒秋あがり"
+    13,谷屋,久米桜酒造,"純米八郷 70冷やおろし"
+    14,谷屋,酒持田本店,"ヤマサン正宗 純米原酒七号ひやおろし"
+    15,谷屋,華泉酒造,"華泉 津和野純米原酒秋ざかり"
   EOF
-    r = restaurant_tbl[r_name]
-    b = Brewery.find_or_create_by!(name: b_name)
-    s = Sake.find_or_create_by!(brewery: b)
-    s.name = s_name
-    s.save!
-    SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
+    photo = (File.open(File.join(SAKE_PHOTO_DIR, "#{no}.png")) rescue nil)
+    begin
+      r = restaurant_tbl[r_name]
+      b = Brewery.find_or_create_by!(name: b_name)
+      s = Sake.find_or_create_by!(brewery: b)
+      s.name = s_name
+      s.photo = photo
+      s.save!
+      SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
+    ensure
+      photo.close if photo
+    end
   end
 end
