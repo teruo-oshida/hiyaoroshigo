@@ -14,7 +14,7 @@
   <div class="sake-slick js-sake-slick">
     <% @restaurant.festival_sakes(@current_festival).each do |sake| %>
       <div class="sake">
-        <%= image_tag sake.photo(:medium), alt: sake.name %>
+        <%= image_tag sake.photo(:medium), alt: sake.name, data:{original:sake.photo(:original)} %>
       </div>
     <% end %>
   </div>

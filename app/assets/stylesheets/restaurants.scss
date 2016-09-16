@@ -192,3 +192,18 @@ img.restaurant-icon {
   font-family: Arial;
   font-size: 6vw;
 }
+
+.zoom-window {
+width:100%;
+min-height:100vh;
+position:absolute;
+top:0px;
+background-color:rgba(0,0,0,0.7);
+z-index:101;text-align:center;
+}
+
+.zoom-image {
+margin:0 auto;
+height:90vh;
+margin-top:5vh;
+}

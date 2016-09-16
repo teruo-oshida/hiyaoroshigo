@@ -67,4 +67,11 @@ $(document).on('turbolinks:load', function() {
       $sakesSlick.slick('slick' + x);
     });
   });
+  $(".sake-slick").click(function(){
+    var path = _.escape($('.slick-active img').data('original'));
+    $(".l_contents").prepend('<div class="zoom-window"><img class="zoom-image" src="'+path+'"></div>');
+  });
+  $(document).on("click",".zoom-window",function(){
+    $(this).remove();
+  });
 });
