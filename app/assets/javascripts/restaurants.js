@@ -3,7 +3,13 @@ var restaurants = restaurants || {};
 restaurants.index = 0;
 
 restaurants.setSakeName = function(name) {
-  $('#sake-name').empty().append(_.escape(name).replace(/\s+/g, '<br>'));
+  var names = _.escape(name).split(/\s+/g);
+  var brand = names.shift();
+  $('#sake-name').empty().
+    append('<span class="sake-brand">' + brand + '</span>');
+  names.forEach(function(n) {
+    $('#sake-name').append('<br>' + n);
+  });
 };
 
 restaurants.setVoteText = function(text) {
@@ -27,11 +33,12 @@ restaurants.setScore = function(score){
 }
 
 restaurants.updateSake = function() {
-  this.setSakeName(this.sakes[this.index].name);
-  this.setVoteText(this.sakes[this.index].vote_text);
-  this.setVoteUrl(this.sakes[this.index].vote_url);
-  this.setVoteButtonClass(this.sakes[this.index].klass);
-  this.setScore(this.sakes[this.index].score);
+  var sake = this.sakes[this.index];
+  this.setSakeName(sake.name);
+  this.setScore(sake.score);
+  this.setVoteText(sake.vote_text);
+  this.setVoteUrl(sake.vote_url);
+  this.setVoteButtonClass(sake.klass);
 };
 
 restaurants.selectSake = function(index) {
