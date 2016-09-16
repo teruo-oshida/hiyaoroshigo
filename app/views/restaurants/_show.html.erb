@@ -6,13 +6,15 @@
       if sake.voted?(current_drinker)
         text  = '投票を取り消す'
         url   = drinking_path(@drinkings.find_by(sake: sake))
+        score = @drinkings.find_by(sake: sake).vote.score
         klass = 'normal cancel'
       else
         text  = '投票'
         url   = new_drinking_path(restaurant_id: @restaurant.id, sake_id: sake.id)
+        score = -1
         klass = 'normal'
       end
-      { name: sake.name, vote_text: text, vote_url: url, klass: klass }
+      { name: sake.name, vote_text: text, vote_url: url, klass: klass, score:score }
     }.to_json %>);
 
     restaurants.updateSake();
