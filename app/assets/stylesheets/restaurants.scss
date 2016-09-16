@@ -91,11 +91,17 @@
     font-size: 6vw;
 }
 
+.sake-star {
+    margin-left: 1vw;
+}
+
 .sake-selected-star {
+    @extend .sake-star;
     color: #f3c517;
 }
 
 .sake-deselected-star {
+    @extend .sake-star;
     color: #d2d2d2;
 }
 
