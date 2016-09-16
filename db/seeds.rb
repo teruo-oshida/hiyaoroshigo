@@ -27,7 +27,7 @@ Sake.transaction do
     st.save!
   end
   mtq2016 = Festival.find_or_create_by!(name: "松江トランキーロ2016")
-  mtq2016.start_at = Time.mktime(2016, 9, 18, 12, 0, 0)
+  mtq2016.start_at = Time.mktime(2016, 9, 18, 10, 0, 0)
   mtq2016.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
   mtq2016.save!
   restaurants = [
