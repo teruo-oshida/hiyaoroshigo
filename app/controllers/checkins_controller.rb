@@ -4,6 +4,7 @@ class CheckinsController < ApplicationController
 
   def new
     @checkin = Checkin.new
+    @checkin.restaurant = current_drinker.latest_checkin&.restaurant
     @restaurants = current_festival.restaurants.order("id")
   end
 
