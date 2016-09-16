@@ -1,0 +1,21 @@
+<% current_festival = Festival.find_by(name: "松江トランキーロ2016") %>
+<p>
+congestion_degree = <br>
+case recent_checkins / capacity<br>
+when 0.0..0.5; 1<br>
+when 0.5..0.8: 2<br>
+when 0.8..∞: 3<br>
+end
+</p>
+<ul>
+<% current_festival.restaurants.order("id").each do |restaurant| %>
+  <li>
+    <%= restaurant.name %>
+    (
+    <%= count = restaurant.recent_checkin_count %> /
+    <%= restaurant.capacity %> =
+    <%= "%.3f" % (count.to_f / restaurant.capacity) %>
+    )
+  </li>
+<% end %>
+</ul>
