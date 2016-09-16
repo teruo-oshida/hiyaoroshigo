@@ -28,8 +28,9 @@ restaurants.setVoteButtonClass = function(class_name) {
 restaurants.setScore = function(score){
   var text = "あなたの採点：";
   var star = '<i class="fa fa-star"></i>';
-  var star_o = '<i class="fa fa-star-o"></i>';
-  for(var i=1;i<=5;i++)text+=i<=score?star:star_o;
+  var selected = '<span class="sake-selected-star">' + star + '</span>';
+  var deselected = '<span class="sake-deselected-star">' + star + '</span>';
+  for(var i=1;i<=5;i++)text+=i<=score?selected:deselected;
   if(score<1||5<score)text="";
   $('#sake-name').append('<br>'+text);
 }
