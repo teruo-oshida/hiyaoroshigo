@@ -8,7 +8,6 @@ class Drinker < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  # TODO: パスフレーズを受け取ってticketレコードを紐付ける処理を追加する
   def self.find_for_facebook_oauth(auth,params)
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
     return { status: true, drinker: drinker } if drinker
