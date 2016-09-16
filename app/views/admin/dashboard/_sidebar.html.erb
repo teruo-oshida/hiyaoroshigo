@@ -2,10 +2,9 @@
 <p>
 congestion_degree = <br>
 case recent_checkins / capacity<br>
-when 0.0..0.5; 1<br>
-when 0.5..0.8: 2<br>
-when 0.8..∞: 3<br>
-end
+when 0.0...0.5; 1<br>
+when 0.5...0.8; 2<br>
+when 0.8..∞;3 end
 </p>
 <ul>
 <% current_festival.restaurants.order("id").each do |restaurant| %>
