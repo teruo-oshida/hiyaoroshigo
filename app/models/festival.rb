@@ -24,6 +24,10 @@ class Festival < ApplicationRecord
   def winner
     sake_id, = drinkings.limit(1).group(:sake_id).joins(:vote).
       order("sum_score DESC").sum(:score).first
-    Sake.find(sake_id)
+    if sake_id
+      Sake.find(sake_id)
+    else
+      nil
+    end
   end
 end

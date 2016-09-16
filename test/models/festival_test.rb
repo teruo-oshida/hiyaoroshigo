@@ -46,4 +46,8 @@ class FestivalTest < ActiveSupport::TestCase
     winner, = sakes.max_by { |_, sum_score| sum_score }
     assert_equal(winner, Festival.find(1).winner.id)
   end
+
+  test "no winner" do
+    assert_equal(nil, Festival.find(1).winner)
+  end
 end
