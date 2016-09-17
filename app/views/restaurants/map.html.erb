@@ -6,9 +6,10 @@
 </div>
 
 <script type="text/javascript">
-    handler = Gmaps.build('Google');
+  (function() {
+    var handler = Gmaps.build('Google');
     handler.buildMap({ provider: {streetViewControl:false,mapTypeControl:false,zoomControl:false}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @markers.to_json %>);
+      var markers = handler.addMarkers(<%=raw @markers.to_json %>);
       markers.map(function(marker) {
         var id = marker.getServiceObject().title;
         marker.getServiceObject().addListener('click', function(e) {
@@ -21,7 +22,18 @@
       });
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var markers = handler.addMarker({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          infowindow: "現在地"
+        });
+      }, function(e) {
+        console.warn("getCurrentPosition(): " + e.code + ": " + e.message);
+      });
     });
+  })();
 </script>
 
 <div id="twitter">
