@@ -36,9 +36,10 @@
   <% end %>
   </div>
 
-  <a rel="nofollow" data-method="delete" href="/drinker/sign_out">
-    <input type="button" value="ログアウト" class="normal">
-  </a>
+  <div class="profile-logout">
+    <%= button_to "ログアウト", "/drinker/sign_out",
+                  method: :delete, class: "normal" %>
+  </div>
 
   <div class="profile-login-terms">
     <a href="/terms">利用規約</a>
