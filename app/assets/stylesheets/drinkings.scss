@@ -36,6 +36,15 @@ body .ui-widget-overlay {
     border-radius: 100%;
     border: 1px solid #d0d0d0;
 
+    .fa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      line-height: 10vw;
+    }
+
     #{&}button {
       font-size: 6vw;
     }
