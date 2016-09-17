@@ -7,27 +7,22 @@ namespace :tickets do
   desc "Generate tickets"
 
   task generate: :environment do
+    unless ENV.key?("COUNT")
+      STDERR.puts("Usage: rake tickets:generate COUNT=num [RESTAURANT=name]")
+      exit 1
+    end
     Ticket.transaction do
-      if Ticket.count > 0
-        STDERR.puts("Do nothing because tickets have already been generated")
-        next
-      end
       mtq2016 = Festival.find_by(name: "松江トランキーロ2016")
-      for name, n in [
-        ["そば遊山", 30],
-        ["谷屋", 32],
-        ["誘酒庵", 38],
-        ["老虎", 30],
-        ["東風", 20],
-        [nil, 50]
-      ]
-        restaurant = name ? Restaurant.find_by(name: name) : nil
-        n.times do
-          Ticket.create!(festival: mtq2016,
-                         restaurant: restaurant)
-        end
+      if ENV.key?("RESTAURANT")
+        restaurant = Restaurant.find_by(name: ENV["RESTAURANT"])
+      else
+        restaurant = nil
       end
-      puts("Generated #{Ticket.count} tickets")
+      count = ENV["COUNT"].to_i
+      count.times do
+        Ticket.create!(festival: mtq2016, restaurant: restaurant)
+      end
+      puts("Generated #{count} tickets")
     end
   end
 
