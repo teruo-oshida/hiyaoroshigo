@@ -8,11 +8,15 @@
 </h1>
 <div class="thewinner-wrap-content<%= ' thewinner-result' if @sake %>">
   <% if @sake %>
-  <p class="thewinner-no1">1位は...</p>
-  <p class="thewinner-hiyaoroshi"><%= @sake.name %></p>
-  <p class="thewinner-image">
+    <% brand, *names = @sake.name.split %>
+  <div class="thewinner-no1">1位は...</div>
+  <div class="thewinner-hiyaoroshi">
+    <span class="thewinner-brand"><%= brand %></span><br>
+    <%= raw names.map { |s| h(s) }.join("<br>") %>
+  </div>
+  <div class="thewinner-image">
     <%= image_tag @sake.photo(:medium) %>
-  </p>
+  </div>
   <% else %>
   <p class="thewinner-coming-soon">ただいま集計中</p>
   <p class="thewinner-wait">少々お待ちください。</p>

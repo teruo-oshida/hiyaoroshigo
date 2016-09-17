@@ -11,19 +11,33 @@
     background-color: #eeeeee;
   }
   #{&}-wrap-content {
-    height:126vw;
-    padding-top:11vw;
+    height: 140vw;
+    padding-top: 3vw;
   }
   #{&}-result {
     background-image: asset-url("result-background.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-size: 120%;
+    background-position: center top;
   }
-  #{&}-no1{ font-weight:bold; font-size:6vw; margin-bottom:2vw; }
-  #{&}-hiyaoroshi{ font-weight:bold; font-size:7vw; margin-top:0px; color:#D30F13; }
+  #{&}-no1 {
+    font-weight: bold;
+    font-size: 6vw;
+  }
+  #{&}-hiyaoroshi {
+    height: 28vw;
+    font-weight: bold;
+    font-size: 5vw;
+    margin-top: 0px;
+    color:#D30F13;
+  }
+
+  #{&}-brand {
+    font-size: 7vw;
+  }
+
   #{&}-image img {
-    height: 60vw;
+    height: 70vw;
   }
   #{&}-coming-soon {
     font-size: 10vw;
