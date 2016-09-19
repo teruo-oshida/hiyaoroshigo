@@ -1,4 +1,4 @@
-worker_processes 2
+worker_processes 1
 
 listen File.expand_path('tmp/sockets/unicorn.sock')
 pid    File.expand_path('tmp/pids/unicorn.pid')
