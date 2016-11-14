@@ -7,6 +7,6 @@ class Drinking < ApplicationRecord
   has_one :vote, dependent: :destroy
   accepts_nested_attributes_for :vote
 
-  # 松江トランキーロ2016に関しては各お酒への投票は一人一回のみ
+  # ShimaneCommunities2016に関しては各お酒への投票は一人一回のみ
   validates :drinker_id, uniqueness: { scope: %i(sake_id) }, allow_nil: true
 end

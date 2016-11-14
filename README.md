@@ -1,8 +1,6 @@
-# ひやおろしGO
+# SimpleVote
 
-[松江トランキーロ2016](https://www.facebook.com/events/1571262126511755/)のためのWebアプリケーションです。
-
-[![Build Status](https://travis-ci.org/matsueoss/hiyaoroshigo.svg?branch=master)](https://travis-ci.org/matsueoss/hiyaoroshigo)
+ShimaneCommunities2016のためのWebアプリケーションです。
 
 ## 開発環境のセットアップ
 
@@ -30,60 +28,6 @@
 4. http://localhost:3000/admin/ にブラウザでアクセスします。
 
 5. 管理ユーザを登録します。
-
-TODO: Facebook連携の設定
-
-## 開発用Docker環境
-
-CentOS 6.8の環境がない場合に使用してください。
-
-前提条件: Dockerが使えるLinuxマシンがあること。
-
-### イメージの取得 or ビルド
-
-```
-$ docker pull shugo/hiyaoroshigo
-```
-
-or
-
-```
-$ docker build -t shugo/hiyaoroshigo .
-```
-
-### Railsサーバの実行
-
-```
-$ docker run --rm=true -v "$PWD":/usr/local/hiyaoroshigo -p 127.0.0.1:3000:3000 shugo/hiyaoroshigo
-```
-
-### テストの実行
-
-```
-$ docker run --rm=true -v "$PWD":/usr/local/hiyaoroshigo shugo/hiyaoroshigo rake
-```
-
-## チケットの発行
-
-以下のコマンドでtickets.pdfが生成されます。
-
-```
-$ rake tickets:generate
-$ rake tickets:report
-```
-
-以下のコマンドでチケットデータが削除されます。
-
-```
-$ rake tickets:clean
-```
-
-以下のコマンドでdb/tickets.csvのダンプ・ロードができます。
-
-```
-$ rake tickets:csv:dump
-$ rake tickets:csv:load
-```
 
 ## ライセンス
 

@@ -12,7 +12,7 @@ namespace :tickets do
       exit 1
     end
     Ticket.transaction do
-      mtq2016 = Festival.find_by(name: "松江トランキーロ2016")
+      mtq2016 = Festival.find_by(name: "ShimaneCommunities2016")
       if ENV.key?("RESTAURANT")
         restaurant = Restaurant.find_by(name: ENV["RESTAURANT"])
       else

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_current_festival
-    @current_festival = Festival.find_by(name: "松江トランキーロ2016")
+    @current_festival = Festival.find_by(name: "ShimaneCommunities2016")
   end
   
   def current_festival

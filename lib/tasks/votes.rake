@@ -10,7 +10,7 @@ namespace :votes do
     open("db/votes.csv") do |f|
       Drinking.where(drinker_id: nil).destroy_all
       Vote.transaction do
-        festival = Festival.find_by(name: "松江トランキーロ2016")
+        festival = Festival.find_by(name: "ShimaneCommunities2016")
         f.each_line do |line|
           next if /^sake_id,/ =~ line
           sake_id, count = line.chomp.split(/,/)

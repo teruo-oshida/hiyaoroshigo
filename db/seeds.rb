@@ -26,9 +26,9 @@ Sake.transaction do
     st.enabled = enabled
     st.save!
   end
-  mtq2016 = Festival.find_or_create_by!(name: "松江トランキーロ2016")
-  mtq2016.start_at = Time.mktime(2016, 9, 18, 10, 0, 0)
-  mtq2016.end_at = Time.mktime(2016, 9, 18, 18, 0, 0)
+  mtq2016 = Festival.find_or_create_by!(name: "ShimaneCommunities2016")
+  mtq2016.start_at = Time.mktime(2016, 11, 1, 0, 0, 0)
+  mtq2016.end_at = Time.mktime(2016, 11, 24, 22, 0, 0)
   mtq2016.save!
   restaurants = [
     ["そば遊山", "そば遊山", "35.469174", "133.054291", "yu-zan.png", 30],
