@@ -6,12 +6,29 @@ class ApplicationController < ActionController::Base
   private
   
   def authenticate_drinker!
-    session[:drinker_return_to] = env['PATH_INFO']
-    redirect_to login_path unless drinker_signed_in?
+    set_current_drinker
   end
   
   def after_sign_out_path_for(resource)
     "/login"
+  end
+
+  def set_current_drinker
+    id = session[:drinker_id]
+    if id
+      drinker = Drinker.find_by(id: id)
+    end
+
+    unless drinker
+      drinker = Drinker.create
+    end
+
+    session[:drinker_id] = drinker.id
+    @current_drinker = drinker
+  end
+
+  def current_drinker
+    @current_drinker
   end
   
   def set_current_festival

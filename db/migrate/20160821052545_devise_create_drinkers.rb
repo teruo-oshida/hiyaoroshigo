@@ -39,7 +39,7 @@ class DeviseCreateDrinkers < ActiveRecord::Migration[5.0]
       t.timestamps null: false
     end
 
-    add_index :drinkers, :email,                unique: true
+    # add_index :drinkers, :email,                unique: true
     add_index :drinkers, :reset_password_token, unique: true
     # add_index :drinkers, :confirmation_token,   unique: true
     # add_index :drinkers, :unlock_token,         unique: true

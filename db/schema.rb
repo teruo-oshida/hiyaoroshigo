@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160912121626) do
     t.string   "token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_drinkers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_drinkers_on_reset_password_token", unique: true
   end
 
