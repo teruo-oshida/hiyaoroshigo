@@ -33,9 +33,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'rails-i18n', '~> 5.0.0'
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'thinreports'
 gem 'barby'
 gem 'rqrcode'

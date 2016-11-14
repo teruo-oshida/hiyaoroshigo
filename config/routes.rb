@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'sakes/index'
 
-  devise_for :drinker, controllers:{ omniauth_callbacks: "drinker/omniauth_callbacks" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resource :terms, only: [:show]
   get :signup, to: "drinkers#redirector"

@@ -3,11 +3,6 @@ class Drinker < ApplicationRecord
   has_many :checkins
   has_one :ticket
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
   def self.find_for_facebook_oauth(auth,params)
     drinker = Drinker.where(provider: auth.provider, uid: auth.uid).first
     return { status: true, drinker: drinker } if drinker
