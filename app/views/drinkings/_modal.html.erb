@@ -6,18 +6,9 @@
       </button>
     </div>
     <div class="hiya-modal_contents">
-      <p class="hiya-modal_text">飲み方</p>
-      <div class="vote-modal_temperatures">
-        <% @temperatures.each do |t| %>
-          <div class="vote-modal_temperatures_item">
-            <%= f.radio_button :sake_temperature_id, t.id,
-              checked: t.default? %>
-            <%= f.label :sake_temperature_id, t.name, value: t.id %>
-          </div>
-        <% end %>
-        <%= f.hidden_field :restaurant_id, value: @restaurant_id %>
-        <%= f.hidden_field :sake_id, value: @sake_id %>
-      </div>
+      <%= f.hidden_field :sake_temperature_id, value: 3 %>
+      <%= f.hidden_field :restaurant_id, value: @restaurant_id %>
+      <%= f.hidden_field :sake_id, value: @sake_id %>
       <p class="hiya-modal_text">評価する</p>
       <%= f.fields_for :vote do |v| %>
         <%= v.select :score, (Vote::MIN_SCORE..Vote::MAX_SCORE), {selected: Vote::DEFAULT_SCORE}, class: 'js-scores' %>
