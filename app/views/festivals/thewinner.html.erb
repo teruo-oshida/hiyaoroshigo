@@ -8,7 +8,7 @@
 </h1>
 <div class="thewinner-wrap-content<%= ' thewinner-result' if @sake %>">
   <% if @sake %>
-    <% brand, *names = @sake.name.split %>
+    <% brand, *names = @sake.name.split(',') %>
   <div class="thewinner-no1">1位は...</div>
   <div class="thewinner-hiyaoroshi">
     <span class="thewinner-brand"><%= brand %></span><br>
