@@ -3,7 +3,7 @@ var restaurants = restaurants || {};
 restaurants.index = 0;
 
 restaurants.setSakeName = function(name) {
-  var names = _.escape(name).split(/\s+/g);
+  var names = _.escape(name).split(',');
   var brand = names.shift();
   $('#sake-name').empty().
     append('<span class="sake-brand">' + brand + '</span>');
