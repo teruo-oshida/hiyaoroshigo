@@ -31,11 +31,7 @@ Sake.transaction do
   mtq2016.end_at = Time.mktime(2016, 11, 24, 22, 0, 0)
   mtq2016.save!
   restaurants = [
-    ["そば遊山", "そば遊山", "35.469174", "133.054291", "yu-zan.png", 30],
-    ["谷屋", "小料理 酒 谷屋", "35.466007", "133.058943", "taniya.png", 32],
-    ["誘酒庵", "誘酒庵", "35.463729", "133.059200", "yushu-an.png", 38],
-    ["老虎", "中国酒家 老虎", "35.465821", "133.059930", "lao-fuu.png", 30],
-    ["東風", "手打ちそば 東風", "35.458775", "133.060870", "tofu-gochi.png", 20]
+    ["ホンソゴ", "ホンソゴ", "35.463928", "133.058368", "yu-zan.png", 30]
   ].map { |name, official_name, latitude, longitude, icon_file, capacity|
     File.open(File.join(RESTAURANT_ICON_DIR, icon_file)) { |icon|
       r = Restaurant.find_or_create_by!(name: name)
@@ -55,27 +51,20 @@ Sake.transaction do
   restaurant_tbl = restaurants.each_with_object({}) { |r, h|
     h[r.name] = r
   }
-  CSV.parse(<<-EOF.gsub(/^\s*/, "")) do |no,r_name, b_name, s_name|
-    1,東風,吉田酒造,"月山 純米吟醸生詰ひやおろし"
-    2,東風,富士酒造,"出雲富士 秋雲純米ひやおろし"
-    3,東風,木次酒造,"美波太平洋 純米原酒ひやおろし"
-    4,そば遊山,池月酒造,"誉池月 純米ひやおろし改良雄町 木槽しぼり生詰瓶火入れ"
-    5,そば遊山,一宮酒造,"石見銀山 特別純米改良八反流ひやおろし"
-    6,そば遊山,稲田本店,"稲田姫 いなたひめ良燗純米"
-    7,老虎,旭日酒造,"十旭日 純米ひやおろし"
-    8,老虎,千代むすび酒造,"千代むすび 純米強力60氷温ひやおろし"
-    9,老虎,米田酒造,"豊の秋 純米生詰原酒ひやおろし"
-    10,誘酒庵,福羅酒造,"山陰東郷 純米ひやおろし"
-    11,誘酒庵,李白酒造,"李白 特別純米生詰ひやおろし"
-    12,誘酒庵,岡田屋本店,"菊弥栄 純米酒秋あがり"
-    13,谷屋,久米桜酒造,"純米八郷 70冷やおろし"
-    14,谷屋,酒持田本店,"ヤマサン正宗 純米原酒七号ひやおろし"
-    15,谷屋,華泉酒造,"華泉 津和野純米原酒秋ざかり"
-  EOF
+  r = restaurant_tbl["ホンソゴ"]
+  [
+    [1, "しまねOSS協議会"],
+    [2, "まつえオープン・ソース・ソバ協議会"],
+    [3, "Rails Girls Matsue 3rd"],
+    [4, "Matsue.rb"],
+    [5, "Pepper アトリエサテライト松江"],
+    [6, "いわみくと！(大屋純一)"],
+    [7, "出雲ITコミュニティ"],
+    [8, "いわみくと！（佐々木大輔）"]
+  ].each do |no, s_name|
     photo = (File.open(File.join(SAKE_PHOTO_DIR, "#{no}.png")) rescue nil)
     begin
-      r = restaurant_tbl[r_name]
-      b = Brewery.find_or_create_by!(name: b_name)
+      b = Brewery.find_or_create_by!(name: no)
       s = Sake.find_or_create_by!(brewery: b)
       s.name = s_name
       s.photo = photo
