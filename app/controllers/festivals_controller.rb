@@ -13,10 +13,6 @@ class FestivalsController < ApplicationController
   end
 
   def thewinner
-    if current_festival.ended?
-      @sake = current_festival.winner
-    else
-      @sake = nil
-    end
+    @sake = current_festival.winner
   end
 end
