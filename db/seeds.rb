@@ -13,12 +13,7 @@ SAKE_PHOTO_DIR = File.expand_path("seeds/images/sake_photos", __dir__)
 
 Sake.transaction do
   [
-    [1, "ロック（加氷）", nil, false],
-    [2, "冷酒", 1, true],
-    [3, "常温", 2, true],
-    [4, "ぬる燗", nil, false],
-    [5, "お燗", 3, true],
-    [6, "とびきり燗", nil, false]
+    [1, "", 1, true],
   ].each do |id, name, position, enabled|
     st = SakeTemperature.find_or_create_by!(id: id) { |s| s.name = name }
     st.name = name
