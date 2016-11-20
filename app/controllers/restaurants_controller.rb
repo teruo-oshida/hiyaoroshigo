@@ -11,11 +11,7 @@ class RestaurantsController < ApplicationController
   end
 
   def vote
-    if current_drinker.checked_in?
-      redirect_to restaurant_path(current_drinker.latest_checkin.restaurant)
-    else
-      redirect_to new_checkin_path
-    end
+    redirect_to restaurant_path(1)
   end
 
   def map
