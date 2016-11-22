@@ -1,6 +1,6 @@
 <% if restaurant %>
 <div id="restaurant-icon">
-<%= image_tag restaurant.icon.url, class: "restaurant-icon" %>
+<%= image_tag asset_path("restaurant/#{restaurant.id}.png"), class: "restaurant-icon" %>
 </div>
 <div id="restaurant-info">
   <div class="congestion-label congestion-<%= restaurant.current_congestion_degree %>">
