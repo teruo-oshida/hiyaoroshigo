@@ -8,9 +8,6 @@
 
 require "csv"
 
-RESTAURANT_ICON_DIR = File.expand_path("seeds/images/restaurant_icons", __dir__)
-SAKE_PHOTO_DIR = File.expand_path("seeds/images/sake_photos", __dir__)
-
 Sake.transaction do
   [
     [1, "", 1, true],
@@ -26,18 +23,15 @@ Sake.transaction do
   mtq2016.end_at = Time.mktime(2016, 11, 24, 22, 0, 0)
   mtq2016.save!
   restaurants = [
-    ["ホンソゴ", "ホンソゴ", "35.463928", "133.058368", "yu-zan.png", 30]
-  ].map { |name, official_name, latitude, longitude, icon_file, capacity|
-    File.open(File.join(RESTAURANT_ICON_DIR, icon_file)) { |icon|
-      r = Restaurant.find_or_create_by!(name: name)
-      r.official_name = official_name
-      r.latitude = latitude
-      r.longitude = longitude
-      r.icon = icon
-      r.capacity = capacity
-      r.save!
-      r
-    }
+    ["ホンソゴ", "ホンソゴ", "35.463928", "133.058368", 30]
+  ].map { |name, official_name, latitude, longitude, capacity|
+    r = Restaurant.find_or_create_by!(name: name)
+    r.official_name = official_name
+    r.latitude = latitude
+    r.longitude = longitude
+    r.capacity = capacity
+    r.save!
+    r
   }
   restaurants.each do |restaurant|
     RestaurantParticipation.find_or_create_by!(festival: mtq2016,
@@ -57,16 +51,10 @@ Sake.transaction do
     [7, "出雲ITコミュニティ"],
     [8, "いわみくと！（佐々木大輔）"]
   ].each do |no, s_name|
-    photo = (File.open(File.join(SAKE_PHOTO_DIR, "#{no}.png")) rescue nil)
-    begin
-      b = Brewery.find_or_create_by!(name: no)
-      s = Sake.find_or_create_by!(brewery: b)
-      s.name = s_name
-      s.photo = photo
-      s.save!
-      SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
-    ensure
-      photo.close if photo
-    end
+    b = Brewery.find_or_create_by!(name: no)
+    s = Sake.find_or_create_by!(brewery: b)
+    s.name = s_name
+    s.save!
+    SakeMenuItem.find_or_create_by!(festival: mtq2016, restaurant: r, sake: s)
   end
 end

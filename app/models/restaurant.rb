@@ -6,8 +6,6 @@ class Restaurant < ApplicationRecord
   has_many :drinkings
   has_many :checkins
   has_many :tickets
-  has_attached_file :icon
-  validates_attachment_content_type :icon, :content_type => /\Aimage\/.*\Z/
   validates :congestion_degree, numericality: {
     only_integer: true,
     greater_than: 0,
