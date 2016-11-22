@@ -15,7 +15,7 @@
     <%= raw names.map { |s| h(s) }.join("<br>") %>
   </div>
   <div class="thewinner-image">
-    <%= image_tag @sake.photo(:medium) %>
+    <%= image_tag asset_path("sake/#{@sake.id}.png") %>
   </div>
   <% else %>
   <p class="thewinner-coming-soon">ただいま集計中</p>
